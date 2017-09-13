@@ -1,0 +1,12 @@
+Usando o inspetor do navegador, descubra quais regras CSS estão sendo aplicadas ao elemento <aside> da nossa página bio.html:
+
+Resposta: 
+aside {
+    background-color: #3C1D3D;
+    color: #F2FFFC;
+}
+body {
+    font-family: "Crimson Text", "Times New Roman", serif;
+    background-color: #FFFFFC;
+    font-size: 120%;
+}
