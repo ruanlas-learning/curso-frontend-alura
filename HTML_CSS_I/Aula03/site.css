@@ -1,0 +1,24 @@
+/*Quando não há nenhum estilo definido para o texto de
+uma página, esse texto é exibido seguindo os padrões
+definidos nas opções do navegador.
+
+https://fonts.google.com/ => serviço de fontes gratuitas para ser utilizadas
+no desenvolvimento de páginas web
+*/
+
+body{
+    font-family: "Crimson Text", "Times New Roman", serif;
+    background-color: #FFFFFC; /* ou também 'rgb (255, 255, 240)'  ||Cor de fundo*/
+}
+h1,h2{
+    font-family: "Open Sans Condensed", "Arial", sans-serif; /*Atribui a fonte arial para o elemento, ou qualquer outra fonte 
+    sem serifa (sans-serif) */
+}
+h1{
+    text-align: center;
+    color: #FFFFFF; /* Cor do texto (#FFFFFF = Branco)*/
+    background-color: #851944;
+}
+p{
+    text-align: justify;
+}
