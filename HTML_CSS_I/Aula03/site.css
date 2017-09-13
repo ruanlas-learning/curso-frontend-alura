@@ -34,6 +34,34 @@ footer{
     background-color: black; /* ou #000000 */
     color: #F2FFFC;
 }
-nav a { /* especifica que o texto do link contido dentro da 'nav' também receberá a formatação */
+nav a{ /* especifica que o texto do link contido dentro da 'nav' também receberá a formatação */
     color: #F2FFFC;
 }
+main a {
+    color: #851944;
+}
+aside a{
+    color: inherit; /*Esse valor faz com que a propriedade 
+    assuma o valor que foi definido em seu pai 'aside' */
+    font-family: "Open Sans Condensed", sans-serif;
+}
+
+/*
+<ul>
+    <li>
+        <a href="#">Link 1</a>
+    </li>
+</ul>
+
+ul {
+    color: pink;
+}
+ul li a {
+    color: inherit; ==> Esse valor faz com que a propriedade 
+    assuma o valor que foi definido em seu pai (ou ancestral,
+    de um modo geral) em vez de assumir um outro valor. 
+}
+
+O link, neste caso, vai obrigatoriamente pegar a cor do pai dele, 
+o <li>, que já pega normalmente a cor do pai dele, o <ul>, que é rosa.
+*/
