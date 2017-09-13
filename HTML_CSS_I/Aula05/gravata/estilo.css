@@ -1,0 +1,32 @@
+/* O código para a gravata borboleta deve ficar parecido com: */
+/*div {  
+    border-left: 30px solid red;
+    border-bottom: 30px solid transparent;
+    border-top: 30px solid transparent;
+    border-right: 30px solid red;
+    width: 0;
+}*/
+/* Basta usar o código do triângulo como base e adicionar uma borda oposta à borda colorida que já tínhamos antes.
+
+O código para o triângulo reto deve ficar parecido com: */
+div {
+    border-left: 30px solid red;
+    border-bottom: 30px solid red;
+    border-top: 30px solid transparent;
+    border-right: 30px solid transparent;
+    width: 0;
+}
+
+/* é possível desenhar um triângulo apenas usando CSS e bordas. Basta fazer a borda inferior
+ter uma cor e as bordas vizinhas serem transparentes; a mudança de cor entre as bordas ocorre
+nas diagonais do elemento, então a borda inferior vai ficar com a aparência de um triângulo,
+desde que o elemento tenha zero pixels de largura (senão vai parecer um trapézio): */
+
+/* 
+div {
+    border-bottom: 30px solid red;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    width: 0;
+}
+*/
