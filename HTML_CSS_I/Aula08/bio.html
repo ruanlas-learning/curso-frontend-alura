@@ -1,0 +1,111 @@
+<!-- Atividade aula 2 -->
+<!-- tag <em> deixa a palavra ou trecho em itálico
+     tag <strong> deixa a palavra ou trecho em negrito 
+         
+    A codificação UTF-8 abrange praticamente todos os sistemas
+    de escritas usadas pelo mundo todo. Além disso, todos os
+    computadores vêm com suporte a essa codificação. Assim, se
+    queremos que nossas páginas sejam acessíveis por todos, a
+    codificação UTF-8 é a melhor opção.
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home - João da Silva</title>
+        <meta charset="UTF-8">
+        <link href="favicon.png" rel="icon">
+        <link rel="stylesheet" href="reset.css">
+        <!-- <link rel="stylesheet" href="/others_resets/normalize.css"> Outra maneira de 'resetar' a página -->
+        <link rel="stylesheet" href="site.css">
+        <!-- carrega a fonte Crimson Text nas versões normal, itálico e negrito -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600">
+
+        <!-- carrega a fonte Open Sans Condensed na versão negrito, -->
+        <!-- que é a única necessária para os cabeçalhos            -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700">
+    </head>
+    <body>
+        <main> <!-- Conteúdo principal do site -->
+            <h1>Sobre mim</h1>
+            <div>
+                <p>Moro em São Paulo mas atendo clientes do mundo todo. Sou conhecido por fazer produtos de <em>qualidade</em>, <em>durabilidade</em> e que <em>agregam valor</em> para meus clientes.</p>
+                <p>Trabalho usando a web como plataforma, ou seja, respiro HTML5, CSS3 e JavaScript (ou melhor: ECMASCript). Crio sites para todos, seguindo as principais diretivas de acessibilidade, responsividade e web semântica, sem descuidar da qualidade de código.</p>
+                
+                <h2>Como trabalho</h2>
+
+                <blockquote>
+                    <p>João é o melhor desenvolvedor front-end com quem já trabalhei. Muito eficiente e muito capaz. Recomendo sem dúvidas!</p>
+                    <cite>José Souza, Fiat</cite>
+                </blockquote>
+
+                <p>Satisfazer meus clientes é prioridade. Para isso, garanto um processo de desenvolvimento altamente interativo, baseado em feedback contínuo. <strong>Não trabalho com escopo fechado:</strong> o cliente é que decide quando o produto está pronto.</p>
+                <p>Também não trabalho com prazos fechados: <strong>qualidade é importante demais para ser sacrificada.</strong></p>
+                
+                <h2>Experiência</h2>
+                
+                <blockquote>
+                    <p>João domina as tecnologias como ninguém. Eu apresentava um problema, ele tinha na ponta da língua a solução mais adequada com as tecnologias mais recentes.</p>
+                    <cite>Manoel Santos, Petrobrás</cite>
+                </blockquote>
+
+                <p>Já desenvolvi projetos para grandes empresas como <a href="https://www.bmw.com.br/">BMW</a>, <a href="https://www.uol.com.br/">UOL</a> e <a href="https://www.ibm.com/">IBM</a>. Neles, o foco principal era entregar uma experiência imersiva e impactante para o usuário final sem descuidar do desempenho e da acessibilidade da página.</p>
+                <p>Também já fui contratado para transformar grandes portais, como <a href="https://www.terra.com.br">Terra</a> e <a href="http://g1.globo.com">G1</a>, em páginas responsivas. Fui responsável por renovar o layout, reorganizar o conteúdo e re-escrever o código de forma mais reaproveitável.</p>    
+                
+                <h2>Comunidade</h2>
+                
+                <p>Procuro repassar meu conhecimento para a comunidade. Para isso, já dei <a href="portfolio.html">diversas palestras</a> e mantenho um <a href="blog.html">blog</a>.</p>
+            </div>
+        </main>
+        <img src="eu.jpg" alt="Foto de João da Silva">
+        <!-- atributo src => informa o caminho ou localização que o navegador deve carregar a imagem
+             atributo alt => informa a descrição da imagem-->
+             
+        <aside>  <!-- conteúdo auxiliar ao conteúdo principal, como links relacionados ao conteúdo -->
+            <div>
+                <h1>João da Silva</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="bio.html">Sobre mim</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <ul class="icones-sociais">
+                <li>
+                    <a href="https://github.com/git-joaodasilva">
+                        <img src="github.png" alt="GitHub">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/twitter-joaodasilva">
+                        <img src="twitter.png" alt="Twitter">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://br.linkedin.com/pub/linkedin-joao-da-silva/32/4/508">
+                        <img src="linkedin.png" alt="LinkedIn">
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <footer class="rodape">
+            &copy; João da Silva 2014
+        </footer>
+    </body>
+</html>
+<!-- COMPARATIVO RESET DO ERIC MEYER E NORMALIZE:
+Uma das diferenças mais notáveis entre o Normalize e o reset do Eric Meyer é que o Normalize
+não apenas remove o estilo padrão do navegador como também define alguns estilos úteis, como
+tamanhos de fontes para cabeçalhos e estilos de fontes para elementos <em> e <strong>.
+Note que esses padrões não são mais dependentes de navegador: o Normalize que os define. Assim,
+qualquer navegador deve mostrar nossa página do mesmo jeito.
+
+O Normalize também cuida de alguns detalhes mais avançados que o reset que estamos usando não cuida.
+Isso tem seu preço: o Normalize tem 7 KB, enquanto o reset do Eric Meyer tem apenas 1 KB. Assim, cada
+um tem suas vantagens e desvantagens.
+-->

@@ -1,0 +1,192 @@
+/*Quando não há nenhum estilo definido para o texto de
+uma página, esse texto é exibido seguindo os padrões
+definidos nas opções do navegador.
+
+https://fonts.google.com/ => serviço de fontes gratuitas para ser utilizadas
+no desenvolvimento de páginas web
+*/
+
+/*  
+*{
+    display: inline;
+} 
+Quando colocamos essa regra acima no nosso arquivo CSS, todos os elementos se comportarão
+como elementos inline, ou seja, todos os elementos ficarão na mesma linha. Veremos, por
+exemplo, os cabeçalhos ficarem lado a lado com o texto e as citações (blockquotes)
+quebrarem entre as linhas.*/
+body{
+    font-family: "Crimson Text", "Times New Roman", serif;
+    background-color: #FFFFFC; /* ou também 'rgb (255, 255, 240)'  ||Cor de fundo*/
+    font-size: 120%;
+    line-height: 1.5;/* Ela controla o espaço entre as linhas de texto ou, mais precisamente,
+    qual a altura que uma linha de texto deve ter, independente do tamanho do texto dentro dela. */
+}
+h1,h2{
+    font-family: "Open Sans Condensed", "Arial", sans-serif; /*Atribui a fonte arial para o elemento, ou qualquer outra fonte 
+    sem serifa (sans-serif) */
+}
+h1{
+    text-align: center;
+    color: #FFFFFF; /* Cor do texto (#FFFFFF = Branco)*/
+    background-color: #851944;
+}
+p{
+    text-align: justify;
+    margin: 20px 0; /* adição de espaços ao redor dos parágrafos: 20 pixels acima e abaixo */
+}
+blockquote{
+    background-color: #D9E5E3;
+    padding: 20px; /* espaço interno */
+    border: 10px solid transparent; /*#C2CCCA; /* Borda completa */
+    width: 250px;
+    box-sizing: border-box; /* faz com que a largura seja medida pelas bordas */
+    /* box-sizing => faz com que o navegador mude o box-sizing */
+    /* Quando aplicamos o valor border-box para a propriedade box-sizing
+    nos elementos <blockquote>, vemos que o tamanho deles aparentemente 
+    diminui. Isso acontece porque estamos mudando a forma como o navegador
+    mede a largura dos elementos.
+    Por padrão, o navegador mede a largura ignorando padding e bordas. No
+    momento em que colocamos border-box, dizemos ao navegador que ele deve
+    considerar padding e bordas nesse cálculo. Então o elemento diminui pois
+    agora os 250 pixels que definimos de largura incluem os paddings e bordas
+    do elemento. */
+    border-bottom-color: #333;
+    border-right-color: #FFF;
+    /* Quando as bordas têm cores diferentes, o navegador realiza a mudança de
+    cor na diagonal em que as bordas se encontram.
+    Se deixamos uma borda com a cor transparent, ela é desenhada com a cor de
+    fundo do elemento. Ou, em outras palavras, a borda ocupa espaço, mas fica invisível. */
+    margin: 20px 40px; /* espaços ao redor das recomendações. 20 pixels acima e abaixo e 40 pixels à esquerda e à direita. */
+}
+aside{
+    background-color: #3C1D3D;
+    color: #F2FFFC;
+    text-align: center;
+}
+/*
+footer{
+    background-color: black;  ou #000000 
+    color: #F2FFFC;
+}*/
+.rodape{
+    background-color: black; /* ou #000000 */
+    color: #F2FFFC;
+}
+/*.tags{ /* este trecho deixa uma linha suave após a exibição das tags.
+    A configuração definida aqui é aplicada somente às tags após os posts *
+    
+    border-bottom: solid;
+    border-bottom-color: #CCC;
+    border-bottom-width: 1px;
+} */
+
+/*
+As duas propriedades que lidam com espaçamento, que estudamos anteriormente,
+são padding e margin. Além disso, para fazer a linha, podemos usar a propriedade
+border. Queremos alterar essas três propriedades dos elementos <article>, que
+representam cada um dos posts. Usamos a propriedade padding para aumentar a distância
+entre as tags e a borda, e a propriedade margin para "empurrar" o post seguinte para
+longe dessa borda. Em suma: (trecho abaixo)
+*/
+article{ /*Ler trecho acima*/
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+nav a{ /* especifica que o texto do link contido dentro da 'nav' também receberá a formatação */
+    color: #F2FFFC;
+}
+main a {
+    color: #851944;
+}
+aside a{
+    color: inherit; /*Esse valor faz com que a propriedade 
+    assuma o valor que foi definido em seu pai 'aside' */
+    font-family: "Open Sans Condensed", sans-serif;
+}
+aside, footer{
+    padding: 20px;
+}
+main h1{
+    font-size: 60px;
+    padding: 25px;
+    border-bottom: 10px solid black; /* Borda inferior */
+}
+main h2{
+    font-size: 30px;
+}
+main div{
+    width: 720px;
+    margin-left: auto; 
+    margin-right: auto; /* as regras margin-left e right combinadas com o valor 'auto' centralizam o elemento */
+    /* ou utilizando somente a regra 'margin: auto' também centraliza o elemento, ou ainda
+    'margin: 0 auto' => zero para as margens superior e inferior, e auto para as laterais */
+    padding: 30px 0; /* Adicione um espaço interno a todo o texto (isto é, à <div> que engloba
+    o conteúdo principal) de 30 pixels acima e abaixo */
+}
+aside h1{ /* Título da barra de navegação */
+    font-size: 30px;
+    margin-bottom: 25px; /* adição de espaço entre o título da barra de navegação e o menu de navegação de 25 pixels */
+}
+strong{ /* Negrito */
+    font-weight: bold;
+}
+em{ /* Itálico */
+    font-style: italic;
+}
+
+/*
+aside li{  => faz com que os ícones da barra de navegação fiquem lado a lado. (itens do 'menu')
+    Faz com que todos os elementos li contidos dentro do aside fiquem em linha;
+    como os elementos <a> estão dentro do li, estes por sua vez também ficarão
+    em linha 
+
+    display: inline-block;
+
+    display: none; => oculta todos os elementos li, faz com que ele desapareça. É utilizado quando
+    queremos esconder e mostrar informações interativamente, com uma passada de mouse do usuário por
+    exemplo. 
+}
+
+*/
+
+.icones-sociais li{ /* Faz com que os elementos li contidos dentro do elemento que contém a classe
+    'icones-sociais' fiquem dispostos lado a lado  */
+    display: inline-block;
+}
+
+/*
+<ul>
+    <li>
+        <a href="#">Link 1</a>
+    </li>
+</ul>
+
+ul {
+    color: pink;
+}
+ul li a {
+    color: inherit; ==> Esse valor faz com que a propriedade 
+    assuma o valor que foi definido em seu pai (ou ancestral,
+    de um modo geral) em vez de assumir um outro valor. 
+}
+
+O link, neste caso, vai obrigatoriamente pegar a cor do pai dele, 
+o <li>, que já pega normalmente a cor do pai dele, o <ul>, que é rosa.
+*/
+/*
+Sobre os espaçamentos, vimos que podemos mexer no espaço entre eles com
+a propriedade 'margin' e no espaço dentro deles com a propriedade 'padding'.
+*/
+/* 
+A propriedade margin controla o espaço entre elementos.
+A propriedade padding controla o espaço entre o conteúdo de um elemento e sua borda.
+
+As propriedades width e height controlam apenas o tamanho de um elemento,
+e não afetam o espaçamento entre esse elemento e seus vizinhos. Já a propriedade
+box-sizing controla apenas como a largura e a altura de um elemento deve ser calculada.
+
+Por fim, a propriedade line-height controla apenas a altura entre as linhas de texto da
+página, não afetando a distância entre elementos. 
+
+*/
