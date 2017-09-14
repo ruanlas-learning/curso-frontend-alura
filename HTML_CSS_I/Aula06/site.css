@@ -120,7 +120,10 @@ ul li a {
 O link, neste caso, vai obrigatoriamente pegar a cor do pai dele, 
 o <li>, que já pega normalmente a cor do pai dele, o <ul>, que é rosa.
 */
-
+/*
+Sobre os espaçamentos, vimos que podemos mexer no espaço entre eles com
+a propriedade 'margin' e no espaço dentro deles com a propriedade 'padding'.
+*/
 /* 
 A propriedade margin controla o espaço entre elementos.
 A propriedade padding controla o espaço entre o conteúdo de um elemento e sua borda.
