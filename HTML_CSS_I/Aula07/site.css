@@ -108,6 +108,15 @@ strong{ /* Negrito */
 em{ /* Itálico */
     font-style: italic;
 }
+aside li{ /* faz com que os ícones da barra de navegação fiquem lado a lado. (itens do 'menu')
+    Faz com que todos os elementos li contidos dentro do aside fiquem em linha;
+    como os elementos <a> estão dentro do li, estes por sua vez também ficarão
+    em linha */
+    display: inline-block;
+    /* display: none; => oculta todos os elementos li, faz com que ele desapareça. É utilizado quando
+    queremos esconder e mostrar informações interativamente, com uma passada de mouse do usuário por
+    exemplo. */
+}
 
 /*
 <ul>
