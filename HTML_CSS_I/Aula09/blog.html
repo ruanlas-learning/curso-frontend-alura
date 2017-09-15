@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Blog - João da Silva</title>
+        <meta charset="UTF-8">
+        <link href="favicon.png" rel="icon">
+        <link rel="stylesheet" href="reset.css">
+        <!-- <link rel="stylesheet" href="/others_resets/normalize.css"> Outra maneira de 'resetar' a página -->
+        <link rel="stylesheet" href="site.css">
+        <!-- carrega a fonte Crimson Text nas versões normal, itálico e negrito -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600">
+
+        <!-- carrega a fonte Open Sans Condensed na versão negrito, -->
+        <!-- que é a única necessária para os cabeçalhos            -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700">
+    </head>
+    <body>
+        <main> <!-- Conteúdo principal da página -->
+            <h1 class="titulo-principal">Blog</h1>
+            <div class="conteudo-pagina">
+                <article>         <!-- esta tag <article> separa um post do outro. Melhora semanticamente o código --> <!--  -->
+                    <h2>O essencial de design responsivo</h2> 
+                    <time datetime="2014-07-13">13 de julho de 2014</time> <!-- Está informando a data de publicação -->
+        
+                    <p>Design responsivo tem ganho cada vez mais atenção como técnica de desenvolvimento de páginas web para dispositivos móveis. Mas como começar?</p>
+        
+                    <a class="leia-mais" href="#">Leia mais</a>
+                    <footer class="tags">Tags: <a href="#">design responsivo</a>, <a href="#">mobile</a>, <a href="#">css</a></footer> <!-- marcação do conteúdo 'Tag' -->
+                </article>
+        
+                <article>
+                    <h2>Por que fazer páginas acessíveis?</h2>
+                    <time datetime="2014-07-13">13 de julho de 2014</time>
+        
+                    <p>Tem se falado cada vez sobre acessibilidade na web. Há diversas técnicas e diretivas a serem seguidas, inclusive da própria W3C. Mas vale a pena investir nisso?</p>
+            
+                    <a class="leia-mais" href="#">Leia mais</a>
+                    <footer class="tags">Tags: <a href="#">acessibilidade</a>, <a href="#">leitor de telas</a>, <a href="#">boas práticas</a></footer>
+                </article>
+                    
+                <article>
+                    <h2>JavaScript não obstrusivo</h2>
+                    <time datetime="2014-07-13">13 de julho de 2014</time>
+            
+                    <p>JavaScript é uma linguagem essencial hoje em dia para criar páginas ricas, interativas e dinâmicas. Porém, há alguns cuidados que devem ser tomados ao colocarmos código JavaScript em nossas páginas.</p>
+            
+                    <a class="leia-mais" href="#">Leia mais</a>
+                    <footer class="tags">Tags: <a href="#">javascript</a>, <a href="#">boas práticas</a></footer>
+                </article>
+            </div>
+        </main>        
+        <img src="eu.jpg" alt="Foto de João da Silva">
+        <!-- atributo src => informa o caminho ou localização que o navegador deve carregar a imagem
+             atributo alt => informa a descrição da imagem-->
+             
+        <aside class="menu-navegacao">  <!-- conteúdo auxiliar ao conteúdo principal, como links relacionados ao conteúdo -->
+            <div>
+                <h1>João da Silva</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="bio.html">Sobre mim</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <ul class="icones-sociais">
+                <li>
+                    <a href="https://github.com/git-joaodasilva">
+                        <img src="github.png" alt="GitHub">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/twitter-joaodasilva">
+                        <img src="twitter.png" alt="Twitter">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://br.linkedin.com/pub/linkedin-joao-da-silva/32/4/508">
+                        <img src="linkedin.png" alt="LinkedIn">
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <footer class="rodape">
+            &copy; João da Silva 2014
+        </footer>
+    </body>
+</html>
