@@ -200,8 +200,8 @@ h2{
 }
 
 img, .menu-navegacao{
-    float: right;
-    width: 15%; 
+    float: right; /* Está posicionando a imagem e o menu no lado direito */
+    width: 15%; /* Está definindo a largura que os itens deve ocupar */
     box-sizing: border-box; /* Faz o ajuste da dimensão dos elementos para poder se
     encaixar na página, não ultrapassando os espaços e nem ficando para fora. Faz o
     ajuste dos itens para que eles ocupem a dimensão correta, sem precisar calcular matematicamente
@@ -210,13 +210,24 @@ img, .menu-navegacao{
     border-bottom: 10px solid black;
 }
 .rodape{
-    clear: both;
+    clear: both; /* faz que este elemento nao aceite nenhum elemento flutuante */
 }
 main{
-    float: left;
-    width: 85%;
+    float: left; /* Está posicionando o main do lado esquerdo */
+    width: 85%; /* Está definindo a largura que deve ocupar */
 }
 
+
+/*
+Colocamos a declaração clear: right no CSS para a barra de navegação. Será que ela é mesmo
+necessária? Por quê?
+
+Ela não é mais necessária. Quando estávamos testando a colocação da foto e o menu um abaixo
+do outro, precisávamos usar a declaração clear: right pois não havia mais nenhum elemento
+flutuando naquela região.
+Agora, como temos o elemento <main> flutuando à esquerda e consumindo todo o espaço à esquerda
+da foto, a barra de navegação desce naturalmente, sem a necessidade da declaração clear: right.
+*/
 
 /*
 aside li{  => faz com que os ícones da barra de navegação fiquem lado a lado. (itens do 'menu')
