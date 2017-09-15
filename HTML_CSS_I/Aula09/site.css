@@ -146,6 +146,25 @@ em{ /* Itálico */
     text-align: center; /* Alinhamento do texto */
     background-color: #E6E7E8; /* Cor de fundo */
 }
+.icones-sociais a{
+    /* Técnica 'image replacement' */
+    display: block;
+    width: 40px; /* largura */
+    height: 40px; /* altura */
+    text-indent: -99999px; /* Desloca o texto dos links para fora da tela à esquerda */
+}
+.github{
+    /* Carrega imagem como plano de fundo nos links */
+    background-image: url(github.png);
+}
+.twitter{
+    /* Carrega imagem como plano de fundo nos links */
+     background-image: url(twitter.png);
+}
+.linkedin{
+    /* Carrega imagem como plano de fundo nos links */
+    background-image: url(linkedin.png);
+}
 
 /*
 aside li{  => faz com que os ícones da barra de navegação fiquem lado a lado. (itens do 'menu')
