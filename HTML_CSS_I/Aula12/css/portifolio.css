@@ -1,0 +1,59 @@
+.portfolio li{
+    display: inline-block;
+    border: 8px solid black;
+    background-color: #FAFFFC;
+    width: 45%;
+    box-sizing: border-box;
+    padding: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+/* Não funcionou
+figure{
+    border: 8px solid black;
+    padding: 16px;
+    margin: 16px;
+    background-color: #FAFFFC;
+}*/
+.portfolio img {
+    width: 100%;
+}
+
+/*
+Para deixar as caixinhas lado a lado, formando linhas, e conseguir controlar o padding e a
+margem entre elas, usamos a propriedade 'display' com o valor 'inline-block'.
+
+.portfolio li {
+    display: inline-block;
+}
+Para que elas apareçam duas por linha, precisamos garantir que cada uma tenha um pouco menos
+da metade da largura total do container. Podemos usar a medida de porcentagem para isso:
+
+.portfolio li {
+    display: inline-block;
+    width: 45%;
+}
+Colocando os requisitos especificados no enunciado do exercício (bordas e espaçamentos), ficamos com:
+
+.portfolio li {
+    display: inline-block;
+    border: 8px solid black;
+    background-color: #FAFFFC;
+    width: 45%;
+    box-sizing: border-box;
+    padding: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+Repare que usamos a declaração 'box-sizing: border-box'. Isso é para garantir que nossas caixinhas
+inteiras tenham 45% de largura. Repare, também, que colocamos a margem apenas à direita e abaixo
+das caixinhas. Isso porque, se colocarmos margem acima e à esquerda delas também, ficaremos com 32
+pixels de espaço entre elas, além de deixá-las desalinhadas com relação ao parágrafo de texto acima delas.
+
+Uma vez definida a largura das caixinhas, veremos que as imagens "vazam" pra fora delas. Para ajustar
+isso, basta dizer que queremos que as imagens dentro do <ul> tenham 100% da largura, e não mais que isso. Ou seja:
+
+.portfolio img {
+    width: 100%;
+}
+*/

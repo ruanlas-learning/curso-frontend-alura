@@ -141,7 +141,7 @@ h2{
       clear: right; não aceita elementos flutuantes à direita */
 }
 
-img, .menu-navegacao{
+.minha-foto, .menu-navegacao{
     float: right; /* Está posicionando a imagem e o menu no lado direito */
     /*width: 15%; /* Está definindo a largura que os itens deve ocupar */
     box-sizing: border-box; /* Faz o ajuste da dimensão dos elementos para poder se
@@ -151,7 +151,7 @@ img, .menu-navegacao{
     border-left: 10px solid black;
     border-bottom: 10px solid black;
 }
-img{
+.minha-foto{
     position: absolute;/* quando queremos posicionar elementos na página independentemente do resto do
     conteúdo, estamos falando de usar o valor 'absolute' da propriedade 'position'. Com ele podemos
     colocar um elemento onde quisermos na página. Podemos pegar uma foto grande que nao está cabendo ao
