@@ -1,0 +1,28 @@
+.leia-mais{
+    padding: 8px; /* Espaço interno */
+    margin: 16px; /* Espaço externo */
+    display: block; /*  */
+    font-size: 24px; /* Tamanho da fonte */
+    text-align: center; /* Alinhamento do texto */
+    background-color: #E6E7E8; /* Cor de fundo */
+}
+/*.tags{ /* este trecho deixa uma linha suave após a exibição das tags.
+    A configuração definida aqui é aplicada somente às tags após os posts *
+
+    border-bottom: solid;
+    border-bottom-color: #CCC;
+    border-bottom-width: 1px;
+} */
+/*
+As duas propriedades que lidam com espaçamento, que estudamos anteriormente,
+são padding e margin. Além disso, para fazer a linha, podemos usar a propriedade
+border. Queremos alterar essas três propriedades dos elementos <article>, que
+representam cada um dos posts. Usamos a propriedade padding para aumentar a distância
+entre as tags e a borda, e a propriedade margin para "empurrar" o post seguinte para
+longe dessa borda. Em suma: (trecho abaixo)
+*/
+article{ /*Ler trecho acima*/
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
