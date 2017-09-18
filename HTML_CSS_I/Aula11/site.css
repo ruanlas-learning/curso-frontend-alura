@@ -1,0 +1,349 @@
+/*Quando não há nenhum estilo definido para o texto de
+uma página, esse texto é exibido seguindo os padrões
+definidos nas opções do navegador.
+
+https://fonts.google.com/ => serviço de fontes gratuitas para ser utilizadas
+no desenvolvimento de páginas web
+*/
+/* Cenário que permite testar CSS e HTML diretamente no navegador:
+http://dabblet.com/gist/ebbcecbea2f066b8238d
+ */
+/*  
+*{
+    display: inline;
+} 
+Quando colocamos essa regra acima no nosso arquivo CSS, todos os elementos se comportarão
+como elementos inline, ou seja, todos os elementos ficarão na mesma linha. Veremos, por
+exemplo, os cabeçalhos ficarem lado a lado com o texto e as citações (blockquotes)
+quebrarem entre as linhas.*/
+body{
+    font-family: "Crimson Text", "Times New Roman", serif;
+    background-color: #FFFFFC; /* ou também 'rgb (255, 255, 240)'  ||Cor de fundo*/
+    font-size: 120%;
+    line-height: 1.5;/* Ela controla o espaço entre as linhas de texto ou, mais precisamente,
+    qual a altura que uma linha de texto deve ter, independente do tamanho do texto dentro dela. */
+}
+h1,h2{
+    font-family: "Open Sans Condensed", "Arial", sans-serif; /*Atribui a fonte arial para o elemento, ou qualquer outra fonte 
+    sem serifa (sans-serif) */
+}
+h1{
+    text-align: center;
+    color: #FFFFFF; /* Cor do texto (#FFFFFF = Branco)*/
+    background-color: #851944;
+}
+p{
+    text-align: justify;
+    margin: 20px 0; /* adição de espaços ao redor dos parágrafos: 20 pixels acima e abaixo */
+}
+.comentario{
+    background-color: #D9E5E3;
+    padding: 20px; /* espaço interno */
+    border: 10px solid transparent; /*#C2CCCA; /* Borda completa */
+    width: 250px;
+    box-sizing: border-box; /* faz com que a largura seja medida pelas bordas */
+    /* box-sizing => faz com que o navegador mude o box-sizing */
+    /* Quando aplicamos o valor border-box para a propriedade box-sizing
+    nos elementos <blockquote>, vemos que o tamanho deles aparentemente 
+    diminui. Isso acontece porque estamos mudando a forma como o navegador
+    mede a largura dos elementos.
+    Por padrão, o navegador mede a largura ignorando padding e bordas. No
+    momento em que colocamos border-box, dizemos ao navegador que ele deve
+    considerar padding e bordas nesse cálculo. Então o elemento diminui pois
+    agora os 250 pixels que definimos de largura incluem os paddings e bordas
+    do elemento. */
+    border-bottom-color: #333;
+    border-right-color: #FFF;
+    /* Quando as bordas têm cores diferentes, o navegador realiza a mudança de
+    cor na diagonal em que as bordas se encontram.
+    Se deixamos uma borda com a cor transparent, ela é desenhada com a cor de
+    fundo do elemento. Ou, em outras palavras, a borda ocupa espaço, mas fica invisível. */
+    margin: 20px 40px; /* espaços ao redor das recomendações. 20 pixels acima e abaixo e 40 pixels à esquerda e à direita. */
+}
+.menu-navegacao{
+    background-color: #3C1D3D;
+    color: #F2FFFC;
+    text-align: center;
+
+    position: relative;/* Esta propiedade, combinada com as propiedades de deslocamento do elemento, 
+    faz este menu ser exibido abaixo da imagem. Posição relativa faz com que o elemento se posicione
+    na tela de acordo com a disposição dos outros elementos, seguindo sempre o fluxo */
+    right: 0;
+    top: 310px; /* Distancia do topo até as bordas da foto, para não sobrepor */
+    width: 15%; /* Está definindo a largura que os itens deve ocupar */
+}
+.menu-navegacao a{
+    text-transform: lowercase; /* Faz os links do menu de navegação ficarem em minúsculas*/
+}
+/*
+footer{
+    background-color: black;  ou #000000 
+    color: #F2FFFC;
+}*/
+.rodape{
+    background-color: black; /* ou #000000 */
+    color: #F2FFFC;
+}
+/*.tags{ /* este trecho deixa uma linha suave após a exibição das tags.
+    A configuração definida aqui é aplicada somente às tags após os posts *
+
+    border-bottom: solid;
+    border-bottom-color: #CCC;
+    border-bottom-width: 1px;
+} */
+
+/*
+As duas propriedades que lidam com espaçamento, que estudamos anteriormente,
+são padding e margin. Além disso, para fazer a linha, podemos usar a propriedade
+border. Queremos alterar essas três propriedades dos elementos <article>, que
+representam cada um dos posts. Usamos a propriedade padding para aumentar a distância
+entre as tags e a borda, e a propriedade margin para "empurrar" o post seguinte para
+longe dessa borda. Em suma: (trecho abaixo)
+*/
+article{ /*Ler trecho acima*/
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+nav a{ /* especifica que o texto do link contido dentro da 'nav' também receberá a formatação */
+    color: #F2FFFC;
+}
+main a {
+    color: #851944;
+}
+aside a{
+    color: inherit; /*Esse valor faz com que a propriedade 
+    assuma o valor que foi definido em seu pai 'aside' */
+    font-family: "Open Sans Condensed", sans-serif;
+}
+.menu-navegacao, footer{
+    padding: 20px;
+}
+.titulo-principal{
+    font-size: 60px;
+    padding: 25px;
+    border-bottom: 10px solid black; /* Borda inferior */
+    text-transform: uppercase; /* Deixa todo o texto com letra maiúscula */
+}
+main h2{
+    font-size: 30px;
+}
+.conteudo-pagina{
+    width: 720px;
+    margin-left: auto; 
+    margin-right: auto; /* as regras margin-left e right combinadas com o valor 'auto' centralizam o elemento */
+    /* ou utilizando somente a regra 'margin: auto' também centraliza o elemento, ou ainda
+    'margin: 0 auto' => zero para as margens superior e inferior, e auto para as laterais */
+    padding: 30px 0; /* Adicione um espaço interno a todo o texto (isto é, à <div> que engloba
+    o conteúdo principal) de 30 pixels acima e abaixo */
+}
+aside h1{ /* Título da barra de navegação */
+    font-size: 30px;
+    margin-bottom: 25px; /* adição de espaço entre o título da barra de navegação e o menu de navegação de 25 pixels */
+}
+strong{ /* Negrito */
+    font-weight: bold;
+}
+em{ /* Itálico */
+    font-style: italic;
+}
+.leia-mais{
+    padding: 8px; /* Espaço interno */
+    margin: 16px; /* Espaço externo */
+    display: block; /*  */
+    font-size: 24px; /* Tamanho da fonte */
+    text-align: center; /* Alinhamento do texto */
+    background-color: #E6E7E8; /* Cor de fundo */
+}
+.icones-sociais a{
+    /* Técnica 'image replacement' */
+    display: block; /* Podemos utilizar esta propiedade neste caso. Queremos deixar os
+    links lado a lado, entretanto já definimos o 'display: inline-block' nos elementos 'li'
+    dentro dos quais os links estão.
+    Sendo assim, dentro desse elemento com 'display: inline-block', podemos usar
+    'display: block' sem problemas. Os links continuarão lado a lado pois as <li> já estão lado a lado.
+    */
+    width: 40px; /* largura */
+    height: 40px; /* altura */
+    /* text-indent: -99999px; /* Desloca o texto dos links para fora da tela à esquerda (objetivo é não mostrar o conteúdo
+                                                                        escrito, pois a imagem irá assumir o lugar) */
+    font-size: 0; /* Deixa o tamanho do texto com 0px, fazendo ele não ser exibido na tela. O objetivo também é não
+    mostrar o conteúdo escrito, pois a imagem irá assumir o lugar dele */
+
+}
+.github{
+    /* Carrega imagem como plano de fundo nos links */
+    background-image: url(github.png);
+}
+.twitter{
+    /* Carrega imagem como plano de fundo nos links */
+     background-image: url(twitter.png);
+}
+.linkedin{
+    /* Carrega imagem como plano de fundo nos links */
+    background-image: url(linkedin.png);
+}
+
+
+cite{
+    font-style: italic;
+    /* o trecho abaixo faz o descolamento do autor sempre à direita */
+    float: right;
+    display: block;
+}
+.fiat{
+    float: right; /* o elemento com esta classe irá "flutuar" na tela à direita */
+}
+.petrobras{
+    float: left; /* o elemento com esta classe irá "flutuar" na tela à esquerda */
+}
+h2{
+    clear: both; /* esta propiedade faz com que este elemento 'h2' "nao aceite" nenhum 
+    elemento flutuante nem à esquerda nem à direita do 'h2', obrigando os elementos
+    se deslocarem para baixo */
+
+    /*clear: left; não aceita elementos flutuantes à esqueda
+      clear: right; não aceita elementos flutuantes à direita */
+}
+
+img, .menu-navegacao{
+    float: right; /* Está posicionando a imagem e o menu no lado direito */
+    /*width: 15%; /* Está definindo a largura que os itens deve ocupar */
+    box-sizing: border-box; /* Faz o ajuste da dimensão dos elementos para poder se
+    encaixar na página, não ultrapassando os espaços e nem ficando para fora. Faz o
+    ajuste dos itens para que eles ocupem a dimensão correta, sem precisar calcular matematicamente
+    qual o valor correto para espaçamento interno e externo para resultar no valor correto */
+    border-left: 10px solid black;
+    border-bottom: 10px solid black;
+}
+img{
+    position: absolute;/* quando queremos posicionar elementos na página independentemente do resto do
+    conteúdo, estamos falando de usar o valor 'absolute' da propriedade 'position'. Com ele podemos
+    colocar um elemento onde quisermos na página. Podemos pegar uma foto grande que nao está cabendo ao
+    lado do cabeçalho e transformar seu posicionamento em absoluto. Isso é possível pois esta propiedade
+    não segue o fluxo dos elementos da página.
+    */
+    top: 0%;
+    right: 0%;
+    /* as propiedades 'top', 'right', 'left' e 'botton' se referem ao posicionamento dos elementos
+    na tela */
+}
+.rodape{
+    clear: both; /* faz que este elemento nao aceite nenhum elemento flutuante */
+    position: fixed; /* Faz o elemento ficar fixo na tela na posição especificada nas propiedades
+    de posicionamento */
+    bottom: 0; /* está posicionando na parte inferior da página */
+    width: 100%; /* Está definindo a largura do elemento */
+    
+}
+main{
+    float: left; /* Está posicionando o main do lado esquerdo */
+    width: 85%; /* Está definindo a largura que deve ocupar */
+
+    padding-bottom: 80px; /* adiciona um espaço adicional à margem inferior do conteúdo da main
+    para evitar que o footer fique na frente do conteúdo da main */
+}
+
+
+/*
+Colocamos a declaração clear: right no CSS para a barra de navegação. Será que ela é mesmo
+necessária? Por quê?
+
+Ela não é mais necessária. Quando estávamos testando a colocação da foto e o menu um abaixo
+do outro, precisávamos usar a declaração clear: right pois não havia mais nenhum elemento
+flutuando naquela região.
+Agora, como temos o elemento <main> flutuando à esquerda e consumindo todo o espaço à esquerda
+da foto, a barra de navegação desce naturalmente, sem a necessidade da declaração clear: right.
+*/
+
+/*
+aside li{  => faz com que os ícones da barra de navegação fiquem lado a lado. (itens do 'menu')
+    Faz com que todos os elementos li contidos dentro do aside fiquem em linha;
+    como os elementos <a> estão dentro do li, estes por sua vez também ficarão
+    em linha 
+
+    display: inline-block;
+
+    display: none; => oculta todos os elementos li, faz com que ele desapareça. É utilizado quando
+    queremos esconder e mostrar informações interativamente, com uma passada de mouse do usuário por
+    exemplo. 
+}
+
+*/
+
+.icones-sociais li{ /* Faz com que os elementos li contidos dentro do elemento que contém a classe
+    'icones-sociais' fiquem dispostos lado a lado  */
+    display: inline-block;
+}
+
+/*
+<ul>
+    <li>
+        <a href="#">Link 1</a>
+    </li>
+</ul>
+
+ul {
+    color: pink;
+}
+ul li a {
+    color: inherit; ==> Esse valor faz com que a propriedade 
+    assuma o valor que foi definido em seu pai (ou ancestral,
+    de um modo geral) em vez de assumir um outro valor. 
+}
+
+O link, neste caso, vai obrigatoriamente pegar a cor do pai dele, 
+o <li>, que já pega normalmente a cor do pai dele, o <ul>, que é rosa.
+*/
+/*
+Sobre os espaçamentos, vimos que podemos mexer no espaço entre eles com
+a propriedade 'margin' e no espaço dentro deles com a propriedade 'padding'.
+*/
+/* 
+A propriedade margin controla o espaço entre elementos.
+A propriedade padding controla o espaço entre o conteúdo de um elemento e sua borda.
+
+As propriedades width e height controlam apenas o tamanho de um elemento,
+e não afetam o espaçamento entre esse elemento e seus vizinhos. Já a propriedade
+box-sizing controla apenas como a largura e a altura de um elemento deve ser calculada.
+
+Por fim, a propriedade line-height controla apenas a altura entre as linhas de texto da
+página, não afetando a distância entre elementos. 
+
+*/
+
+/*
+Ferramentas de busca, ao examinarem nossos sites, levam em conta apenas o HTML. Que
+implicações isso traz quando usamos a técnica image replacement?
+
+Resposta: Por não examinarem o CSS, as ferramentas de busca não encontrarão e, portanto,
+não indexarão as imagens referenciadas no CSS. Isso pode ser ou não interessante. Se
+usamos corretamente a técnica image replacement, apenas imagens secundárias, supérfluas
+para o conteúdo, serão ignoradas; as imagens mais importantes ficam no HTML e, portanto,
+são indexadas.
+*/
+
+/*
+Experimente, por exemplo, trocar a declaração text-indent: -9999px por font-size: 0. Funciona também, não?
+
+Então qual desses métodos usar? Discuta vantagens e desvantagens que você enxerga em cada método.
+
+A propriedade 'text-indent' tem um comportamento que depende da língua usada na página. Em
+algumas línguas, como o árabe, escrevemos da direita para a esquerda. Então, se nossa página
+está escrita nessa direção, o 'text-indent' tem seu comportamento invertido: um valor positivo
+joga o texto para a esquerda e, por outro lado, um valor negativo joga o texto para a direita.
+Assim, se usamos um 'text-indent' bem negativo e sua página está escrita nessa direção, o texto
+do elemento com _image replacement_ ficará bastante para a direita e, portanto, fará aparecer
+no navegador uma barra de rolagem horizontal.
+Um outro problema com o valor muito grande e negativo da propriedade 'text-indent' é que esse
+valor muito grande pode fazer com que o navegador gaste muita memória para exibir a página,
+pois agora ele precisa levar em consideração um elemento muito grande nos cálculos para a
+exibição da página.
+
+Por outro lado, usar o 'font-size' com valor zero não é bem interpretado por todos os navegadores.
+Alguns simplesmente ignoram uma declaração desse tipo; outros, mesmo com o tamanho zerado,
+mostram o texto numa fonte pequena. Ou seja, há um problema de compatibilidade com essa técnica,
+que a propriedade 'text-indent' não tem.
+
+
+*/
