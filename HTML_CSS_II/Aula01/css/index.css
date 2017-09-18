@@ -100,3 +100,64 @@ main {
     margin-right: auto;
     float: none;
 }
+/*///*/
+.palavra-home{
+    font-family: "Shadows Into Light", cursive;
+    color: #d5447e;
+    font-style: bold;
+}
+.eficiencia {
+    position: absolute;
+    top: 20%;
+    left: 75%;
+}
+.boas-praticas {
+    position: absolute;
+    top: 20%;
+    right: 75%;
+}
+.codigo-limpo {
+    position: absolute;
+    top: 32%;
+    left: 17%;
+}
+.css3 {
+    position: absolute;
+    top: 23%;
+    right: 30%;
+}
+.html5 {
+    position: absolute;
+    top: 35%;
+    left: 67%;
+}
+.javascript {
+    position: absolute;
+    top: 25%;
+    right: 60%;
+}
+.acessibilidade {
+    position: absolute;
+    top: 16%;
+    left: 85%;
+}
+.responsivo {
+    position: absolute;
+    top: 20%;
+    left: 31%;
+}
+.otimizacoes {
+    position: absolute;
+    top: 29%;
+    left: 72%;
+}
+.agilidade {
+    position: absolute;
+    top: 27%;
+    right: 75%;
+}
+.design {
+    position: absolute;
+    top: 35%;
+    left: 80%;
+}
