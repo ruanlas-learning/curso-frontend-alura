@@ -28,6 +28,13 @@
             <li class="palavra-home otimizacoes">Otimizações</li>
             <li class="palavra-home agilidade">Agilidade</li>
             <li class="palavra-home design">Design</li>
+            <!--  Ao redimensionar as janelas, as palavras mudam de posição conforme o dimensionamento das janelas, 
+            não permanecendo no mesmo lugar. Isto ocorre porque não foi definido nenhuma referencia para o posicionamento
+        das palavras e elas estão posicionadas com relação à janela do navegador. Para resolver este problema, é necessário
+            definir uma referência na página. Neste caso, é bem natural pensar-mos no 'header' como referência, afinal queremos
+        as palavras dentro dele. Para isto, basta apenas adicionarmos ao css a seguinte declaração: 'header { position: relative; }'
+            Talvez seja necessário fazer alguns ajustes às porcentagens das palavras depois desta declaração já que a referência
+        do cabeçalho é menor que a referência anterior (janela) -->
         </ul>
     </header>
     <main>
@@ -48,8 +55,11 @@
             <h2>Blog</h2>
             <small>Últimos posts</small>
             <ol>
-                <li>
+                <li class="mais-recente">
                     <a href="blog.html">O essencial de design responsivo</a>
+                    <p class="inicio-post">
+                        Design responsivo tem ganho cada vez mais atenção como técnica de desenvolvimento de páginas web para dispositivos móveis. Mas como começar?
+                    </p>
                 </li>
                 <li>
                     <a href="blog.html">Por que fazer páginas acessíveis?</a>
