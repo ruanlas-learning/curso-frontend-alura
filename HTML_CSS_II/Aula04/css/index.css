@@ -42,6 +42,25 @@ main .trabalhos, main .blog{
     transform: skew(-10deg)
     rotate(-5deg);
 }
+.banner{
+    color: white;
+    background-color: #3C1D3D;
+    width: 14em;
+    line-height: 1;
+    padding: 1em 0;
+
+    border: .25em solid black;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    font-family: "Open Sans Condensed", sans-serif;
+
+    /*o trecho abaixo irá cuidar da transformação do elemento (rotação, posicionamento e translação)*/
+    position: absolute;
+    transform-origin: 0 0; /*Como queremos que o canto superior seja a base para a rotação, usamos a declaração*/
+    transform: translate(6.5754em, -2.4749em) rotate(45deg);
+    right: 0;
+    top: 0;
+}
 .botao-index {
     font-size: 1.25em;
     background-color: #851944;
@@ -117,6 +136,11 @@ main {
     float: none;
 }
 /*///*/
+.palavras-flutuantes{
+    /*referência da perspectiva para visualização dos elementos 
+    3D (cone de luz). este elemento contém todas as palavras*/
+    /* perspective: 4px; */
+}
 .palavra-home{
     font-family: "Shadows Into Light", cursive;
     color: #d5447e;
@@ -124,49 +148,51 @@ main {
 }
 .eficiencia {
     position: absolute;
-    top: 40%;
+    top: 20%;
     left: 75%;
     transform: rotate(30deg); /*Rotaciona o objeto no ângulo passado como referência*/
+    /**/
+    transform: translateZ(8px) translate(-50%, -50%);
 }
 .boas-praticas {
     position: absolute;
-    top: 40%;
-    right: 75%;
+    top: 20%;
+    left: 20%;
     transform: rotate(-30deg);
 }
 .codigo-limpo {
     position: absolute;
-    top: 52%;
-    left: 17%;
-    transform: rotate(80deg);
+    top: 67%;
+    left: 13%;
+    transform: rotate(60deg);
 }
 .css3 {
     position: absolute;
-    top: 43%;
+    top: 30%;
     right: 30%;
     transform: rotate(45deg);
 }
 .html5 {
     position: absolute;
-    top: 55%;
+    top: 75%;
     left: 67%;
     transform: rotate(0deg);
 }
 .javascript {
     position: absolute;
-    top: 45%;
-    right: 60%;
-    transform: rotate(58deg);
+    top: 70%;
+    left: 25%;
+    transform: rotate(50deg);
 }
 .acessibilidade {
     position: absolute;
-    top: 36%;
+    top: 43%;
     left: 85%;
     transform: rotate(-63deg);
 }
 .responsivo {
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 31%;
     transform: rotate(-40deg);
 }
@@ -174,7 +200,7 @@ main {
     position: absolute;
     top: 49%;
     left: 72%;
-    transform: rotate(39deg);
+    transform: rotate(-39deg);
 }
 .agilidade {
     position: absolute;
@@ -184,9 +210,9 @@ main {
 }
 .design {
     position: absolute;
-    top: 55%;
+    top: 65%;
     left: 80%;
-    transform: rotate(55deg);
+    transform: rotate(45deg);
 }
 .inicio-post{
     background-color: white;
