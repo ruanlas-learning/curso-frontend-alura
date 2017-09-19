@@ -37,6 +37,10 @@ main .trabalhos, main .blog{
 .saudacao em {
     color: #851944;
     font-size: 4em;
+    /*atividade 4 Aula04*/
+    display: inline-block;
+    transform: skew(-10deg)
+    rotate(-5deg);
 }
 .botao-index {
     font-size: 1.25em;
@@ -122,56 +126,67 @@ main {
     position: absolute;
     top: 40%;
     left: 75%;
+    transform: rotate(30deg); /*Rotaciona o objeto no ângulo passado como referência*/
 }
 .boas-praticas {
     position: absolute;
     top: 40%;
     right: 75%;
+    transform: rotate(-30deg);
 }
 .codigo-limpo {
     position: absolute;
     top: 52%;
     left: 17%;
+    transform: rotate(80deg);
 }
 .css3 {
     position: absolute;
     top: 43%;
     right: 30%;
+    transform: rotate(45deg);
 }
 .html5 {
     position: absolute;
     top: 55%;
     left: 67%;
+    transform: rotate(0deg);
 }
 .javascript {
     position: absolute;
     top: 45%;
     right: 60%;
+    transform: rotate(58deg);
 }
 .acessibilidade {
     position: absolute;
     top: 36%;
     left: 85%;
+    transform: rotate(-63deg);
 }
 .responsivo {
     position: absolute;
     top: 40%;
     left: 31%;
+    transform: rotate(-40deg);
 }
 .otimizacoes {
     position: absolute;
     top: 49%;
     left: 72%;
+    transform: rotate(39deg);
 }
 .agilidade {
     position: absolute;
     top: 47%;
     right: 75%;
+    transform: rotate(-41deg);
 }
 .design {
     position: absolute;
     top: 55%;
     left: 80%;
+    transform: rotate(55deg);
 }
 .inicio-post{
     background-color: white;
