@@ -1,5 +1,12 @@
+/* site legal de suporte a navegadores:  http://caniuse.com/#feat=border-radius */
 .foto-home {
     height: 200px;
+    /*o trecho abaixo deixa a imagem redonda*/
+    /*border-radius: 100px;*/
+    border-radius: 50%;
+    /*efeitinho legalll
+    border-radius: 10% 50% / 50% 10%;
+    */
 }
 .saudacao p {
     font-size: 1.5em;
