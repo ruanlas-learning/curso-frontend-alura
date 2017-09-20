@@ -102,6 +102,19 @@ main .trabalhos, main .blog{
     background-color: #3C1D3D;
     border-top: .5em solid #000;
     border-bottom: .5em solid #000;
+
+    /* o trecho abaixo irá aplicar o efeito de fundo listrado utilizando gradiente */
+    background-image: linear-gradient(135deg, /* direção de 135º medindo a partir do eixo vertical, ou simplesmente 'to bottom right' */
+        transparent, /* inicia com transparente */
+        transparent 14px, /* chega até 14px com transparente */
+        rgba(0, 0, 0, 0.1) 14px, /* muda subtamente para uma cor semi-transparente */
+        rgba(0, 0, 0, 0.1) 15px, /* mantém 1px com a mesma cor anterior */
+        transparent 15px, /* volta novamente para a cor transparente */
+        transparent); /*  */
+    background-size: 20px /* Largura */ 20px /* Altura */;
+    background-repeat: repeat; /* faz repetir o efeito */
+    background-attachment: fixed; /* fixa o efeito na 'tela' e não na página */
+
 }
 .trabalhos h2 {
     color: #FFF;
@@ -124,6 +137,18 @@ main .trabalhos, main .blog{
     border-bottom: .5em solid #851944;
     /* a propiedade abaixo faz o blog se tornar a referência para o posicionamento do parágrafo */
     position: relative;
+
+    /* o trecho abaixo irá aplicar o efeito de fundo listrado utilizando gradiente */
+    background-image: linear-gradient(45deg, /* direção de 45º medindo a partir do eixo vertical, ou simplesmente 'to top left' */
+    transparent, /* inicia com transparente */
+    transparent 14px, /* chega até 14px com transparente */
+    rgba(0, 0, 0, 0.1) 14px, /* muda subtamente para uma cor semi-transparente */
+    rgba(255, 255, 255, 0.1) 15px, /* mantém 1px com a mesma cor anterior */
+    transparent 15px, /* volta novamente para a cor transparente */
+    transparent);
+    background-size: 20px /* Largura */ 20px /* Altura */;
+    background-repeat: repeat; /* faz repetir o efeito */
+    background-attachment: fixed; /* fixa o efeito na 'tela' e não na página */
 }
 .blog small{
     position: relative;

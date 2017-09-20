@@ -57,7 +57,8 @@ main p {
 }
 
 .rodape-pagina {
-    background-color: #000;
+    /*background-color: #000;   /* foi necessário remover este trecho para que o efeito
+                    do rodaé em gradiente radial fizesse efeito*/
     color: #F2FFFC;
     padding: 20px;
     clear: both;
@@ -67,7 +68,18 @@ main p {
     width: 100%;
     box-sizing: border-box;
 
-    background-color: rgba(0, 0, 0, 0.8); /* deixa o fundo do rodapé semi transparente (o quarto parâmetro se refere à opacidade) */
+    /*background-color: rgba(0, 0, 0, 0.8); /* deixa o fundo do rodapé semi transparente (o quarto parâmetro se refere à opacidade) */
+
+    /* os seguintes trechos é para aplicar o efeito de gradiente radial ao redor do nome que aparece no rodapé da página */
+    background-image: radial-gradient(ellipse at left bottom, 
+        rgba(60, 29, 61, 0.8), 
+        rgba(60, 29, 61, 0.8) 65%,
+        black 65%,
+        black 70%,
+        transparent 70%,
+        transparent);
+    background-size: 25% 100%;
+    background-repeat: no-repeat;
 }
 
 .container {
