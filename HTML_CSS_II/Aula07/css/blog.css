@@ -1,0 +1,32 @@
+.leia-mais {
+    padding: .5em; /*estava com 8px*/
+    margin: 1em;/*estava com 16px*/
+    display: block;
+    font-size: 1.5em; /*estava com 24px*/
+    text-align: center;
+    background-color: #E6E7E8;
+}
+
+.post-blog {
+    padding-bottom: 30px;
+    /*border-bottom: 1px solid #ccc;*/
+    margin-bottom: 20px;
+
+    /* o trecho abaixo deixa a "borda" gradiente. Desta forma, o 'border-bottom' não é mais necessário */
+    background-image: linear-gradient(to right, white , #ccc); /* é passado três parâmetros: o primeiro
+                                        é o sentido do gradiente, o segundo e terceiro são as cores do gradiente
+                                        no sentido da transição. Neste exemplo vai do "white" para o "#CCC"  */
+/* outra possível opção:
+    background-image: linear-gradient(to right, transparent, black, transparent);
+*/
+    background-size: 100% 1px; /* Tamanho do gradiente. O primeiro elemento é a largura e o segundo a altura */
+    background-repeat: no-repeat; /* faz o gradiente não se repetir */
+    background-position: bottom center; /* faz o gradiente se posicionar na parte inferior central dos posts */
+
+    /* Podemos deixar a borda mais suave usando um cinza claro no lugar do preto:
+        background-image: linear-gradient(to right,
+            rgba(200, 200, 200, 0),
+            rgba(200, 200, 200, 1),
+            rgba(200, 200, 200, 0));
+    */
+}
