@@ -1,6 +1,15 @@
 /* site legal de suporte a navegadores:  http://caniuse.com/#feat=border-radius 
     serviços online para testar HTML e CSS: http://cssdeck.com/, http://dabblet.com/
     gabarito atividade 9 - Aula 04 => http://dabblet.com/gist/70a44631ea6fdab54962
+
+    testar esta propiedade nos elementos => 'box-shadow: 10px 10px black, -10px -10px orange;'
+                                    =>      'box-shadow: 0 0 0 4px black,
+                                                         0 0 0 8px blue,
+                                                         0 0 0 12px black,
+                                                         0 0 0 16px blue,
+                                                         0 0 0 20px black;'
+    
+    
 */
 .foto-home {
     height: 200px;
@@ -192,6 +201,7 @@ body{
     /*transform: rotate(30deg); /*Rotaciona o objeto no ângulo passado como referência*/
     /**/
     transform: translate(-50%, -50%) rotate(30deg) translateZ(-3px) scale(0.25);
+    opacity: 0.6;/* define a opacidade (transparência) */
 }
 .boas-praticas {
     position: absolute;
@@ -231,6 +241,7 @@ body{
     /*transform: rotate(0deg);*/
 
     transform: translate(-50%, -50%) rotate(0deg) translateZ(-1.2px) scale(0.25);
+    opacity: 0.8;
 }
 .javascript {
     position: absolute;
@@ -247,6 +258,7 @@ body{
     /*transform: rotate(-63deg);*/
 
     transform: translate(-50%, -50%) rotate(-63deg) translateZ(-1px) scale(0.25);
+    opacity: 0.8;
 }
 .responsivo {
     position: absolute;
@@ -271,6 +283,7 @@ body{
     /*transform: rotate(-41deg);*/
 
     transform: translate(-50%, -50%) rotate(-41deg) translateZ(-1.9px) scale(0.25);
+    opacity: 0.7;
 }
 .design {
     position: absolute;

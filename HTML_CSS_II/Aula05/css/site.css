@@ -66,6 +66,8 @@ main p {
     left: 0;
     width: 100%;
     box-sizing: border-box;
+
+    background-color: rgba(0, 0, 0, 0.8); /* deixa o fundo do rodapé semi transparente (o quarto parâmetro se refere à opacidade) */
 }
 
 .container {
