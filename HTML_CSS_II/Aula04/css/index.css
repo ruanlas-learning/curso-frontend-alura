@@ -140,79 +140,114 @@ main {
     /*referência da perspectiva para visualização dos elementos 
     3D (cone de luz). este elemento contém todas as palavras*/
     /* perspective: 4px; */
+    perspective: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Os elementos abaixo fazem com que as palavras ocupem o cabeçalho todo. pode ser 
+    feito também substituindo eles por 'bottom' e 'right' também igual a 0 */
+    width: 100%;
+    height: 100%;
 }
 .palavra-home{
     font-family: "Shadows Into Light", cursive;
     color: #d5447e;
     font-style: bold;
+    font-size: 1.5em;
 }
 .eficiencia {
     position: absolute;
     top: 20%;
     left: 75%;
-    transform: rotate(30deg); /*Rotaciona o objeto no ângulo passado como referência*/
+    /*transform: rotate(30deg); /*Rotaciona o objeto no ângulo passado como referência*/
     /**/
-    transform: translateZ(8px) translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(30deg) translateZ(-3px);
 }
 .boas-praticas {
     position: absolute;
     top: 20%;
     left: 20%;
-    transform: rotate(-30deg);
+    /*transform: rotate(-30deg);*/
+
+    transform: translate(-50%, -50%) rotate(-30deg) translateZ(1.3px); /* Aplica a transformação 3D na palavra. (Deve seguir esta ordem) */
+    /* translate(-50%, -50%) => faz com que o 'top' e o 'left' que estamos usando
+    para posicionar as palavras definam a posição central delas, e não no canto superior esquerdo. Se as palavras mudarem de tamanho,
+    não será necessário reposicioná-las
+    rotate(-30deg) => rotação da palavra
+    translateZ(1.3px) => translação (movimentação) da palavra no eixo Z
+     */
 }
 .codigo-limpo {
     position: absolute;
     top: 67%;
     left: 13%;
-    transform: rotate(60deg);
+    /*transform: rotate(60deg);*/
+
+    transform: translate(-50%, -50%) rotate(60deg) translateZ(-.3px);
 }
 .css3 {
     position: absolute;
     top: 30%;
     right: 30%;
-    transform: rotate(45deg);
+    /*transform: rotate(45deg);*/
+
+    transform: translate(-50%, -50%) rotate(45deg) translateZ(3px);
 }
 .html5 {
     position: absolute;
     top: 75%;
     left: 67%;
-    transform: rotate(0deg);
+    /*transform: rotate(0deg);*/
+
+    transform: translate(-50%, -50%) rotate(0deg) translateZ(-1.2px);
 }
 .javascript {
     position: absolute;
     top: 70%;
     left: 25%;
-    transform: rotate(50deg);
+    /*transform: rotate(50deg);*/
+
+    transform: translate(-50%, -50%) rotate(50deg) translateZ(1px);
 }
 .acessibilidade {
     position: absolute;
     top: 43%;
     left: 85%;
-    transform: rotate(-63deg);
+    /*transform: rotate(-63deg);*/
+
+    transform: translate(-50%, -50%) rotate(-63deg) translateZ(-1px);
 }
 .responsivo {
     position: absolute;
     top: 35%;
     left: 31%;
-    transform: rotate(-40deg);
+    /*transform: rotate(-40deg);*/
+
+    transform: translate(-50%, -50%) rotate(-40deg) translateZ(-.5px);
 }
 .otimizacoes {
     position: absolute;
     top: 49%;
     left: 72%;
-    transform: rotate(-39deg);
+    /*transform: rotate(-39deg);*/
+
+    transform: translate(-50%, -50%) rotate(-39deg) translateZ(4px);
 }
 .agilidade {
     position: absolute;
     top: 47%;
     right: 75%;
-    transform: rotate(-41deg);
+    /*transform: rotate(-41deg);*/
+
+    transform: translate(-50%, -50%) rotate(-41deg) translateZ(-1.9px);
 }
 .design {
     position: absolute;
     top: 65%;
     left: 80%;
-    transform: rotate(45deg);
+    /*transform: rotate(45deg);*/
+
+    transform: translate(-50%, -50%) rotate(45deg) translateZ(3px);
 }
 .inicio-post{
     background-color: white;
