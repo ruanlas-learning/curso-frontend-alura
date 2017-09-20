@@ -7,20 +7,21 @@
     background-color: #E6E7E8;
 }
 
+/*
 .post-blog {
     padding-bottom: 30px;
-    /*border-bottom: 1px solid #ccc;*/
+    /*border-bottom: 1px solid #ccc; ** /
     margin-bottom: 20px;
 
-    /* o trecho abaixo deixa a "borda" gradiente. Desta forma, o 'border-bottom' não é mais necessário */
+    /* o trecho abaixo deixa a "borda" gradiente. Desta forma, o 'border-bottom' não é mais necessário ** /
     background-image: linear-gradient(to right, white , #ccc); /* é passado três parâmetros: o primeiro
                                         é o sentido do gradiente, o segundo e terceiro são as cores do gradiente
-                                        no sentido da transição. Neste exemplo vai do "white" para o "#CCC"  */
+                                        no sentido da transição. Neste exemplo vai do "white" para o "#CCC"  **/
 /* outra possível opção:
     background-image: linear-gradient(to right, transparent, black, transparent);
-*/
-    background-size: 100% 1px; /* Tamanho do gradiente. O primeiro elemento é a largura e o segundo a altura */
-    background-repeat: no-repeat; /* faz o gradiente não se repetir */
+** /
+    background-size: 100% 1px; /* Tamanho do gradiente. O primeiro elemento é a largura e o segundo a altura ** /
+    background-repeat: no-repeat; /* faz o gradiente não se repetir ** /
     background-position: bottom center; /* faz o gradiente se posicionar na parte inferior central dos posts */
 
     /* Podemos deixar a borda mais suave usando um cinza claro no lugar do preto:
@@ -28,5 +29,31 @@
             rgba(200, 200, 200, 0),
             rgba(200, 200, 200, 1),
             rgba(200, 200, 200, 0));
-    */
+    ** /
+}
+*/
+/*
+
+Vimos que, com os seletores de irmão (~) e irmão adjacente (+), conseguimos selecionar todos os elementos
+depois de outro elemento que quisermos.
+Tendo isso em mente, podemos pensar em inverter a borda que criamos: em vez de colocar a borda embaixo de
+um post, colocamos ela no topo de cada post. Combinando isso com o seletor de irmão, conseguimos selecionar
+os posts do segundo em diante para aplicar essa borda no topo. Dessa forma, não vai sobrar nenhuma borda nem
+em cima nem embaixo. O código para isso seria, então:
+
+*/
+.post-blog + .post-blog {
+    /* trocamos padding-bottom e margin-bottom por
+        padding-top e margin-top */
+    padding-top: 1em;
+    margin-top: 1.5em;
+    background-image: linear-gradient(to right, 
+        rgba(200, 200, 200, 0), 
+        rgba(200, 200, 200, 1), 
+        rgba(200, 200, 200, 0)
+    );
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    /* trocamos "bottom center" por "top center" */
+    background-position: top center;
 }
