@@ -1,4 +1,7 @@
-/* site legal de suporte a navegadores:  http://caniuse.com/#feat=border-radius */
+/* site legal de suporte a navegadores:  http://caniuse.com/#feat=border-radius 
+    serviços online para testar HTML e CSS: http://cssdeck.com/, http://dabblet.com/
+    gabarito atividade 9 - Aula 04 => http://dabblet.com/gist/70a44631ea6fdab54962
+*/
 .foto-home {
     height: 200px;
     /*o trecho abaixo deixa a imagem redonda*/
@@ -153,7 +156,15 @@ main {
     font-family: "Shadows Into Light", cursive;
     color: #d5447e;
     font-style: bold;
-    font-size: 1.5em;
+    /*font-size: 1.5em;*/
+
+    /*Após aplicar a transformação de 3D, observa-se que as palavras quando ampliadas ficaram
+    meio borradas. Isso aconteceu pois os elementos que estão mais próximos da perspectiva
+    o navegador tenta aumentá-las sem aumentar o tamanho da fonte. Para corrigir isso,
+    aumentamos o tamanho da fonte para 4X ou mais (de acordo com a alteração abaixo), e
+    depois em cada palavra adicionamos no 'transform' o valor 'scale(0.25)' após a translação no
+    no eixo Z para fazer os elementos voltarem ao tamanho original */
+    font-size: 550%;
 }
 .eficiencia {
     position: absolute;
@@ -161,7 +172,7 @@ main {
     left: 75%;
     /*transform: rotate(30deg); /*Rotaciona o objeto no ângulo passado como referência*/
     /**/
-    transform: translate(-50%, -50%) rotate(30deg) translateZ(-3px);
+    transform: translate(-50%, -50%) rotate(30deg) translateZ(-3px) scale(0.25);
 }
 .boas-praticas {
     position: absolute;
@@ -169,12 +180,13 @@ main {
     left: 20%;
     /*transform: rotate(-30deg);*/
 
-    transform: translate(-50%, -50%) rotate(-30deg) translateZ(1.3px); /* Aplica a transformação 3D na palavra. (Deve seguir esta ordem) */
+    transform: translate(-50%, -50%) rotate(-30deg) translateZ(1.3px) scale(0.25); /* Aplica a transformação 3D na palavra. (Deve seguir esta ordem) */
     /* translate(-50%, -50%) => faz com que o 'top' e o 'left' que estamos usando
     para posicionar as palavras definam a posição central delas, e não no canto superior esquerdo. Se as palavras mudarem de tamanho,
     não será necessário reposicioná-las
     rotate(-30deg) => rotação da palavra
     translateZ(1.3px) => translação (movimentação) da palavra no eixo Z
+    scale(0.25) => modifica a escala da palavra (como aumentamos mais de 4X a palavra, é necessário voltá-la ao tamanho normal)
      */
 }
 .codigo-limpo {
@@ -183,7 +195,7 @@ main {
     left: 13%;
     /*transform: rotate(60deg);*/
 
-    transform: translate(-50%, -50%) rotate(60deg) translateZ(-.3px);
+    transform: translate(-50%, -50%) rotate(60deg) translateZ(-.3px) scale(0.25);
 }
 .css3 {
     position: absolute;
@@ -191,7 +203,7 @@ main {
     right: 30%;
     /*transform: rotate(45deg);*/
 
-    transform: translate(-50%, -50%) rotate(45deg) translateZ(3px);
+    transform: translate(-50%, -50%) rotate(45deg) translateZ(3px) scale(0.25);
 }
 .html5 {
     position: absolute;
@@ -199,7 +211,7 @@ main {
     left: 67%;
     /*transform: rotate(0deg);*/
 
-    transform: translate(-50%, -50%) rotate(0deg) translateZ(-1.2px);
+    transform: translate(-50%, -50%) rotate(0deg) translateZ(-1.2px) scale(0.25);
 }
 .javascript {
     position: absolute;
@@ -207,7 +219,7 @@ main {
     left: 25%;
     /*transform: rotate(50deg);*/
 
-    transform: translate(-50%, -50%) rotate(50deg) translateZ(1px);
+    transform: translate(-50%, -50%) rotate(50deg) translateZ(1px) scale(0.25);
 }
 .acessibilidade {
     position: absolute;
@@ -215,7 +227,7 @@ main {
     left: 85%;
     /*transform: rotate(-63deg);*/
 
-    transform: translate(-50%, -50%) rotate(-63deg) translateZ(-1px);
+    transform: translate(-50%, -50%) rotate(-63deg) translateZ(-1px) scale(0.25);
 }
 .responsivo {
     position: absolute;
@@ -223,7 +235,7 @@ main {
     left: 31%;
     /*transform: rotate(-40deg);*/
 
-    transform: translate(-50%, -50%) rotate(-40deg) translateZ(-.5px);
+    transform: translate(-50%, -50%) rotate(-40deg) translateZ(-.5px) scale(0.25);
 }
 .otimizacoes {
     position: absolute;
@@ -231,7 +243,7 @@ main {
     left: 72%;
     /*transform: rotate(-39deg);*/
 
-    transform: translate(-50%, -50%) rotate(-39deg) translateZ(4px);
+    transform: translate(-50%, -50%) rotate(-39deg) translateZ(4px) scale(0.25);
 }
 .agilidade {
     position: absolute;
@@ -239,7 +251,7 @@ main {
     right: 75%;
     /*transform: rotate(-41deg);*/
 
-    transform: translate(-50%, -50%) rotate(-41deg) translateZ(-1.9px);
+    transform: translate(-50%, -50%) rotate(-41deg) translateZ(-1.9px) scale(0.25);
 }
 .design {
     position: absolute;
@@ -247,7 +259,7 @@ main {
     left: 80%;
     /*transform: rotate(45deg);*/
 
-    transform: translate(-50%, -50%) rotate(45deg) translateZ(3px);
+    transform: translate(-50%, -50%) rotate(45deg) translateZ(3px) scale(0.25);
 }
 .inicio-post{
     background-color: white;
