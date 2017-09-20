@@ -139,11 +139,30 @@ main {
     float: none;
 }
 /*///*/
+
+html ,body{
+    /* criar o efeito paralaxe (objetos mais próximos com velocidade aparentemente maior) */
+    height: 100%;
+    /* o comando abaixo faz o navegador ignorar o que fica para fora da página. (transladamos o
+    link para fora da página nos exercícios anteriores) */
+    overflow-x: hidden;
+}
+body{
+    /* no trecho abaixo estamos definindo a perspectiva não mais no cabeçalho, mas no body */
+    perspective: 10px;
+    perspective-origin: 50% 160px;
+}
+.palavras-home, .titulo-principal {
+    /* para manter as transformações 3D adicionamos a declaração abaixo nos elementos acima 
+    delas na hierarquia, que são a 'ul' com a classe 'palavras-home' e o 'header' com a 
+    classe 'titulo-principal' */
+    transform-style: preserve-3d;    /* mantém as transformações 3D funcionando nas palavras */
+}
 .palavras-flutuantes{
     /*referência da perspectiva para visualização dos elementos 
     3D (cone de luz). este elemento contém todas as palavras*/
     /* perspective: 4px; */
-    perspective: 10px;
+   /* perspective: 10px;*/
     position: absolute;
     top: 0;
     left: 0;
