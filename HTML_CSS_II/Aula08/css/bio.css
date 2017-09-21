@@ -7,12 +7,34 @@
     box-sizing: border-box;
 }
 
-.petrobras {
+/* A pseudo classe ':nth-of-type' seleciona elementos específicos de um determinado tipo */
+.citacao-bio:nth-of-type(2n+1){
+    /* substitui a classe 'fiat'. seleciona todos os elementos ímpares
+    (seleciona de 2 em 2 elementos a partir do 1). outra solução seria
+    colocar 'nth-of-type(odd)' */
+    float: right;
+    margin-right: 0;
+}
+.citacao-bio:nth-of-type(2n+2) {
+    /* substitui a classe 'petrobrás'. seleciona todos os elementos pares
+    (seleciona de 2 em 2 elementos a partir do 2). outra solução seria
+    colocar 'nth-of-type(even)' */
     float: left;
     margin-left: 0;
 }
-
-.fiat {
-    float: right;
-    margin-right: 0;
+/* os tres trechos abaixo aplica o efeito de uma caixa de diálogo modal */
+.citacao-bio:hover, .citacao-bio:focus{
+    /* Aplica o efeito de sombra sobre o resto da página quando
+    se passa o mouse sobre a citação, mantendo a formatação da citação
+    */
+    box-shadow: 0 0 0 99999px rgba(0,0,0,.8);
+}
+/* os trechos abaixo aplicam a transformação de rotação e aumenta a escala
+das citações quando passado o mouse sobre eles
+*/
+.citacao-bio:nth-of-type(odd):hover, .citacao-bio:focus{
+    transform: scale(1.2) rotate(5deg);
+}
+.citacao-bio:nth-of-type(even):hover, .citacao-bio:focus{
+    transform: scale(1.2) rotate(-5deg);
 }

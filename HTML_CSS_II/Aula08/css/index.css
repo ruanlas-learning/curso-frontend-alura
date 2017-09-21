@@ -323,6 +323,44 @@ body{
 
     transform: translate(-50%, -50%) rotate(45deg) translateZ(3px) scale(0.25);
 }
+/*  */
+.blog p:nth-of-type(n+1){
+    /* Está escondendo todos os parágrafos da sessão blog quando a página é carregada */
+    display: none;
+}
+/*
+    Para mostrar o início do post correspondente ao link selecionado por teclado ou mouse,
+    precisamos trocar o 'display: none' por 'display: block' quando uma das pseudoclasses
+    ':hover' ou ':focus' estiver ativa no link. Ou seja, precisamos selecionar o elemento com
+    a classe 'inicio-post' logo em seguida ao link com a pseudoclasse ativa. No código CSS
+    ficamos, então, com:
+*/
+.blog a:hover + .inicio-post,
+.blog a:focus + .inicio-post {
+    display: block;
+}
+/* outra opção. irá pegar o último filho
+
+.blog a:hover + :last-child,
+.blog a:focus + :last-child {
+    display: block;
+}
+*/
+/*
+    Para dar a ideia de continuidade visual entre o link e o texto, podemos mudar a cor do
+    texto do link e do seu fundo nessas interações também:
+*/
+.blog ol a:hover,
+.blog ol a:focus {
+    background-color: #F2FFFC;
+    color: #F26;
+    width: 30%;
+    box-sizing: border-box;
+}
+/* A declaração abaixo deve ser mantida, pois todos os parágrafos pertencentes à sessão blog
+deverão receber esta formatação. Entretanto, não haverá problema de posicionamento, pois eles
+somente serão exibidos se forem posicionados o mouse em cima dos links, conforme definido na
+declaração '.blog a:hover + .inicio-post' e '.blog a:focus + .inicio-post' */
 .inicio-post{
     background-color: white;
     color: black;
@@ -337,17 +375,22 @@ body{
     left: 30%;
     box-sizing: border-box;
 }
+/* 
+    as duas declarações seguintes abaixo não serão mais necessárias pois as declarações
+    '.blog ol a:hover' e '.blog ol a:focus' as substituem
+*/
 .blog .mais-recente a{
-    color: #F26;
+    /*color: #F26;*/
 }
 .mais-recente{
-    background-color: white;
-    /*width: 18.9em; */
+  /*  background-color: white;
+    /*width: 18.9em; ** /
     width: 30%;
     /* A largura é definida na mesma porcentagem  que o deslocamento do 'left'
-    da caixa '.inicio-post' */
-    box-sizing: border-box;
+    da caixa '.inicio-post' ** /
+    box-sizing: border-box; */
 }
+
 /* sugestão atividade:
 
 .blog .inicio-post {
