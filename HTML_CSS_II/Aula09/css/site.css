@@ -154,3 +154,54 @@ footer a:hover, footer a:focus{
 .navegacao-site a:focus {
     text-shadow: 0 0 2px pink;
 }
+/* Os dois trechos seguintes faz aparecer uma legenda ao passar o mouse sobre o
+link dos icones das redes sociais */
+.icones-redes-sociais a:hover:after,
+.icones-redes-sociais a:focus:after{
+    content: attr(data-legenda); /* recupera valor contido no atributo 'data-legenda' do elemento <a> */
+    position: absolute; /* posicionamento do pseudoelemento como absoluto */
+    /*
+     para que a legenda apareça embaixo do link, definimos que esse pseudoelemento 
+     deve estar a 100% do topo e a 0 pixels da direita do link.
+    */
+    top: 100%;
+    right: 0;
+
+    text-indent: 0; /* estamos desativando o 'text-indent: -999999px' definido para fazer o image replacement */
+    /* Isso vai fazer o texto aparecer abaixo do link, porém esse texto vai aparecer num espaço bem pequeno,
+    já que o link tem uma largura pequena definida. Podemos aumentar a largura da legenda usado a largura
+    do link como base: 
+    */
+    width: 300%;
+    /*
+    para melhorar o visual da legenda, diminuimos um pouco o tamanho da fonte e colocamos um fundo preto:
+    */
+    background: black;
+    font-size: .75em;
+}
+.icones-redes-sociais a{
+    /*
+    A legenda não vai aparecer pois precisamos tirá-lo do fluxo do link que o text-indent impõe.
+    Então definimos o posicionamento do link como relativo, para que ele sirva de referência
+    para o pseudoelemento, e o posicionamento do pseudoelemento como absoluto.
+    */
+    position: relative;
+}
+/* O trecho abaixo transformar uma caixa num balão de diálogo, como em quadrinhos */
+.icones-redes-sociais a:hover:before,
+.icones-redes-sociais a:focus:before {
+    content: ''; /* é necessário declarar a propriedade 'content', mesmo tendo o campo vazio para que o pseudoelemento seja adicionado à página */
+    /* Como queremos que ele seja uma caixinha preta, então adicionamos tamanho e definimos a cor de fundo: */
+    width: 1em;
+    height: 1em;
+    background-color: black;
+    /* Precisamos posicioná-la logo acima da legenda, um pouco afastada do canto direito dela. Para isso, usamos o 'position: absolute' e,
+    usando o link como referência, dizemos que queremos ela grudada no canto inferior do link e no canto esquerdo também; isso vai deixá-la
+    suficientemente afastada do canto direito da legenda. */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* Por fim, precisamos rotacionar e transladar a caixa que criamos para que ela encaixe como uma ponta na legenda.
+    Para isso, usamos a propriedade 'transform:' */
+    transform: translateY(.5em) rotate(45deg);
+}

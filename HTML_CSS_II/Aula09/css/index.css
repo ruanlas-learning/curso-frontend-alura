@@ -95,7 +95,7 @@ main .trabalhos, main .blog{
 .secao-inicio h2 {
     text-transform: uppercase;
     font-size: 3em;
-    text-shadow: 2px 2px #000;
+    text-shadow: 2px 2px #000; /* Aplica o efeito de sombra ao título 'h2' de acordo com o seletor especificado */ 
     margin-bottom: .5em;
 }
 .trabalhos {
@@ -345,6 +345,8 @@ body{
 .blog a:focus + :last-child {
     display: block;
 }
+ou trocar o ':last-child' por ':nth-child(2)' => irá pegar o filho da segunda linha
+
 */
 /*
     Para dar a ideia de continuidade visual entre o link e o texto, podemos mudar a cor do

@@ -38,3 +38,29 @@ das citações quando passado o mouse sobre eles
 .citacao-bio:nth-of-type(even):hover, .citacao-bio:focus{
     transform: scale(1.2) rotate(-5deg);
 }
+
+/* o seletor abaixo '>' filtra apenas os filhos diretos do elemento, ignorando seus netos */
+.container > p:first-letter{
+    font-size: 2em; /* ou 200% */
+    font-weight: bold;
+    color: #3C1D3D;
+    text-shadow: 1px 1px #000; /* Aplica o efeito de sombra no texto */
+    /* Para melhorar os espaçamentos ao redor da letra, podemos adicionar uma pequena margem
+    à direita da letra e diminuir a altura da linha apenas nesse pseudoelemento: */
+    margin-right: .2ch;
+    line-height: 1;
+}
+
+/* O trecho abaixo cria as aspas para ser exibido nas citações com as devidas formatações */
+.citacao-bio:before{
+    content: '"'; /* cria as aspas que serão estilizadas para exibir na página */
+    color: #BBB;
+    font-size: 10em;
+    position: absolute; /* é necessário posicionar absolutamente o elemento para que fique
+    atráz do texto, e o parágrafo de texto dentro do 'blockequote' é necessário colocar
+    'position: relative' para jogar o texto para frente das aspas */
+    line-height: .8; /* melhora o posicionamento das aspas no 'blockquote' */
+}
+.citacao-bio > p{
+    position: relative;
+}
