@@ -111,3 +111,16 @@ input[name="outro-assunto"]{
 input[value="outro"]:checked + input[name="outro-assunto"]{
     display: inline-block;
 }
+/* Outra opção:
+O radio usado para o assunto "Outro" tem o atributo value com esse texto. Então, usando os seletores de
+atributo e de irmão, conseguimos selecionar o campo e escondê-lo com a propriedade display:
+input[value="Outro"] ~ input {
+    display: none;
+}
+Agora, quando esse radio for selecionado, a pseudoclasse será adicionada a ele. Podemos usar essa
+pseudoclasse para selecionar novamente o campo de texto ao lado e mudar o valor da propriedade display:
+
+input[value="Outro"]:checked ~ input {
+    display: inline;
+}
+*/
