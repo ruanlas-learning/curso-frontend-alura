@@ -1,0 +1,66 @@
+.citacao-bio {
+    background-color: #D9E5E3;
+    border: .5em solid #C2CCCA; /*estava com 10px*/
+    padding: 1em; /*estava com 20px*/
+    margin: 1em 2em; /*estava com 20px e 40px*/
+    width: 30ch; /*estava com 250px*/
+    box-sizing: border-box;
+}
+
+/* A pseudo classe ':nth-of-type' seleciona elementos específicos de um determinado tipo */
+.citacao-bio:nth-of-type(2n+1){
+    /* substitui a classe 'fiat'. seleciona todos os elementos ímpares
+    (seleciona de 2 em 2 elementos a partir do 1). outra solução seria
+    colocar 'nth-of-type(odd)' */
+    float: right;
+    margin-right: 0;
+}
+.citacao-bio:nth-of-type(2n+2) {
+    /* substitui a classe 'petrobrás'. seleciona todos os elementos pares
+    (seleciona de 2 em 2 elementos a partir do 2). outra solução seria
+    colocar 'nth-of-type(even)' */
+    float: left;
+    margin-left: 0;
+}
+/* os tres trechos abaixo aplica o efeito de uma caixa de diálogo modal */
+.citacao-bio:hover, .citacao-bio:focus{
+    /* Aplica o efeito de sombra sobre o resto da página quando
+    se passa o mouse sobre a citação, mantendo a formatação da citação
+    */
+    box-shadow: 0 0 0 99999px rgba(0,0,0,.8);
+}
+/* os trechos abaixo aplicam a transformação de rotação e aumenta a escala
+das citações quando passado o mouse sobre eles
+*/
+.citacao-bio:nth-of-type(odd):hover, .citacao-bio:focus{
+    transform: scale(1.2) rotate(5deg);
+}
+.citacao-bio:nth-of-type(even):hover, .citacao-bio:focus{
+    transform: scale(1.2) rotate(-5deg);
+}
+
+/* o seletor abaixo '>' filtra apenas os filhos diretos do elemento, ignorando seus netos */
+.container > p:first-letter{
+    font-size: 2em; /* ou 200% */
+    font-weight: bold;
+    color: #3C1D3D;
+    text-shadow: 1px 1px #000; /* Aplica o efeito de sombra no texto */
+    /* Para melhorar os espaçamentos ao redor da letra, podemos adicionar uma pequena margem
+    à direita da letra e diminuir a altura da linha apenas nesse pseudoelemento: */
+    margin-right: .2ch;
+    line-height: 1;
+}
+
+/* O trecho abaixo cria as aspas para ser exibido nas citações com as devidas formatações */
+.citacao-bio:before{
+    content: '"'; /* cria as aspas que serão estilizadas para exibir na página */
+    color: #BBB;
+    font-size: 10em;
+    position: absolute; /* é necessário posicionar absolutamente o elemento para que fique
+    atráz do texto, e o parágrafo de texto dentro do 'blockequote' é necessário colocar
+    'position: relative' para jogar o texto para frente das aspas */
+    line-height: .8; /* melhora o posicionamento das aspas no 'blockquote' */
+}
+.citacao-bio > p{
+    position: relative;
+}
