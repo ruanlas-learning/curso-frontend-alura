@@ -1,0 +1,126 @@
+/*
+As legendas dos grupos de campo e do campo "Mensagem" 
+devem estar em negrito e espaçadas do grupo de campos anterior.
+*************************************************************
+*/
+
+/* Podemos usar um seletor de atributo para selecionar
+   apenas a legenda desse campo e não dos outros */
+legend,
+label[for="msg"] {
+    font-weight: bold; /* Letra em negrito */
+    margin-top: 1em;
+}
+/*
+Deixar os rótulos dos campos sempre em cima deles, exceto para os assuntos.
+*************************************************************************
+*/
+/* As tags <label> que têm o atributo "for" são
+   os rótulos dos campos sem ser os assuntos */
+label[for] {
+    display: block;
+}
+/*
+Os campos de texto devem ocupar a largura inteira da tela (exceto o campo
+para o assunto "Outro"), ter uma borda cinza clara, espaçamento interno e
+usar a mesma fonte do resto da página.
+************************************************************************
+*/
+/* Selecionamos apenas os campos de texto */
+input[type="text"],
+input[type="email"],
+textarea {
+    /* Força o navegador a usar a mesma fonte da página */
+    font-family: inherit;
+    /* Inclusive o tamanho dela */
+    font-size: 100%;
+    padding: .25em .5em;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+/* alguns ajustes para o campo "Outro": deixar ele na mesma linha dos outros assuntos */
+fieldset > fieldset {
+    display: inline;
+}
+
+/* deixar o rótulo dele inline de novo */
+label[for="outro"] {
+    display: inline;
+}
+
+/* deixar só esse campo sem ocupar a tela toda */
+input[name="outro-assunto"] {
+    width: auto;
+}
+/*
+O campo de texto que tiver o foco do teclado deve ficar com o fundo levemente amarelo.
+************************************************************************************
+*/
+input:focus,
+textarea:focus {
+    background-color: #FFD;
+}
+/*
+Os campos que estiverem inválidos devem ter uma sombra vermelha.
+***************************************************************
+*/
+input:invalid {
+    box-shadow: 0 0 3px red;
+}
+/*
+O botão para enviar o formulário deve ficar na parte inferior direita da página, após o
+formulário, e ter o mesmo esquema de cores da barra lateral com a fonte usada nos títulos
+e levemente maior do que o texto normal. Além disso, o botão não deve ter borda.
+**************************************************************************************
+*/
+form{
+    position: relative;
+}
+button {
+    /* Precisamos tirar a borda que o navegador coloca por padrão */
+    border: 0;
+    padding: .5em 1em;
+    font-family: "Open Sans Condensed", sans-serif;
+    background-color: #3C1D3D;
+    color: white;
+    font-size: 1.2em;
+    /* Faz com que o botão apareça na direita */
+    margin-left: auto;
+    margin-top: 1em;
+    position: absolute;
+    right: 0;
+}
+/*
+Quando o botão for selecionado pelo teclado ou quando o mouse estiver sobre ele, o fundo deve
+mudar para a cor #8C1D3D.
+********************************************************************************************
+*/
+button:hover,
+button:focus {
+    background-color: #8C1D3D;
+}
+/*
+O campo 'outro-assunto' só será exibido se o radio button 'outro' for selecionado
+*********************************************************************************
+*/
+input[name="outro-assunto"]{
+    display: none;
+}
+input[value="outro"]:checked + input[name="outro-assunto"]{
+    display: inline-block;
+}
+/* Outra opção:
+O radio usado para o assunto "Outro" tem o atributo value com esse texto. Então, usando os seletores de
+atributo e de irmão, conseguimos selecionar o campo e escondê-lo com a propriedade display:
+input[value="Outro"] ~ input {
+    display: none;
+}
+Agora, quando esse radio for selecionado, a pseudoclasse será adicionada a ele. Podemos usar essa
+pseudoclasse para selecionar novamente o campo de texto ao lado e mudar o valor da propriedade display:
+
+input[value="Outro"]:checked ~ input {
+    display: inline;
+}
+*/
