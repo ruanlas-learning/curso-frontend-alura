@@ -64,3 +64,113 @@ das citações quando passado o mouse sobre eles
 .citacao-bio > p{
     position: relative;
 }
+
+/**************** ESTILIZAÇÃO DA TABELA ***************/
+table{
+    border-collapse: separate; /* Define que as células serão separadas */
+    border-spacing: 0.25em; /* define o tamanho do espaço entre as células */
+    margin: 1em 0; /* Define a margem superior e inferior da tabela de 1em, e esquerda e direita da tabela de 0 */
+}
+th,td{
+    /* espaço interno das células */
+    padding: 1em;
+}
+th{
+    color: white;
+}
+td{
+    background-color: #EEE;
+}
+tbody tr > th{ /* Filtra somente os elementos 'th' filho do 'tr' que são netos de 'tbody' */
+    background-color: #851944;
+    font-weight: bold; /* negrito */
+}
+thead tr th{ /* Filtra somente os elementos 'th' filho do 'tr' que são netos de 'thead' */
+    background-color: #3C1D3D;
+}
+td[colspan]{ /* seleciona o td que tem o atributo 'colspan' */
+    /* formatação da célula que ocupa o espaço de duas colunas por tres linhas */
+    text-align: center;/* (centralização horizontal) */
+    vertical-align: middle; /* (centralização vertical) */
+    font-style: italic;
+}
+/********************************** OUTRA RESOLUÇÃO
+Para criarmos a tabela de uma forma semântica, devemos usar as tags thead, tbody e th (tfoot também, quando aplicável).
+Assim, o código da nossa tabela no HTML deveria ficar algo como:
+
+<h2 class="subtitulo-texto">Habilidades</h2>
+<table class="habilidades">
+    <thead>
+        <tr>
+            <th>Habilidade</th>
+            <th>Nível</th>
+            <th>Experiências</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>HTML5</th>
+            <td>Proficiente</td>
+            <td>Uso em todos os sites que desenvolvo</td>
+        </tr>
+        <tr>
+            <th>CSS3</th>
+            <td>Proficiente</td>
+            <td>Uso em todos os sites que desenvolvo</td>
+        </tr>
+        <tr>
+            <th>JavaScript</th>
+            <td>Proficiente</td>
+            <td>Uso em quase todos os sites que desenvolvo, aplicando-o de forma não-obstrutiva</td>
+        </tr>
+        <tr>
+            <th>Design</th>
+            <td>Proficiente</td>
+            <td>Formado em web design pela Universidade de Jacarezinho</td>
+        </tr>
+    </tbody>
+</table>
+
+Repare que é interessante colocar uma classe na tabela para controlar nossa estilização. Analisando passo-a-passo o
+que temos que fazer:
+
+Os nomes das habilidades devem estar com cor de fundo #851944 e o texto em branco e negrito
+
+.habilidades th {
+    font-weight: bold;
+    background-color: #851944;
+    color: white;
+}
+
+O cabeçalho deve ter a cor de fundo #3C1D3D e o texto em branco e negrito
+
+.habilidades thead th {
+  /* não precisamos colocar font-weight e color
+     pois já fizemos isso para todos os th ** /
+     background-color: #3C1D3D;
+    }
+
+O resto do conteúdo deve estar em células com cor de fundo #EEE e o texto na mesma cor do resto da página
+
+    .habilidades td {
+        background-color: #eee;
+    }
+
+As células devem estar espaçadas de 0.25em e devem ter espaçamento interno de 1em
+
+    .habilidades th,
+    .habilidades td {
+        padding: 1em;
+    }
+    
+    .habilidades {
+        border-collapse: separate;
+        border-spacing: .25em;
+    }
+
+A tabela deve estar afastada 1em acima e abaixo do resto do conteúdo
+
+    .habilidades {
+        margin: 1em 0;
+    }
+***********************************************************************************************/
