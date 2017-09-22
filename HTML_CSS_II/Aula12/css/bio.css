@@ -88,13 +88,14 @@ tbody tr > th{ /* Filtra somente os elementos 'th' filho do 'tr' que são netos 
 thead tr th{ /* Filtra somente os elementos 'th' filho do 'tr' que são netos de 'thead' */
     background-color: #3C1D3D;
 }
-td[colspan]{ /* seleciona o td que tem o atributo 'colspan' */
+td[colspan]{ /* seleciona o 'td' que tem o atributo 'colspan' */
     /* formatação da célula que ocupa o espaço de duas colunas por tres linhas */
     text-align: center;/* (centralização horizontal) */
     vertical-align: middle; /* (centralização vertical) */
     font-style: italic;
 }
 /********************************** OUTRA RESOLUÇÃO
+
 Para criarmos a tabela de uma forma semântica, devemos usar as tags thead, tbody e th (tfoot também, quando aplicável).
 Assim, o código da nossa tabela no HTML deveria ficar algo como:
 
