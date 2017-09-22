@@ -5,6 +5,19 @@
     margin: 1em 2em; /*estava com 20px e 40px*/
     width: 30ch; /*estava com 250px*/
     box-sizing: border-box;
+
+
+    transition: 1s; /* Esta propiedade faz com que a animação aplicada à citação aconteça
+    de forma suave em 1 segundo (aparecendo e desaparecendo) */
+    /*
+    Porém, se fizermos isso, todas as propriedades serão animadas. Podemos ser mais
+    precisos e indicar que queremos transição apenas nas propriedades envolvidas no
+    efeito, que são box-shadow e transform. Assim, a declaração ficaria:
+    
+    .citacao-bio {
+        transition: box-shadow 1s, transform 1s;
+    }
+    */
 }
 
 /* A pseudo classe ':nth-of-type' seleciona elementos específicos de um determinado tipo */

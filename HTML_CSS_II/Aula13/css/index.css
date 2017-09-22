@@ -471,3 +471,44 @@ div {
     padding: 1em;
 }
 */
+
+/********************************************************************************** 
+Os botões da página inicial (index) já têm um efeito quando o usuário interage com eles: o texto fica vermelho.
+Porém, podemos melhorar bastante isso, criando um efeito personalizado para eles e adicionando suavidade a esse efeito.
+Quando o usuário passar o mouse em cima do botão ou selecioná-lo com o teclado, adicione uma sombra na cor #FA9
+levemente borrada ao redor dele, mantenha a cor branca para o texto e mude a cor de fundo para #C54974. Faça com
+que essas alterações no visual do botão aconteçam em até meio segundo.
+
+Além desses efeitos interativos, remova o sublinhado do texto.
+Resolução abaixo:
+*/
+section > a{
+    transition: .5s;
+    text-decoration: none;
+}
+.botao-index:hover, .botao-index:focus{
+    text-shadow: 0 0 1em #FA9; /* os dois primeiros números se referem ao deslocamento da sombra (no caso 0),
+    e o terceiro o preenchimento da sombra */
+    background-color: #C54974;
+    color: white;
+}
+/*** Outra solução:
+
+Para adicionar esses efeitos de interação do usuário com o botão, podemos adicionar o seguinte código ao arquivo index.css:
+
+.botao-index:focus,
+.botao-index:hover {
+    background-color: #C54974;
+    color: white;
+    box-shadow: 0 0 1em #FA9;
+}
+
+Para que esses efeitos apareçam suavemente (em meio segundo), adicionamos à classe botao-index a propriedade transition.
+Adicionamos também a ela a declaração para tirar o sublinhado dos botões:
+
+.botao-index {
+    text-decoration: none;
+    transition: .5s;
+}
+
+*/
