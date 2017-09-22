@@ -76,7 +76,15 @@ main .trabalhos, main .blog{
     /*o trecho abaixo irá cuidar da transformação do elemento (rotação, posicionamento e translação)*/
     position: absolute;
     transform-origin: 0 0; /*Como queremos que o canto superior seja a base para a rotação, usamos a declaração*/
-    transform: translate(6.5754em, -2.4749em) rotate(45deg);
+/* Vamos usar a função calc() para deixar o código que fizemos para o banner do Twitter, na página inicial, mais legível.
+
+Colocamos, no CSS, o resultado das contas necessárias para transladar corretamente o banner após a rotação. As contas que fizemos são:
+
+Eixo X: 0.707 * (altura - largura) + largura
+Eixo Y: -0.707 * altura
+O número 0.707 ainda vai ter que continuar lá, já que o CSS ainda não suporta contas
+com senos e cossenos; a altura do elemento nós sabemos que é 3.5em e, a largura, podemos usar 100%. */
+    transform: translate( calc(0.707 * (3.5em - 100%) + 100%), calc(-0.707 * 3.5em)) rotate(45deg);
     right: 0;
     top: 0;
 }
@@ -431,4 +439,35 @@ basta que o li chegue até esses 30%:
     width: 30%;
 }
 
+*/
+
+/**************************************************************************
+************** EXERCÍCIO 3 - AULA 11 **************************************
+A propriedade box-sizing nos permite controlar o modo como o navegador mede a largura de elementos e,
+com ela, conseguimos dizer para o navegador medir a largura que especificamos com a propriedade width
+considerando ou não o espaçamento interno e as bordas do elemento.
+Um cenário que ela nos permite resolver é criar um elemento que ocupa 50% da tela e tem espaçamento
+interno de 1em.
+
+div {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 1em;
+}
+Porém dessa maneira acabamos com o elemento 2em além do esperado. Como poderíamos corrigir a largura?
+
+*******RESPOSTA*******
+
+Para conseguir o mesmo resultado usando a função calc(), precisamos observar que o comportamento padrão
+do navegador é não contar o espaçamento interno na hora de definir a largura do elemento. Ou seja, quando fazemos
+div {
+    width: 50%;
+    padding: 1em;
+}
+O elemento acaba 2em mais largo do que deveria. Para resolver isso, podemos usar a função calc() para subtrair esses 2em da largura definida. Dessa forma, a largura final será exatamente 50%. Ou seja:
+
+div {
+    width: calc(50% - 2em);
+    padding: 1em;
+}
 */

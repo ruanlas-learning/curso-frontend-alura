@@ -124,3 +124,118 @@ input[value="Outro"]:checked ~ input {
     display: inline;
 }
 */
+
+/**************************************
+    INSERÇÃO DE ÍCONES ANTES DOS INPUTs DO FORM
+**/
+label[for="nome"]{
+    position: relative;
+}
+label[for="nome"]::after{
+    content: "";
+    background-image: url(../imagens/usuario.png);
+    background-color: purple;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background-size: 50% 50%;
+    left: 0;
+}
+#nome{
+    width: calc(100% - 2em);
+    position: relative;
+    left: 2em;
+}
+label[for="e-mail"]{
+    position: relative;
+}
+label[for="e-mail"]::after{
+    content: "";
+    background-image: url(../imagens/email.png);
+    background-color: purple;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background-size: 50% 50%;
+    left: 0;
+}
+#e-mail{
+    width: calc(100% - 2em);
+    position: relative;
+    left: 2em;
+}
+/************ OUTRA RESOLUÇÃO PARA INSERÇÃO DOS ÍCONES::
+Como queremos inserir os ícones via CSS, precisamos usar um pseudoelemento para eles.
+Seguindo a dica do enunciado, vamos adicionar a classe com-icone às labels Nome e E-mail,
+e usar um pseudoelemento, o ::after por exemplo.
+
+/* adicionamos essa classe aos rótulos que terão ícone ** /
+
+.com-icone::after {
+    content: ''; /* não podemos esquecer do content! ** /
+    width: 2em;
+    height: 2em;
+    background-color: #8C1D3D;
+    background-size: 50% 50%; /* para a imagem ter 1em x 1em ** /
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+Precisamos, agora, posicionar esse ícone ao lado do campo. Para isso, definimos o elemento <label> como referência:
+
+.com-icone {
+    position: relative;
+}
+
+E, agora, podemos posicionar o ícone na linha do campo, no canto esquerdo:
+
+.com-icone::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+Isso vai deixar o ícone em cima do campo. Então precisamos jogar o campo para o lado:
+
+.com-icone + input {
+    position: relative;
+    left: 2em;
+}
+
+Só que, com isso, os campos com ícone ficarão desalinhados com relação ao resto do formulário. Então podemos
+reduzir a largura deles usando a propriedade width com a função calc():
+
+.com-icone + input {
+    width: calc(100% - 2em);
+}
+
+E por fim, podemos colocar os ícones como imagens de fundo:
+
+.com-icone[for="nome"]::after {
+    background-image: url(../imagens/usuario.png);
+}
+
+.com-icone[for="email"]::after {
+    background-image: url(../imagens/email.png);
+}
+ 
+
+***/
+/*******************************
+    VANTAGENS DA FUNÇÃO CALC():
+    A função calc() traz três grandes vantagens para nosso código.
+
+    A primeira é a legibilidade: podemos deixar algumas contas explícitas, facilitando o
+    entendimento e a manutenção do código.
+
+    A segunda é o poder: conseguimos criar layouts que não eram possíveis sem JavaScript
+    antes, como elementos que ocupam um espaço que outros deixaram sobrando.
+
+    A terceira é a flexibilidade: como podemos misturar unidades nas contas, conseguimos
+    deixar nosso layout ainda mais flexível, com um comportamento adequado em tamanhos de tela
+    diferentes e com fontes diferentes.
+***************************************/

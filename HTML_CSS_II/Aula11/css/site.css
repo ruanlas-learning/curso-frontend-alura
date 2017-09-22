@@ -121,7 +121,7 @@ em {
 }
 
 main {
-    width: 85%;
+    width: calc(100% - (0.9 * 300px)); /* calcula a largura do main subtraindo a largura da barra de navegação */
     float: left;
     padding-bottom: 80px;
 }
@@ -134,7 +134,7 @@ main {
 }
 
 .navegacao-site {
-    width: 15%;
+    width: calc(0.9 * 300px); /* calcula o tamanho da barra de navegação como sendo 90% do tamanho da foto */
     float: right;
     position: relative;
     top: 300px;
