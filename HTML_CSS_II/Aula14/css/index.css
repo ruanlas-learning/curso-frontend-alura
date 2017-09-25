@@ -129,13 +129,17 @@ com senos e cossenos; a altura do elemento nós sabemos que é 3.5em e, a largur
 .trabalhos h2 {
     color: #FFF;
 }
-.trabalhos ul {
-    overflow: hidden;
-    border: .5em solid black;
+.trabalhos ul { 
+    /*overflow: hidden; /* podemos tirar o overflow também! */
+    /* border: .5em solid black; */ /* removemos a borda aqui */
+    display: flex; /* transformamos a lista de trabalhos num container flex. Com isso podemos tirar o overflow */
+    /* Com isso, agora podemos usar nos elementos da lista a propriedade 'flex', para garantir que eles cresçam
+    e diminuam automaticamente de acordo com o tamanho da lista e com o número de itens */
 }
 .trabalhos li {
-    float: left;
-    width: 33.333%;
+    /*float: left;
+    width: 33.333%;  */
+    flex: 1; /* não precisamos mais de float nem width! */
 }
 .trabalhos img {
     width: 100%;
@@ -618,4 +622,40 @@ uma transição ocorrendo quando colocamos o mouse em cima, e não quando tiramo
     100% {
         top: 5px;
     }
+}
+body{
+    display: block;
+    /* Desativa o flexbox apenas no index.css, não deixando a página quebrar,
+    subescrevendo o site.css */
+}
+/**********************************************************
+Vimos que a propriedade order permite mudar a ordem em que elementos dentro de um
+container flex são exibidos. Podemos usá-la, então, para dar mais destaque ao primeiro
+item da lista de trabalhos na página inicial.
+Queremos que ele continue em primeiro na lista pois, pela semântica, ele é o mais importante.
+Porém, visualmente, colocá-lo no meio da página (e aumentá-lo ligeiramente) dará mais destaque a ele.
+
+Use a propriedade order e a transformação de escala para criar esse efeito, chegando num resultado
+como o da figura abaixo.  
+*/
+.trabalhos li:first-child{
+    order: 2;
+    transform: scale(1.2);
+}
+.trabalhos li:nth-child(2) {
+    order: 1;
+}
+.trabalhos li:last-child {
+    order: 3;
+}
+/*
+Por fim, para conseguir as bordas ao redor da imagem central, podemos tirar a borda
+e o overflow da lista e colocar apenas a borda em cada um de seus itens:
+*/
+.trabalhos ul {
+    /* removemos a borda e o overflow daqui */
+}
+
+.trabalhos li {
+    border: .5em solid #000;
 }

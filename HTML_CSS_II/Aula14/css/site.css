@@ -122,7 +122,7 @@ em {
 
 main {
     width: calc(100% - (0.9 * 300px)); /* calcula a largura do main subtraindo a largura da barra de navegação */
-    float: left;
+    /* float: left; */ /* Esta declaração não é mais necessária, pois vamos trabalhar com Flexbox */
     padding-bottom: 80px;
 }
 
@@ -135,9 +135,11 @@ main {
 
 .navegacao-site {
     width: calc(0.9 * 300px); /* calcula o tamanho da barra de navegação como sendo 90% do tamanho da foto */
-    float: right;
-    position: relative;
-    top: 300px;
+    /* float: right; */ /* Esta declaração não é mais necessária, pois iremos trabalhar com Flexbox */
+    /* troque o position: relative e o top: 300px da barra lateral por um padding-top: 300px */
+    /*position: relative;
+    top: 300px; */
+    padding-top: calc(300px + 1em); /* adicione 1em a esse valor para conseguir exatamente o mesmo resultado */
 }
 
 .minha-foto {
@@ -204,4 +206,43 @@ link dos icones das redes sociais */
     /* Por fim, precisamos rotacionar e transladar a caixa que criamos para que ela encaixe como uma ponta na legenda.
     Para isso, usamos a propriedade 'transform:' */
     transform: translateY(.5em) rotate(45deg);
+}
+
+/*************************************************************************
+#########################################################################
+#########################################################################
+
+O primeiro passo é transformar o <body> num container flex com suporte a
+quebras de linha, para que o cabeçalho fique numa linha diferente dos elementos
+<main> e <aside>. Para isso, adicionamos o seguinte código:
+*/
+body{
+    /* Aplica o Flexbox em todo o site */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/******************************************************************************8
+Com isso, agora podemos remover as declarações de float no <main> e no <aside>. Também podemos remover a
+declaração de largura no <main>. No lugar, queremos apenas garantir que esse elemento ocupe todo o espaço
+que a barra lateral não ocupa. Para isso, usamos a propriedade flex-grow:
+*/
+main {
+    flex-grow: 1;
+}
+/*
+A barra lateral já vai automaticamente crescer para ocupar toda a altura da página. Podemos apenas fazer alguns ajustes para melhorar o
+resultado. Removemos a borda inferior dela, deixando apenas na foto, e usamos a dica para remover espaço sobrando no final da página:
+*/
+.navegacao-site {
+    /* removemos position e top, além do float, já removido acima */
+    padding-top: calc(300px + 1em);
+}
+.minha-foto,
+.navegacao-site {
+    /* removemos a borda aqui */
+}
+
+.minha-foto {
+    border-bottom: .5em solid black;
 }
