@@ -487,7 +487,9 @@ section > a{
     text-decoration: none;
 }
 .botao-index:hover, .botao-index:focus{
-    text-shadow: 0 0 1em #FA9; /* os dois primeiros números se referem ao deslocamento da sombra (no caso 0),
+    /*text-shadow: 0 0 1em #FA9; /* os dois primeiros números se referem ao deslocamento da sombra (no caso 0),
+    e o terceiro o preenchimento da sombra */
+    box-shadow: 0 0 1em #FA9; /* os dois primeiros números se referem ao deslocamento da sombra (no caso 0),
     e o terceiro o preenchimento da sombra */
     background-color: #C54974;
     color: white;
