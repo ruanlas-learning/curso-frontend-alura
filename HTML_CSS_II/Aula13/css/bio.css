@@ -7,7 +7,7 @@
     box-sizing: border-box;
 
 
-    transition: 1s; /* Esta propiedade faz com que a animação aplicada à citação aconteça
+    /*transition: 1s; /*** Esta propiedade faz com que a animação aplicada à citação aconteça
     de forma suave em 1 segundo (aparecendo e desaparecendo) */
     /*
     Porém, se fizermos isso, todas as propriedades serão animadas. Podemos ser mais
@@ -18,6 +18,24 @@
         transition: box-shadow 1s, transform 1s;
     }
     */
+
+    /*
+        Para deixar o efeito suavizado que fizemos nas citações ainda mais interessante, podemos
+        fazer com que o fundo translúcido apareça antes da caixa aumentar de tamanho.
+        Configure duas transições: uma para o fundo e outra para a transformação da caixa. Em
+        seguida, faça com que a transição da caixa aconteça com um atraso de '1s' usando a
+        propriedade 'transition-delay'.
+    */
+    transition: box-shadow 1s, transform 1s; /* Para configurar diferentes transições para um
+    mesmo elemento para propriedades diferentes, usamos apenas uma vez a propriedade transition,
+    separando as transições por vírgula e colocando o nome da propriedade a transicionar e o tempo
+    para a transição ocorrer.
+    A transição para o fundo é feita na propriedade box-shadow e a transição da transformação é feita
+    na propriedade transform. */
+    /*transition-delay: 0s, 1s; /* Agora, para atrasar apenas a transição da transformação da caixa,
+    usamos a propriedade transition-delay passando o atraso das duas transições na mesma ordem que
+    as especificamos */
+    transition-delay: 1s, 0s; /* vale quando o usuário parou de interagir */
 }
 
 /* A pseudo classe ':nth-of-type' seleciona elementos específicos de um determinado tipo */
@@ -41,6 +59,7 @@
     se passa o mouse sobre a citação, mantendo a formatação da citação
     */
     box-shadow: 0 0 0 99999px rgba(0,0,0,.8);
+    transition-delay: 0s, 1s; /* vale quando o usuário começou a interagir */
 }
 /* os trechos abaixo aplicam a transformação de rotação e aumenta a escala
 das citações quando passado o mouse sobre eles

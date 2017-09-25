@@ -514,3 +514,108 @@ Adicionamos também a ela a declaração para tirar o sublinhado dos botões:
 }
 
 */
+
+/****************************************
+Considere novamente o cenário da classe 'botao':
+
+.botao {
+    background-color: green;
+    transition: box-shadow 1s, background-color 2s;
+}
+
+.botao:hover {
+    background-color: red;
+    box-shadow: 0 0 3px white;
+}
+
+O que vai mudar se colocarmos a declaração da propriedade transition no
+seletor '.botao:hover' e removê-la do seletor '.botao'?
+
+Quando colocamos uma propriedade num seletor que usa a pseudoclasse ':hover', essa declaração só tem efeito quando
+passamos o mouse sobre o elemento correspondente. Assim, a transição só terá efeito quando colocarmos o mouse sobre o
+elemento. Uma vez que tirarmos o mouse de cima do elemento, também perdemos a declaração da transição, ou seja, só veremos
+uma transição ocorrendo quando colocamos o mouse em cima, e não quando tiramos.
+***********************************************************************
+*/
+/********************************************************************************************************** 
+    As palavras-chave que colocamos na página inicial podem chamar ainda mais a atenção se aparecerem dinamicamente na
+    hora em que a página for carregada.
+    Para conseguir esse efeito, podemos adicionar uma animação durando 2 segundos em cada uma das palavras da lista
+    (através do seletor .palavra-home), partindo de zero de opacidade e quase zero de tamanho (usando a transformação scale).
+
+    Adicione esse efeito à página inicial.
+
+    Nota: se você estiver usando os navegadores Chrome, Safari ou Opera para desenvolver, você precisará adicionar as versões
+    com o prefixo -webkit- ao seu código. No caso das declarações @keyframes, você também precisa criar as declarações @-webkit-keyframes.
+*/
+.palavra-home{
+    animation: aparece-elemento 1s;
+    -webkit-animation: aparece-elemento 1s;
+}
+.banner{
+    /* A animação que queremos aplicar é exatamente a mesma que acabamos de fazer,
+    então basta reaproveitá-la no banner do Twitter: */
+    animation: aparece-elemento 0.5s;
+    -webkit-animation: aparece-elemento 0.5s;
+    /* Além disso, para que a animação aconteça apenas após o efeito das palavras,
+    adicionamos um atraso à animação nesse elemento apenas. Ficamos, então, com: */
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    /* Para este efeito funcionar, temos que seguir EXATAMENTE esta sequência.
+    primeiro definimos a animação, e logo após o delay */
+
+    /*
+    O banner do Twitter fica aparecendo antes da animação começar. Isso indica que o estilo inicial da animação
+    não é aplicado ao elemento antes que ela comece por padrão. Porém, podemos mudar esse comportamento.
+    A especificação de animações define uma propriedade chamada 'animation-fill-mode'. Essa propriedade nos permite
+    fazer com que o navegador aplique o estilo inicial de uma animação antes mesmo de ela começar (valor 'backwards'),
+    mantenha o estilo final de uma animação mesmo após ela terminar de executar (valor 'forwards') ou ainda faça
+    as duas coisas (valor 'both').
+    */
+    animation-fill-mode: both; /* ou backwards */
+    -webkit-animation-fill-mode: both; /* ou backwards */
+}
+.saudacao em{
+    animation: elemento-flutua 1s infinite; /* queremos que a animação se repita infinitamente. Então adicionamos mais um parâmetro à declaração */
+    -webkit-animation: elemento-flutua 1s infinite;
+    animation-direction: alternate; /* para o elemento não pular subitamente para cima no final da animação, precisamos adicionar uma declaração dizendo
+    para o navegador alternar o sentido da animação conforme ela é repetida */
+    -webkit-animation-direction: alternate;
+    animation-timing-function: ease-in-out; /* para que o elemento pareça flutuar, precisamos que a animação seja suavizada no começo e no fim. Então
+    definimos a função de suavização como 'ease-in-out' */
+    -webkit-animation-timing-function: ease-in-out;
+    position: relative; /* Para a animação flutuar, precisaremos deslocar o elemento a partir de sua posição original. Precisamos, então, definir
+    seu posicionamento como relative */
+}
+.saudacao:hover em, .saudacao:focus em{
+    animation-play-state: paused; /* para a flutuação quando coloca o mouse em cima do parágrafo. */
+    -webkit-animation-play-state: paused;
+}
+@-webkit-keyframes aparece-elemento{
+    from{
+        opacity: 0;
+        transform: scale(0.001);
+    }
+}
+@keyframes aparece-elemento{
+    from{
+        opacity: 0;
+        transform: scale(0.001);
+    }
+}
+@keyframes elemento-flutua{
+    0% {
+        top: -5px;
+    }
+    100% {
+        top: 5px;
+    }
+}
+@-webkit-keyframes elemento-flutua{
+    0% {
+        top: -5px;
+    }
+    100% {
+        top: 5px;
+    }
+}
