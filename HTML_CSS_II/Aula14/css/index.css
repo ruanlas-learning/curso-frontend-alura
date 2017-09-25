@@ -1,0 +1,621 @@
+/* site legal de suporte a navegadores:  http://caniuse.com/#feat=border-radius
+documentação Mozila: https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select
+ 
+    serviços online para testar HTML e CSS: http://cssdeck.com/, http://dabblet.com/
+    gabarito atividade 9 - Aula 04 => http://dabblet.com/gist/70a44631ea6fdab54962
+
+    atividade 5 - Aula 06 => http://dabblet.com/gist/a49c6685fd643c6e4caf
+        Gabarito CSS =      background-repeat: no-repeat;
+                            background-size: 80% 5px;
+                            background-position: 50% 50%;
+
+    testar esta propiedade nos elementos => 'box-shadow: 10px 10px black, -10px -10px orange;'
+                                    =>      'box-shadow: 0 0 0 4px black,
+                                                         0 0 0 8px blue,
+                                                         0 0 0 12px black,
+                                                         0 0 0 16px blue,
+                                                         0 0 0 20px black;'
+    
+    
+*/
+.foto-home {
+    height: 200px;
+    /*o trecho abaixo deixa a imagem redonda*/
+    /*border-radius: 100px;*/
+    border-radius: 50%;
+    /*efeitinho legalll
+    border-radius: 10% 50% / 50% 10%;
+    */
+}
+.saudacao p {
+    font-size: 1.5em;
+    color: #99A;
+    line-height: 1;
+    padding: 2em;
+}
+header{
+    position: relative;
+}
+main .trabalhos, main .blog{
+    padding-left:  2%;
+    padding-right: 2%;
+    box-sizing: border-box;
+}
+.saudacao-inicio {
+    color: #889;
+    font-size: 3em;
+}
+.saudacao-ultima-linha {
+    text-align: right;
+    display: block;
+}
+.saudacao strong {
+    color: #000;
+    font-size: 2em;
+}
+.saudacao em {
+    color: #851944;
+    font-size: 4em;
+    /*atividade 4 Aula04*/
+    display: inline-block;
+    transform: skew(-10deg)
+    rotate(-5deg);
+}
+.banner{
+    color: white;
+    background-color: #3C1D3D;
+    width: 14em;
+    line-height: 1;
+    padding: 1em 0;
+
+    border: .25em solid black;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    font-family: "Open Sans Condensed", sans-serif;
+
+    /*o trecho abaixo irá cuidar da transformação do elemento (rotação, posicionamento e translação)*/
+    position: absolute;
+    transform-origin: 0 0; /*Como queremos que o canto superior seja a base para a rotação, usamos a declaração*/
+/* Vamos usar a função calc() para deixar o código que fizemos para o banner do Twitter, na página inicial, mais legível.
+
+Colocamos, no CSS, o resultado das contas necessárias para transladar corretamente o banner após a rotação. As contas que fizemos são:
+
+Eixo X: 0.707 * (altura - largura) + largura
+Eixo Y: -0.707 * altura
+O número 0.707 ainda vai ter que continuar lá, já que o CSS ainda não suporta contas
+com senos e cossenos; a altura do elemento nós sabemos que é 3.5em e, a largura, podemos usar 100%. */
+    transform: translate( calc(0.707 * (3.5em - 100%) + 100%), calc(-0.707 * 3.5em)) rotate(45deg);
+    right: 0;
+    top: 0;
+}
+.botao-index {
+    font-size: 1.25em;
+    background-color: #851944;
+    color: #FFF;
+    padding: .5em;
+    border: .2em solid black;
+    width: 40ch;
+    margin: 2em auto;
+    display: block;
+    text-align: center;
+}
+.secao-inicio{
+    padding: 2em;
+}
+.secao-inicio h2 {
+    text-transform: uppercase;
+    font-size: 3em;
+    text-shadow: 2px 2px #000; /* Aplica o efeito de sombra ao título 'h2' de acordo com o seletor especificado */ 
+    margin-bottom: .5em;
+}
+.trabalhos {
+    background-color: #3C1D3D;
+    border-top: .5em solid #000;
+    border-bottom: .5em solid #000;
+
+    /* o trecho abaixo irá aplicar o efeito de fundo listrado utilizando gradiente */
+    background-image: linear-gradient(135deg, /* direção de 135º medindo a partir do eixo vertical, ou simplesmente 'to bottom right' */
+        transparent, /* inicia com transparente */
+        transparent 14px, /* chega até 14px com transparente */
+        rgba(0, 0, 0, 0.1) 14px, /* muda subtamente para uma cor semi-transparente */
+        rgba(0, 0, 0, 0.1) 15px, /* mantém 1px com a mesma cor anterior */
+        transparent 15px, /* volta novamente para a cor transparente */
+        transparent); /*  */
+    background-size: 20px /* Largura */ 20px /* Altura */;
+    background-repeat: repeat; /* faz repetir o efeito */
+    background-attachment: fixed; /* fixa o efeito na 'tela' e não na página */
+
+}
+.trabalhos h2 {
+    color: #FFF;
+}
+.trabalhos ul {
+    overflow: hidden;
+    border: .5em solid black;
+}
+.trabalhos li {
+    float: left;
+    width: 33.333%;
+}
+.trabalhos img {
+    width: 100%;
+    display: block;
+}
+.blog {
+    background-color: #999;
+    color: #FFF;
+    border-bottom: .5em solid #851944;
+    /* a propiedade abaixo faz o blog se tornar a referência para o posicionamento do parágrafo */
+    position: relative;
+
+    /* o trecho abaixo irá aplicar o efeito de fundo listrado utilizando gradiente */
+    background-image: linear-gradient(45deg, /* direção de 45º medindo a partir do eixo vertical, ou simplesmente 'to top left' */
+    transparent, /* inicia com transparente */
+    transparent 14px, /* chega até 14px com transparente */
+    rgba(0, 0, 0, 0.1) 14px, /* muda subtamente para uma cor semi-transparente */
+    rgba(255, 255, 255, 0.1) 15px, /* mantém 1px com a mesma cor anterior */
+    transparent 15px, /* volta novamente para a cor transparente */
+    transparent);
+    background-size: 20px /* Largura */ 20px /* Altura */;
+    background-repeat: repeat; /* faz repetir o efeito */
+    background-attachment: fixed; /* fixa o efeito na 'tela' e não na página */
+}
+.blog small{
+    position: relative;
+    top: -2em;
+}
+.blog li a {
+    color: #FCF;
+    padding: .5em;
+    display: block;
+}
+footer {
+    background-color: #000;
+    color: #FFF;
+    padding: 2em;
+}
+footer h2{
+    font-size: 3em;
+}
+footer a {
+    color: #F99;
+}
+main {
+    width: 80%;
+    padding-bottom: 0;
+    margin-left: auto; 
+    margin-right: auto;
+    float: none;
+}
+/*///*/
+
+html ,body{
+    /* criar o efeito paralaxe (objetos mais próximos com velocidade aparentemente maior) */
+    height: 100%;
+    /* o comando abaixo faz o navegador ignorar o que fica para fora da página. (transladamos o
+    link para fora da página nos exercícios anteriores) */
+    overflow-x: hidden;
+}
+body{
+    /* no trecho abaixo estamos definindo a perspectiva não mais no cabeçalho, mas no body */
+    perspective: 10px;
+    perspective-origin: 50% 160px;
+}
+.palavras-home, .titulo-principal {
+    /* para manter as transformações 3D adicionamos a declaração abaixo nos elementos acima 
+    delas na hierarquia, que são a 'ul' com a classe 'palavras-home' e o 'header' com a 
+    classe 'titulo-principal' */
+    transform-style: preserve-3d;    /* mantém as transformações 3D funcionando nas palavras */
+}
+.palavras-flutuantes{
+    /*referência da perspectiva para visualização dos elementos 
+    3D (cone de luz). este elemento contém todas as palavras*/
+    /* perspective: 4px; */
+   /* perspective: 10px;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Os elementos abaixo fazem com que as palavras ocupem o cabeçalho todo. pode ser 
+    feito também substituindo eles por 'bottom' e 'right' também igual a 0 */
+    width: 100%;
+    height: 100%;
+}
+.palavra-home{
+    font-family: "Shadows Into Light", cursive;
+    color: #d5447e;
+    font-style: bold;
+    /*font-size: 1.5em;*/
+
+    /*Após aplicar a transformação de 3D, observa-se que as palavras quando ampliadas ficaram
+    meio borradas. Isso aconteceu pois os elementos que estão mais próximos da perspectiva
+    o navegador tenta aumentá-las sem aumentar o tamanho da fonte. Para corrigir isso,
+    aumentamos o tamanho da fonte para 4X ou mais (de acordo com a alteração abaixo), e
+    depois em cada palavra adicionamos no 'transform' o valor 'scale(0.25)' após a translação no
+    no eixo Z para fazer os elementos voltarem ao tamanho original */
+    font-size: 550%;
+}
+.eficiencia {
+    position: absolute;
+    top: 20%;
+    left: 75%;
+    /*transform: rotate(30deg); /*Rotaciona o objeto no ângulo passado como referência*/
+    /**/
+    transform: translate(-50%, -50%) rotate(30deg) translateZ(-3px) scale(0.25);
+    opacity: 0.6;/* define a opacidade (transparência) */
+}
+.boas-praticas {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    /*transform: rotate(-30deg);*/
+
+    transform: translate(-50%, -50%) rotate(-30deg) translateZ(1.3px) scale(0.25); /* Aplica a transformação 3D na palavra. (Deve seguir esta ordem) */
+    /* translate(-50%, -50%) => faz com que o 'top' e o 'left' que estamos usando
+    para posicionar as palavras definam a posição central delas, e não no canto superior esquerdo. Se as palavras mudarem de tamanho,
+    não será necessário reposicioná-las
+    rotate(-30deg) => rotação da palavra
+    translateZ(1.3px) => translação (movimentação) da palavra no eixo Z
+    scale(0.25) => modifica a escala da palavra (como aumentamos mais de 4X a palavra, é necessário voltá-la ao tamanho normal)
+     */
+}
+.codigo-limpo {
+    position: absolute;
+    top: 67%;
+    left: 13%;
+    /*transform: rotate(60deg);*/
+
+    transform: translate(-50%, -50%) rotate(60deg) translateZ(-.3px) scale(0.25);
+}
+.css3 {
+    position: absolute;
+    top: 30%;
+    right: 30%;
+    /*transform: rotate(45deg);*/
+
+    transform: translate(-50%, -50%) rotate(45deg) translateZ(3px) scale(0.25);
+}
+.html5 {
+    position: absolute;
+    top: 75%;
+    left: 67%;
+    /*transform: rotate(0deg);*/
+
+    transform: translate(-50%, -50%) rotate(0deg) translateZ(-1.2px) scale(0.25);
+    opacity: 0.8;
+}
+.javascript {
+    position: absolute;
+    top: 70%;
+    left: 25%;
+    /*transform: rotate(50deg);*/
+
+    transform: translate(-50%, -50%) rotate(50deg) translateZ(1px) scale(0.25);
+}
+.acessibilidade {
+    position: absolute;
+    top: 43%;
+    left: 85%;
+    /*transform: rotate(-63deg);*/
+
+    transform: translate(-50%, -50%) rotate(-63deg) translateZ(-1px) scale(0.25);
+    opacity: 0.8;
+}
+.responsivo {
+    position: absolute;
+    top: 35%;
+    left: 31%;
+    /*transform: rotate(-40deg);*/
+
+    transform: translate(-50%, -50%) rotate(-40deg) translateZ(-.5px) scale(0.25);
+}
+.otimizacoes {
+    position: absolute;
+    top: 49%;
+    left: 72%;
+    /*transform: rotate(-39deg);*/
+
+    transform: translate(-50%, -50%) rotate(-39deg) translateZ(4px) scale(0.25);
+}
+.agilidade {
+    position: absolute;
+    top: 47%;
+    right: 75%;
+    /*transform: rotate(-41deg);*/
+
+    transform: translate(-50%, -50%) rotate(-41deg) translateZ(-1.9px) scale(0.25);
+    opacity: 0.7;
+}
+.design {
+    position: absolute;
+    top: 65%;
+    left: 80%;
+    /*transform: rotate(45deg);*/
+
+    transform: translate(-50%, -50%) rotate(45deg) translateZ(3px) scale(0.25);
+}
+/*  */
+.blog p:nth-of-type(n+1){
+    /* Está escondendo todos os parágrafos da sessão blog quando a página é carregada */
+    display: none;
+}
+/*
+    Para mostrar o início do post correspondente ao link selecionado por teclado ou mouse,
+    precisamos trocar o 'display: none' por 'display: block' quando uma das pseudoclasses
+    ':hover' ou ':focus' estiver ativa no link. Ou seja, precisamos selecionar o elemento com
+    a classe 'inicio-post' logo em seguida ao link com a pseudoclasse ativa. No código CSS
+    ficamos, então, com:
+*/
+.blog a:hover + .inicio-post,
+.blog a:focus + .inicio-post {
+    display: block;
+}
+/* outra opção. irá pegar o último filho
+
+.blog a:hover + :last-child,
+.blog a:focus + :last-child {
+    display: block;
+}
+ou trocar o ':last-child' por ':nth-child(2)' => irá pegar o filho da segunda linha
+
+*/
+/*
+    Para dar a ideia de continuidade visual entre o link e o texto, podemos mudar a cor do
+    texto do link e do seu fundo nessas interações também:
+*/
+.blog ol a:hover,
+.blog ol a:focus {
+    background-color: #F2FFFC;
+    color: #F26;
+    width: 30%;
+    box-sizing: border-box;
+}
+/* A declaração abaixo deve ser mantida, pois todos os parágrafos pertencentes à sessão blog
+deverão receber esta formatação. Entretanto, não haverá problema de posicionamento, pois eles
+somente serão exibidos se forem posicionados o mouse em cima dos links, conforme definido na
+declaração '.blog a:hover + .inicio-post' e '.blog a:focus + .inicio-post' */
+.inicio-post{
+    background-color: white;
+    color: black;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1.5em;
+    padding-bottom: 6em;
+    position: absolute;
+    top: 4em;
+    right: 3em;
+    /*left: 20em; */
+    left: 30%;
+    box-sizing: border-box;
+}
+/* 
+    as duas declarações seguintes abaixo não serão mais necessárias pois as declarações
+    '.blog ol a:hover' e '.blog ol a:focus' as substituem
+*/
+.blog .mais-recente a{
+    /*color: #F26;*/
+}
+.mais-recente{
+  /*  background-color: white;
+    /*width: 18.9em; ** /
+    width: 30%;
+    /* A largura é definida na mesma porcentagem  que o deslocamento do 'left'
+    da caixa '.inicio-post' ** /
+    box-sizing: border-box; */
+}
+
+/* sugestão atividade:
+
+.blog .inicio-post {
+    position: absolute;
+    top: 4em;
+    height: 8em;
+    left: 30%;
+    right: 4em;
+    background-color: #F2FFFC;
+    color: #000;
+    padding: 1.5em;
+}
+Para que a caixa fique corretamente posicionada dentro da seção "Blog",
+é necessário adicionar um position à section com a classe blog:
+.blog {
+    position: relative;
+}
+Para criar o efeito de a caixa estar ligada ao link, podemos colocar a 
+cor de fundo no li correspondente ao primeiro link, no qual colocamos a classe mais-recente:
+
+.blog .mais-recente {
+    background-color: #F2FFFC;
+}
+
+.blog .mais-recente a {
+    color: #F26;
+}
+Porém, colocando essa cor de fundo, veremos que o li ocupa a largura inteira da seção e,
+por isso, a cor que colocamos acaba ultrapassando o lado direito da caixa. Para resolver
+isso, podemos definir uma largura menor para esses li. Como a caixa está com left: 30%,
+basta que o li chegue até esses 30%:
+
+.blog li {
+    width: 30%;
+}
+
+*/
+
+/**************************************************************************
+************** EXERCÍCIO 3 - AULA 11 **************************************
+A propriedade box-sizing nos permite controlar o modo como o navegador mede a largura de elementos e,
+com ela, conseguimos dizer para o navegador medir a largura que especificamos com a propriedade width
+considerando ou não o espaçamento interno e as bordas do elemento.
+Um cenário que ela nos permite resolver é criar um elemento que ocupa 50% da tela e tem espaçamento
+interno de 1em.
+
+div {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 1em;
+}
+Porém dessa maneira acabamos com o elemento 2em além do esperado. Como poderíamos corrigir a largura?
+
+*******RESPOSTA*******
+
+Para conseguir o mesmo resultado usando a função calc(), precisamos observar que o comportamento padrão
+do navegador é não contar o espaçamento interno na hora de definir a largura do elemento. Ou seja, quando fazemos
+div {
+    width: 50%;
+    padding: 1em;
+}
+O elemento acaba 2em mais largo do que deveria. Para resolver isso, podemos usar a função calc() para subtrair esses 2em da largura definida. Dessa forma, a largura final será exatamente 50%. Ou seja:
+
+div {
+    width: calc(50% - 2em);
+    padding: 1em;
+}
+*/
+
+/********************************************************************************** 
+Os botões da página inicial (index) já têm um efeito quando o usuário interage com eles: o texto fica vermelho.
+Porém, podemos melhorar bastante isso, criando um efeito personalizado para eles e adicionando suavidade a esse efeito.
+Quando o usuário passar o mouse em cima do botão ou selecioná-lo com o teclado, adicione uma sombra na cor #FA9
+levemente borrada ao redor dele, mantenha a cor branca para o texto e mude a cor de fundo para #C54974. Faça com
+que essas alterações no visual do botão aconteçam em até meio segundo.
+
+Além desses efeitos interativos, remova o sublinhado do texto.
+Resolução abaixo:
+*/
+section > a{
+    transition: .5s;
+    text-decoration: none;
+}
+.botao-index:hover, .botao-index:focus{
+    /*text-shadow: 0 0 1em #FA9; /* os dois primeiros números se referem ao deslocamento da sombra (no caso 0),
+    e o terceiro o preenchimento da sombra */
+    box-shadow: 0 0 1em #FA9; /* os dois primeiros números se referem ao deslocamento da sombra (no caso 0),
+    e o terceiro o preenchimento da sombra */
+    background-color: #C54974;
+    color: white;
+}
+/*** Outra solução:
+
+Para adicionar esses efeitos de interação do usuário com o botão, podemos adicionar o seguinte código ao arquivo index.css:
+
+.botao-index:focus,
+.botao-index:hover {
+    background-color: #C54974;
+    color: white;
+    box-shadow: 0 0 1em #FA9;
+}
+
+Para que esses efeitos apareçam suavemente (em meio segundo), adicionamos à classe botao-index a propriedade transition.
+Adicionamos também a ela a declaração para tirar o sublinhado dos botões:
+
+.botao-index {
+    text-decoration: none;
+    transition: .5s;
+}
+
+*/
+
+/****************************************
+Considere novamente o cenário da classe 'botao':
+
+.botao {
+    background-color: green;
+    transition: box-shadow 1s, background-color 2s;
+}
+
+.botao:hover {
+    background-color: red;
+    box-shadow: 0 0 3px white;
+}
+
+O que vai mudar se colocarmos a declaração da propriedade transition no
+seletor '.botao:hover' e removê-la do seletor '.botao'?
+
+Quando colocamos uma propriedade num seletor que usa a pseudoclasse ':hover', essa declaração só tem efeito quando
+passamos o mouse sobre o elemento correspondente. Assim, a transição só terá efeito quando colocarmos o mouse sobre o
+elemento. Uma vez que tirarmos o mouse de cima do elemento, também perdemos a declaração da transição, ou seja, só veremos
+uma transição ocorrendo quando colocamos o mouse em cima, e não quando tiramos.
+***********************************************************************
+*/
+/********************************************************************************************************** 
+    As palavras-chave que colocamos na página inicial podem chamar ainda mais a atenção se aparecerem dinamicamente na
+    hora em que a página for carregada.
+    Para conseguir esse efeito, podemos adicionar uma animação durando 2 segundos em cada uma das palavras da lista
+    (através do seletor .palavra-home), partindo de zero de opacidade e quase zero de tamanho (usando a transformação scale).
+
+    Adicione esse efeito à página inicial.
+
+    Nota: se você estiver usando os navegadores Chrome, Safari ou Opera para desenvolver, você precisará adicionar as versões
+    com o prefixo -webkit- ao seu código. No caso das declarações @keyframes, você também precisa criar as declarações @-webkit-keyframes.
+*/
+.palavra-home{
+    animation: aparece-elemento 1s;
+    -webkit-animation: aparece-elemento 1s;
+}
+.banner{
+    /* A animação que queremos aplicar é exatamente a mesma que acabamos de fazer,
+    então basta reaproveitá-la no banner do Twitter: */
+    animation: aparece-elemento 0.5s;
+    -webkit-animation: aparece-elemento 0.5s;
+    /* Além disso, para que a animação aconteça apenas após o efeito das palavras,
+    adicionamos um atraso à animação nesse elemento apenas. Ficamos, então, com: */
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    /* Para este efeito funcionar, temos que seguir EXATAMENTE esta sequência.
+    primeiro definimos a animação, e logo após o delay */
+
+    /*
+    O banner do Twitter fica aparecendo antes da animação começar. Isso indica que o estilo inicial da animação
+    não é aplicado ao elemento antes que ela comece por padrão. Porém, podemos mudar esse comportamento.
+    A especificação de animações define uma propriedade chamada 'animation-fill-mode'. Essa propriedade nos permite
+    fazer com que o navegador aplique o estilo inicial de uma animação antes mesmo de ela começar (valor 'backwards'),
+    mantenha o estilo final de uma animação mesmo após ela terminar de executar (valor 'forwards') ou ainda faça
+    as duas coisas (valor 'both').
+    */
+    animation-fill-mode: both; /* ou backwards */
+    -webkit-animation-fill-mode: both; /* ou backwards */
+}
+.saudacao em{
+    animation: elemento-flutua 1s infinite; /* queremos que a animação se repita infinitamente. Então adicionamos mais um parâmetro à declaração */
+    -webkit-animation: elemento-flutua 1s infinite;
+    animation-direction: alternate; /* para o elemento não pular subitamente para cima no final da animação, precisamos adicionar uma declaração dizendo
+    para o navegador alternar o sentido da animação conforme ela é repetida */
+    -webkit-animation-direction: alternate;
+    animation-timing-function: ease-in-out; /* para que o elemento pareça flutuar, precisamos que a animação seja suavizada no começo e no fim. Então
+    definimos a função de suavização como 'ease-in-out' */
+    -webkit-animation-timing-function: ease-in-out;
+    position: relative; /* Para a animação flutuar, precisaremos deslocar o elemento a partir de sua posição original. Precisamos, então, definir
+    seu posicionamento como relative */
+}
+.saudacao:hover em, .saudacao:focus em{
+    animation-play-state: paused; /* para a flutuação quando coloca o mouse em cima do parágrafo. */
+    -webkit-animation-play-state: paused;
+}
+@-webkit-keyframes aparece-elemento{
+    from{
+        opacity: 0;
+        transform: scale(0.001);
+    }
+}
+@keyframes aparece-elemento{
+    from{
+        opacity: 0;
+        transform: scale(0.001);
+    }
+}
+@keyframes elemento-flutua{
+    0% {
+        top: -5px;
+    }
+    100% {
+        top: 5px;
+    }
+}
+@-webkit-keyframes elemento-flutua{
+    0% {
+        top: -5px;
+    }
+    100% {
+        top: 5px;
+    }
+}

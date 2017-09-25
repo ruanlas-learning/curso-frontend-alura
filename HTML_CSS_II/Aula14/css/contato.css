@@ -1,0 +1,241 @@
+/*
+As legendas dos grupos de campo e do campo "Mensagem" 
+devem estar em negrito e espaçadas do grupo de campos anterior.
+*************************************************************
+*/
+
+/* Podemos usar um seletor de atributo para selecionar
+   apenas a legenda desse campo e não dos outros */
+legend,
+label[for="msg"] {
+    font-weight: bold; /* Letra em negrito */
+    margin-top: 1em;
+}
+/*
+Deixar os rótulos dos campos sempre em cima deles, exceto para os assuntos.
+*************************************************************************
+*/
+/* As tags <label> que têm o atributo "for" são
+   os rótulos dos campos sem ser os assuntos */
+label[for] {
+    display: block;
+}
+/*
+Os campos de texto devem ocupar a largura inteira da tela (exceto o campo
+para o assunto "Outro"), ter uma borda cinza clara, espaçamento interno e
+usar a mesma fonte do resto da página.
+************************************************************************
+*/
+/* Selecionamos apenas os campos de texto */
+input[type="text"],
+input[type="email"],
+textarea {
+    /* Força o navegador a usar a mesma fonte da página */
+    font-family: inherit;
+    /* Inclusive o tamanho dela */
+    font-size: 100%;
+    padding: .25em .5em;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+/* alguns ajustes para o campo "Outro": deixar ele na mesma linha dos outros assuntos */
+fieldset > fieldset {
+    display: inline;
+}
+
+/* deixar o rótulo dele inline de novo */
+label[for="outro"] {
+    display: inline;
+}
+
+/* deixar só esse campo sem ocupar a tela toda */
+input[name="outro-assunto"] {
+    width: auto;
+}
+/*
+O campo de texto que tiver o foco do teclado deve ficar com o fundo levemente amarelo.
+************************************************************************************
+*/
+input:focus,
+textarea:focus {
+    background-color: #FFD;
+}
+/*
+Os campos que estiverem inválidos devem ter uma sombra vermelha.
+***************************************************************
+*/
+input:invalid {
+    box-shadow: 0 0 3px red;
+}
+/*
+O botão para enviar o formulário deve ficar na parte inferior direita da página, após o
+formulário, e ter o mesmo esquema de cores da barra lateral com a fonte usada nos títulos
+e levemente maior do que o texto normal. Além disso, o botão não deve ter borda.
+**************************************************************************************
+*/
+form{
+    position: relative;
+}
+button {
+    /* Precisamos tirar a borda que o navegador coloca por padrão */
+    border: 0;
+    padding: .5em 1em;
+    font-family: "Open Sans Condensed", sans-serif;
+    background-color: #3C1D3D;
+    color: white;
+    font-size: 1.2em;
+    /* Faz com que o botão apareça na direita */
+    margin-left: auto;
+    margin-top: 1em;
+    position: absolute;
+    right: 0;
+}
+/*
+Quando o botão for selecionado pelo teclado ou quando o mouse estiver sobre ele, o fundo deve
+mudar para a cor #8C1D3D.
+********************************************************************************************
+*/
+button:hover,
+button:focus {
+    background-color: #8C1D3D;
+}
+/*
+O campo 'outro-assunto' só será exibido se o radio button 'outro' for selecionado
+*********************************************************************************
+*/
+input[name="outro-assunto"]{
+    display: none;
+}
+input[value="outro"]:checked + input[name="outro-assunto"]{
+    display: inline-block;
+}
+/* Outra opção:
+O radio usado para o assunto "Outro" tem o atributo value com esse texto. Então, usando os seletores de
+atributo e de irmão, conseguimos selecionar o campo e escondê-lo com a propriedade display:
+input[value="Outro"] ~ input {
+    display: none;
+}
+Agora, quando esse radio for selecionado, a pseudoclasse será adicionada a ele. Podemos usar essa
+pseudoclasse para selecionar novamente o campo de texto ao lado e mudar o valor da propriedade display:
+
+input[value="Outro"]:checked ~ input {
+    display: inline;
+}
+*/
+
+/**************************************
+    INSERÇÃO DE ÍCONES ANTES DOS INPUTs DO FORM
+**/
+label[for="nome"]{
+    position: relative;
+}
+label[for="nome"]::after{
+    content: "";
+    background-image: url(../imagens/usuario.png);
+    background-color: purple;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background-size: 50% 50%;
+    left: 0;
+}
+#nome{
+    width: calc(100% - 2em);
+    position: relative;
+    left: 2em;
+}
+label[for="e-mail"]{
+    position: relative;
+}
+label[for="e-mail"]::after{
+    content: "";
+    background-image: url(../imagens/email.png);
+    background-color: purple;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background-size: 50% 50%;
+    left: 0;
+}
+#e-mail{
+    width: calc(100% - 2em);
+    position: relative;
+    left: 2em;
+}
+/************ OUTRA RESOLUÇÃO PARA INSERÇÃO DOS ÍCONES::
+Como queremos inserir os ícones via CSS, precisamos usar um pseudoelemento para eles.
+Seguindo a dica do enunciado, vamos adicionar a classe com-icone às labels Nome e E-mail,
+e usar um pseudoelemento, o ::after por exemplo.
+
+/* adicionamos essa classe aos rótulos que terão ícone ** /
+
+.com-icone::after {
+    content: ''; /* não podemos esquecer do content! ** /
+    width: 2em;
+    height: 2em;
+    background-color: #8C1D3D;
+    background-size: 50% 50%; /* para a imagem ter 1em x 1em ** /
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+Precisamos, agora, posicionar esse ícone ao lado do campo. Para isso, definimos o elemento <label> como referência:
+
+.com-icone {
+    position: relative;
+}
+
+E, agora, podemos posicionar o ícone na linha do campo, no canto esquerdo:
+
+.com-icone::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+Isso vai deixar o ícone em cima do campo. Então precisamos jogar o campo para o lado:
+
+.com-icone + input {
+    position: relative;
+    left: 2em;
+}
+
+Só que, com isso, os campos com ícone ficarão desalinhados com relação ao resto do formulário. Então podemos
+reduzir a largura deles usando a propriedade width com a função calc():
+
+.com-icone + input {
+    width: calc(100% - 2em);
+}
+
+E por fim, podemos colocar os ícones como imagens de fundo:
+
+.com-icone[for="nome"]::after {
+    background-image: url(../imagens/usuario.png);
+}
+
+.com-icone[for="email"]::after {
+    background-image: url(../imagens/email.png);
+}
+ 
+
+***/
+/*******************************
+    VANTAGENS DA FUNÇÃO CALC():
+    A função calc() traz três grandes vantagens para nosso código.
+
+    A primeira é a legibilidade: podemos deixar algumas contas explícitas, facilitando o
+    entendimento e a manutenção do código.
+
+    A segunda é o poder: conseguimos criar layouts que não eram possíveis sem JavaScript
+    antes, como elementos que ocupam um espaço que outros deixaram sobrando.
+
+    A terceira é a flexibilidade: como podemos misturar unidades nas contas, conseguimos
+    deixar nosso layout ainda mais flexível, com um comportamento adequado em tamanhos de tela
+    diferentes e com fontes diferentes.
+***************************************/
