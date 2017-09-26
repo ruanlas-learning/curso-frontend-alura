@@ -45,4 +45,38 @@ for(var i = 0; i < trPacientesList.length; i++){
     }
 }
 
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+botaoAdicionar.addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    var formAdiciona = document.querySelector("#form-adiciona");
+
+    var nome = formAdiciona.nome.value;
+    var peso = formAdiciona.peso.value;
+    var altura = formAdiciona.altura.value;
+    var gordura = formAdiciona.gordura.value;
+    //Criação do tr (linha da tabela)
+    var trPaciente = document.createElement("tr");
+    //Criação das td's (colunas da linha da tabela)
+    var tdNome = document.createElement("td");
+    var tdPeso = document.createElement("td");
+    var tdAltura = document.createElement("td");
+    var tdGordura = document.createElement("td");
+    var tdImc = document.createElement("td");
+    //Atribuindo os valores aos campos
+    tdNome.textContent = nome;
+    tdPeso.textContent = peso;
+    tdAltura.textContent = altura;
+    tdGordura.textContent = gordura;
+    //Adicionando as colunas à linha (atribuindo os elementos 'filhos ao pai')
+    trPaciente.appendChild(tdNome);
+    trPaciente.appendChild(tdPeso);
+    trPaciente.appendChild(tdAltura);
+    trPaciente.appendChild(tdGordura);
+    //Pegando o elemento tabela da página
+    var tabelaPacientes = document.querySelector("#tabela-pacientes");
+    //Adicionando a linha que acabamos de criar na tabela
+    tabelaPacientes.appendChild(trPaciente);
+});
+
 
