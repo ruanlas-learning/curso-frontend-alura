@@ -41,7 +41,7 @@ for(var i = 0; i < trPacientesList.length; i++){
     }else{
         console.log(msgLog);
         tdImc.textContent = msgLog;
-        trPaciente.classList.add("valor-invalido");
+        trPaciente.classList.add("paciente-valor-invalido");
     }
 }
 
