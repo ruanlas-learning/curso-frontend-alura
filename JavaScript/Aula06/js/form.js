@@ -51,8 +51,13 @@ function extraiPacienteForm(form){
         peso: form.peso.value,
         altura: form.altura.value,
         gordura: form.gordura.value,
-        imc: 0//calculaImc(this.peso ,this.altura) //Não funcionou !!!!!
+        imc: calculaImc(form.peso.value ,form.altura.value)
+        // calcImc: function(){  //Esta função deu certo!!!
+        //     //return calculaImc(this.peso, this.altura);
+        //     this.imc = calculaImc(this.peso, this.altura);
+        // }
+        //imc: calculaImc(this.peso ,this.altura) // não funcionou !!
     }
-    paciente.imc = calculaImc(paciente.peso ,paciente.altura);
+    //paciente.imc = calculaImc(paciente.peso ,paciente.altura);
     return paciente;
 }
