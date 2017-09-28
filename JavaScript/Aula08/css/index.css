@@ -145,3 +145,11 @@ button[disabled=disabled], button:disabled {
 	/* configura a transição da opacidade em 500 ms */
 	transition: 500ms;
 }
+#filtrar-tabela {
+    width: 200px;
+    height: 35px;
+    margin-bottom: 10px;
+}
+.invisivel {
+    display: none;
+}
