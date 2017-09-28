@@ -8,6 +8,16 @@ botaoAdicionar.addEventListener("click", function(event) {
     var paciente = extraiPacienteForm(formAdiciona);
     //Criação da linha da tabela paciente e passando como parâmetro um objeto paciente
     var trPaciente = criaTrPaciente(paciente);
+
+    //var validacaoPaciente = validaPaciente(paciente); //é devolvido um objeto de validação
+    //if(!validacaoPaciente.pacienteEhValido){ //checa para verificar se os dados do paciente são válidos
+        //exibeMensagemErro(validacaoPaciente.logsErro);
+
+    if( !validaPaciente(paciente).pacienteEhValido ){ //checa para verificar se os dados do paciente são válidos
+        exibeMensagemErro( validaPaciente(paciente).logsErro );
+        return; //este comando faz a função retornar e ignora todo o código abaixo desta linha
+    }
+    
     //Extrai o elemento tabela da página html
     var tabelaPacientes = document.querySelector("#tabela-pacientes");
     //Adiciona a linha que acabamos de criar na tabela
@@ -15,6 +25,7 @@ botaoAdicionar.addEventListener("click", function(event) {
 
     //A função abaixo limpa o formulário
     formAdiciona.reset();
+    document.querySelector("#mensagens-erro").innerHTML = ""; // este comando limpa os logs de erro da página (limpa os filhos do ul)
 });
 
 function criaTrPaciente(paciente){
@@ -60,4 +71,15 @@ function extraiPacienteForm(form){
     }
     //paciente.imc = calculaImc(paciente.peso ,paciente.altura);
     return paciente;
+}
+
+//Responsável por exibir as mensagens de erro no ul
+function exibeMensagemErro(logsErros){
+    var ulMsgErro = document.querySelector("#mensagens-erro");
+    ulMsgErro.innerHTML = ""; // este comando limpa os logs de erro da página (limpa os filhos do ul)
+    logsErros.forEach(function(logErro) { //foreach
+        var li = document.createElement("li");
+        li.textContent = logErro;
+        ulMsgErro.appendChild(li);
+    });
 }
