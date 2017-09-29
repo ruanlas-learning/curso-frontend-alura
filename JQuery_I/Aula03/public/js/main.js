@@ -22,3 +22,22 @@ campoDigitacao.on("input", function(){
     $("#contador-palavras").text(qtdPalavras);
     $("#contador-caracteres").text(qtdCaracteres);
 });
+
+var tempoRestante = $("#tempo-digitacao").text(); //estamos selecionando o span correspondente ao tempo de digitação
+campoDigitacao.one("focus", function(){
+    /* a função '.one()' garante que o código seja executado apenas uma vez, ao contrário do '.on()'
+    que é excecutado toda vez que o evento acontece. O evento 'focus' é associado quando o nosso elemento
+    "recebe o foco", seja através do clique, ou seja através da tecla tab. De forma resumida, o 'focus' é quando
+    entramos no elemento */
+    var cronometroId = setInterval(function(){
+        /* o 'setInterval()' permite repetir uma instrução a cada certo tempo. Esta função retorna um ID
+        que identifica a instancia desta função, o que permite usar ela futuramente para parar a execução*/
+        tempoRestante--;
+        $("#tempo-digitacao").text(tempoRestante);
+        if(tempoRestante < 1){ //verifica se o tempoRestante é menor que 1
+            campoDigitacao.attr("disabled", true); //"seta" o atributo 'disabled' ao campoDigitação, desabilitando a digitação do usuário
+            clearInterval(cronometroId); //para de executar o 'setInterval'
+        }
+    }, 1000); //repete a função a cada 1000ms (1s)
+});
+
