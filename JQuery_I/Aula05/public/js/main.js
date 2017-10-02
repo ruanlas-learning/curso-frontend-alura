@@ -6,10 +6,29 @@ var tempoInicial = $("#tempo-digitacao").text();
 $(function(){ //Primeira função à ser executada quando a página carrega. Como se fosse uma função "main" de outras linguagens
     atualizaTamanhoFrase(); // atualiza o tamanho da frase que será digitada
     inicializaContadoresNoCampo();
+    validaCampoDigitado();
     iniciaCronometroCampo();
     $("#botao-reiniciar").click(reiniciaJogo);
 });
 
+function validaCampoDigitado() {  
+        var frase = $(".frase").text();
+        campoDigitacao.on("input", function() {
+            var digitado = campoDigitacao.val(); //recupera as informações digitadas
+            // var comparavel = frase.substr(0 , digitado.length); //gera uma substring da frase baseado no tamanho do conteúdo digitado para analisar se é igual ou não
+            // if(digitado == comparavel) { // ou....... (abaixo:)
+            
+            if(frase.startsWith(digitado)){ //a função startsWith verifica se uma string começa ou não com uma outra string
+                //se os valores digitados estiverem corretos com o da frase.....
+                //adiciona as bordas para sinalizar o acerto
+                campoDigitacao.addClass("borda-verde");
+                campoDigitacao.removeClass("borda-vermelha");
+            } else {
+                campoDigitacao.addClass("borda-vermelha");
+                campoDigitacao.removeClass("borda-verde");
+            }
+        });
+}
 
 function inicializaContadoresNoCampo(){
     campoDigitacao.on("input", function(){
@@ -53,6 +72,8 @@ function iniciaCronometroCampo(){
                 campoDigitacao.attr("disabled", true); //"seta" o atributo 'disabled' ao campoDigitação, desabilitando a digitação do usuário
                 $("#botao-reiniciar").attr("disabled", false); //este comando faz o botão de reiniciar ficar habilitado quando der o tempo de digitação
                 clearInterval(cronometroId); //para de executar o 'setInterval'
+                // campoDigitacao.addClass("campo-desativado"); //atingindo o limite do tempo, esta classe muda a cor de fundo
+                campoDigitacao.toggleClass("campo-desativado"); // se a classe existir, remove; se não existir, adiciona
             }
         }, 1000); //repete a função a cada 1000ms (1s)
     });
@@ -66,6 +87,12 @@ function reiniciaJogo(){ //deve esatar atribuído ao botão de reiniciar
     //volta ao tempo inicial
     $("#tempo-digitacao").text(tempoInicial);
 
+    // campoDigitacao.removeClass("campo-desativado");//reiniciando o jogo, remove esta classe para voltar a cor de fundo anterior
+    campoDigitacao.toggleClass("campo-desativado"); // se a classe existir, remove; se não existir, adiciona
+
+    //removem as bordas
+    campoDigitacao.removeClass("borda-vermelha");
+    campoDigitacao.removeClass("borda-verde"); 
 
     iniciaCronometroCampo();
 }
