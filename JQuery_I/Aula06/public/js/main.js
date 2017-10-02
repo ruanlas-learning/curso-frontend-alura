@@ -11,6 +11,47 @@ $(function(){ //Primeira função à ser executada quando a página carrega. Com
     $("#botao-reiniciar").click(reiniciaJogo);
 });
 
+function inserePlacar(){
+    var placar = $(".placar");//está acessando a section com a classe placar
+    var corpoTabela = placar.find("tbody"); // busca pelo 'tbody' que é filho do elemento de classe 'placar'
+    var usuario = "Seu-nome";
+    var numPalavras = $("#contador-palavras").text();
+
+    var linha = novaLinhaTabela(usuario, numPalavras);
+    linha.find(".botao-remover").click(removeLinhaTabela); //Atribui o evento na 'tr' (linha) definido na função 'removeLinhaTabela' de remover a linha clicada
+
+    //adiciona a linha no corpo da tabela
+    corpoTabela.append(linha);
+}
+
+function novaLinhaTabela(usuario, numPalavras){
+    var linha = $("<tr>"); //cria uma 'tr' em jQuery
+    var colunaUsuario = $("<td>").text(usuario); //cria uma 'td' em jQuery e atribui um texto ao elemento
+    var colunaNumPalavras = $("<td>").text(numPalavras);
+    var colunaRemover = $("<td>");
+
+    var linkRemove = $("<a>").attr("href", "#").addClass("botao-remover");
+    var iconeRemove = $("<i>").addClass("small").addClass("material-icons").text("delete");
+
+    //adicionando ícone dentro do 'a' (linkRemove)
+    linkRemove.append(iconeRemove);
+    //adicionando link dentro da 'td' (colunaRemover)
+    colunaRemover.append(linkRemove);
+
+    //adiciona as duas colunas dentro do tr
+    linha.append(colunaUsuario);
+    linha.append(colunaNumPalavras);
+    //adição da colunaRemover à linha
+    linha.append(colunaRemover);
+
+    return linha;
+}
+
+function removeLinhaTabela(event){
+    event.preventDefault(); // remove o comportamento padrão do elemento 'a', que é tentar redirecionar a algum endereço
+    $(this).parent().parent().remove(); //Acessa o avô do link (que seria a linha 'tr') e o remove
+}
+
 function validaCampoDigitado() {  
         var frase = $(".frase").text();
         campoDigitacao.on("input", function() {
@@ -69,14 +110,19 @@ function iniciaCronometroCampo(){
             tempoRestante--;
             $("#tempo-digitacao").text(tempoRestante);
             if(tempoRestante < 1){ //verifica se o tempoRestante é menor que 1
-                campoDigitacao.attr("disabled", true); //"seta" o atributo 'disabled' ao campoDigitação, desabilitando a digitação do usuário
-                $("#botao-reiniciar").attr("disabled", false); //este comando faz o botão de reiniciar ficar habilitado quando der o tempo de digitação
                 clearInterval(cronometroId); //para de executar o 'setInterval'
-                // campoDigitacao.addClass("campo-desativado"); //atingindo o limite do tempo, esta classe muda a cor de fundo
-                campoDigitacao.toggleClass("campo-desativado"); // se a classe existir, remove; se não existir, adiciona
+                finalizaJogo(); //termina o jogo
             }
         }, 1000); //repete a função a cada 1000ms (1s)
     });
+}
+
+function finalizaJogo(){
+    campoDigitacao.attr("disabled", true); //"seta" o atributo 'disabled' ao campoDigitação, desabilitando a digitação do usuário
+    $("#botao-reiniciar").attr("disabled", false); //este comando faz o botão de reiniciar ficar habilitado quando der o tempo de digitação
+    // campoDigitacao.addClass("campo-desativado"); //atingindo o limite do tempo, esta classe muda a cor de fundo
+    campoDigitacao.toggleClass("campo-desativado"); // se a classe existir, remove; se não existir, adiciona
+    inserePlacar();
 }
 function reiniciaJogo(){ //deve esatar atribuído ao botão de reiniciar
     campoDigitacao.attr("disabled", false);
