@@ -30,8 +30,10 @@ function inicializaContadores() {
 }
 
 function inicializaMarcadores() {
-    var frase = $(".frase").text();
+    // var frase = $(".frase").text();
     campo.on("input", function() {
+        var frase = $(".frase").text(); //temos que obter a frase quando estamos digitando algo, por isso ela foi movida para aqui
+
         var digitado = campo.val();
         var comparavel = frase.substr(0, digitado.length);
 
@@ -46,8 +48,10 @@ function inicializaMarcadores() {
 }
 
 function inicializaCronometro() {
-    var tempoRestante = $("#tempo-digitacao").text();
+    // var tempoRestante = $("#tempo-digitacao").text();
     campo.one("focus", function() {
+        var tempoRestante = $("#tempo-digitacao").text();// da mesma forma da frase, devemos obter o tempo de digitação da frase quando o elemento for selecionado
+                                                            //pois irá pegar o valor atualizado do tempo, e não o valor que foi inserido estaticamente
     	var cronometroID = setInterval(function() {
     		tempoRestante--;
     		$("#tempo-digitacao").text(tempoRestante);
@@ -75,4 +79,9 @@ function reiniciaJogo() {
     campo.toggleClass("campo-desativado");
     campo.removeClass("borda-vermelha");
     campo.removeClass("borda-verde");
+}
+
+function atualizaTempoInicial(tempo){
+    tempoInicial = tempo; //é necessário atualizar o tempo inicial quando mudar o tempo de digitação da palavra
+    $("#tempo-digitacao").text(tempo);
 }
