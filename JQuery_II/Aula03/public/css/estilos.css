@@ -30,3 +30,10 @@
 body{ /* esta propiedade faz a barra de rolagem já vir na página */
     overflow: scroll;
 }
+#erro{
+    color: red;
+    display: none;
+}
+#spinner{
+    display: none;
+}
