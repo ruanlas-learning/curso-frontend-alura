@@ -24,3 +24,9 @@
 .borda-vermelha {
     border: 3px solid red;
 }
+.placar{ /* faz o placar ficar escondido quando a página for carregada */
+    display: none;
+}
+body{ /* esta propiedade faz a barra de rolagem já vir na página */
+    overflow: scroll;
+}
