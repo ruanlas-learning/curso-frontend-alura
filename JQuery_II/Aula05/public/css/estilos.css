@@ -40,3 +40,6 @@ body{ /* esta propiedade faz a barra de rolagem já vir na página */
 #frase-id{
     width: 40px;
 }
+#botao-sync{
+    float: right;
+}

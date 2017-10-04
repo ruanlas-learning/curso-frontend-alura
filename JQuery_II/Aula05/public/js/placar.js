@@ -1,5 +1,6 @@
 
 $("#botao-placar").click(mostrarPlacar);
+$("#botao-sync").click(sincronizaPlacar);
 
 function inserePlacar() {
     var corpoTabela = $(".placar").find("tbody");
@@ -66,4 +67,46 @@ function mostrarPlacar(){
                                                         //slideUp(), slideDown()
     $(".placar").stop().slideToggle(600); //a função stop para uma animação antes de começar uma nova. Ela é necessária para a animação não ser realizada
                                             //na mesma quantidade de vezes que o botão for clicado
+}
+
+function sincronizaPlacar(){ //esta função é responsável por atualizar o placar no servidor
+    var placar = [];
+    var linhas = $("tbody>tr"); //seleciona todas as linhas 'tr' que são filhos diretos do 'tbody'
+
+    linhas.each(function (){ //semelhante ao forEach
+        var usuario = $(this).find("td:nth-child(1)").text(); // obtém/busca o primeiro 'td' filho da linha ('tr')
+        var qtdPalavras = $(this).find("td:nth-child(2)").text(); // obtém/busca o segundo 'td' filho da linha ('tr')
+
+        var score = { //cria um objeto score para armazenar o usuário e a pontuação
+            usuario: usuario,
+            pontos: qtdPalavras
+        };
+
+        placar.push(score); //armazena o score na lista (array)
+    });
+
+    //cria um objeto para enviar de parâmetro para a requisição 'post' para armazenar em banco
+    var dadosParaArmazenar = {
+        placar: placar
+    };
+
+    // $.post("urlDoServidor", dadosParaArmazenar, funcaoASerExecutadaDepoisDeArmazenado)  ###> o terceiro parâmetro é a função que é chamada quando o $.post()
+                                                                                                // for concluido
+    $.post("http://localhost:3000/placar", dadosParaArmazenar, function(){ //responsável por fazer a resuisição post para armazenar os dados no servidor
+        console.log("Placar sincronizado com sucesso");
+    });
+}
+
+function atualizaPlacar(){
+    $.get("http://localhost:3000/placar",function(dataReceived){
+
+        $(dataReceived).each(function(){
+            var linha = novaLinha(this.usuario, this.pontos); //cria uma nova linha, recebendo como parâmetro o nome do usuário e a quantidade de palavras (pontos)
+
+            linha.find(".botao-remover").click(removeLinha); //adicionando à linha o evento de click do botão remover
+
+            $("tbody").append(linha);
+
+        });
+    });
 }
