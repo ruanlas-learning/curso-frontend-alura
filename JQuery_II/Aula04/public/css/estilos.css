@@ -1,0 +1,39 @@
+.campo-digitacao {
+    font-size: 20px;
+    height: 130px;
+    border: 3px solid black;
+}
+
+.frase {
+    font-size: 20px;
+    text-align: left;
+}
+
+.campo-desativado {
+    background-color: lightgray;
+}
+
+.icones {
+    vertical-align: middle;
+}
+
+.borda-verde {
+    border: 3px solid green;
+}
+
+.borda-vermelha {
+    border: 3px solid red;
+}
+.placar{ /* faz o placar ficar escondido quando a página for carregada */
+    display: none;
+}
+body{ /* esta propiedade faz a barra de rolagem já vir na página */
+    overflow: scroll;
+}
+#erro{
+    color: red;
+    display: none;
+}
+#spinner{
+    display: none;
+}
