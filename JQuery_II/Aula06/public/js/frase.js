@@ -4,7 +4,7 @@ $("#botao-frase-id").click(buscaFrase);
 
 function fraseAleatoria(){ //será responsável por sortear uma frase aleatória para exibir no html
     $("#spinner").show(); //ao pressionar o botão, o spinner (animação de progresso) é mostrada ao usuário
-    $.get("http://localhost:3000/frases", trocaFraseAleatoria) //está sendo feito uma requisição ao servidor (GET). O comando GET devolve um
+    $.get("http://localhost:3001/frases", trocaFraseAleatoria) //está sendo feito uma requisição ao servidor (GET). O comando GET devolve um
                                                                 //retorno que é passado como parâmetro para a função que é chamada depois do link
     .fail(function(){ //esta função 'fail' é chamada sempre que ocorre uma falha durante a requisição
         $("#erro").show(); //ao falhar, a mensagem será mostrada
@@ -38,7 +38,7 @@ function buscaFrase(){
     var parametro = { id : fraseId }; //O 'id' deste objeto deve estar com o mesmo nome que o 'id' do banco
 
     //passando objeto como segundo parametro, e a função que será executada como terceiro parâmetro
-    $.get("http://localhost:3000/frases", parametro, trocaFrase) //esta requisição deve retornar apenas um objeto, pois estamos buscando um elemento em espefícico através do parametro
+    $.get("http://localhost:3001/frases", parametro, trocaFrase) //esta requisição deve retornar apenas um objeto, pois estamos buscando um elemento em espefícico através do parametro
     .fail(function(){
         $("#erro").show();
         setTimeout(function(){
