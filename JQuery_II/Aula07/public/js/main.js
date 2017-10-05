@@ -9,6 +9,16 @@ $(function() {
     $("#botao-reiniciar").click(reiniciaJogo);
 
     atualizaPlacar();
+    //o trecho abaixo associa o elemento html com o plugin selectize
+    $('#usuarios').selectize({
+        create: true,
+        sortField: 'text'
+    });
+
+    //o trecho abaixo ativa o evento Tooltipster, mas sem utilizar o evento padrão dele (mouse over)
+    $(".tooltip").tooltipster({
+        trigger: "custom" //este evento permite customizar o 'gatilho' que dispara o evento, não utilizando o padrão
+    });
 });
 
 function atualizaTamanhoFrase() {

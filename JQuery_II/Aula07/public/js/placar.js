@@ -4,7 +4,7 @@ $("#botao-sync").click(sincronizaPlacar);
 
 function inserePlacar() {
     var corpoTabela = $(".placar").find("tbody");
-    var usuario = "Douglas"
+    var usuario = $("#usuarios").val(); //recupera o usuário que foi selecionado no Combobox com o plugin Selectize
     var numPalavras = $("#contador-palavras").text();
 
     var linha = novaLinha(usuario, numPalavras);
@@ -94,6 +94,16 @@ function sincronizaPlacar(){ //esta função é responsável por atualizar o pla
                                                                                                 // for concluido
     $.post("http://localhost:3000/placar", dadosParaArmazenar, function(){ //responsável por fazer a resuisição post para armazenar os dados no servidor
         console.log("Placar sincronizado com sucesso");
+        //aciona o tooltip quando a sincronização obteve sucesso
+        $(".tooltip").tooltipster("open");
+    }).fail(function(){
+        //em caso de falha, é exibido o tooltip, mas com uma mensagem de erro
+        $(".tooltip").tooltipster("open").tooltipster("content", "Falha ao sincronizar");
+    }).always(function(){
+        //no final, aguardamos cerca de 1200ms e fechamos o tooltip
+        setTimeout(function() {
+            $(".tooltip").tooltipster("close"); 
+        }, 1200);
     });
 }
 

@@ -43,3 +43,15 @@ body{ /* esta propiedade faz a barra de rolagem já vir na página */
 #botao-sync{
     float: right;
 }
+/* Para melhorar a visualização devemos alterar um pouco o CSS pois a biblioteca materialize por padrão
+deixa o select invisível */
+.select-usuarios{
+    display:inline-block;
+}
+#usuarios{
+    display:block;
+}
+.selectize-input { /* faz o ajuste do campo select, alterando a largura e o alinhamento vertical */
+    width: 150px;
+    vertical-align: middle;
+}

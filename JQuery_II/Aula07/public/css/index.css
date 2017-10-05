@@ -1,0 +1,24 @@
+.card{
+	width: 49%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+#botao-jogue{
+	width: 150px;
+	display: block;
+	margin: 50px auto;
+}
+
+.imagem-jogo {
+	border: 2px solid gray;
+}
+/* adição destas classes */
+.slider {
+    height: auto; /* faz o ajuste da altura de forma automática */
+}
+
+.slick-prev:before, .slick-next:before{
+    color: black; /* muda a cor das 'setinhas' dos botões prev e next, que voltam ou avançam os sliders */
+}
