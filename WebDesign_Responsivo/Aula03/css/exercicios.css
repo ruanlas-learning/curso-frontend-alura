@@ -1,8 +1,10 @@
+/*
+
 .secao {
-    /* com este comando estamos transformando o grid de notícias em 3 colunas usando porcentagens de 33%*/
+    /* com este comando estamos transformando o grid de notícias em 3 colunas usando porcentagens de 33%   ** /
     float: left;
     width: 33.333%;
-}
+} */
 .mini {
     /* com este comando estamos dividindo as notícias 'mini' em 2 colunas dentro do grid principal. Para isto
     utilizaremos porcentagens de 50% */
@@ -59,4 +61,44 @@ header {
 .barra-nav {
     margin: 0.4em 0;
 }/*################################################################################*/
+/* Especificação de media queries: http://www.w3.org/TR/css3-mediaqueries/ */
 
+/* Como usamos o layout com medidas 'em', podemos usar
+media queries para aumentar todas as fontes proporcionalmente em telas maiores. 
+
+A vantagem do em é poder mudar o font-size base e isso afetar outros elementos
+em cascata. Facilita bastante o aumento dos elementos de forma proporcional.
+*/
+@media (min-width: 600px) {
+    html {
+        font-size: 1.125em;
+    }
+}
+@media (min-width: 1000px) {
+    html {
+        font-size: 1.25em;
+    }
+}
+/*####################################################################################*/
+
+/* O maior ajuste necessário é no número de colunas das notícias. Dividimos tudo em 3 colunas antes,
+o que é bom para o Desktop.Mas talvez fosse interessante deixar em 1 coluna em telas pequenas e 2
+colunas em telas intermediárias. Use media queries para isso e mobile-first. 
+
+*/
+.secao { /* para mobile */
+    width: 100%; 
+}
+
+@media (min-width: 600px) { /* para dispositivos com largura no mínimo 600px */
+    .secao {
+        width: 50%;
+    }
+}
+@media (min-width: 1000px) { /* para dispositivos com largura no mínimo 1000px (Desktop) */
+    .secao {
+        width: 33.333%;
+        float: left; /* ????? */
+    }
+}
+/*#########################################################################################*/
