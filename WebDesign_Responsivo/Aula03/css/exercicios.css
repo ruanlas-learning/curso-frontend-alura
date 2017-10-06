@@ -85,6 +85,8 @@ em cascata. Facilita bastante o aumento dos elementos de forma proporcional.
 o que é bom para o Desktop.Mas talvez fosse interessante deixar em 1 coluna em telas pequenas e 2
 colunas em telas intermediárias. Use media queries para isso e mobile-first. 
 
+
+Usamos um grid flexível com porcentagens disparando colunas diferentes dependendo do tamanho da tela.
 */
 .secao { /* para mobile */
     width: 100%; 
