@@ -1,0 +1,11 @@
+.secao {
+    /* com este comando estamos transformando o grid de notícias em 3 colunas usando porcentagens de 33%*/
+    float: left;
+    width: 33.333%;
+}
+.mini {
+    /* com este comando estamos dividindo as notícias 'mini' em 2 colunas dentro do grid principal. Para isto
+    utilizaremos porcentagens de 50% */
+    float: left;
+    width: 50%;
+}
