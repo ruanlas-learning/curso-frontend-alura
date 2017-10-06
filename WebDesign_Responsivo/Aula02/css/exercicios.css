@@ -9,3 +9,54 @@
     float: left;
     width: 50%;
 }
+
+.container{
+    margin: 0 auto; /* Responsável por centralizar o conteúdo na tela */
+    max-width: 1200px; /* Responsável por definir (limitar) o tamanho máximo de 1200px */
+}
+.logo,
+.secao {
+    padding: 0 1%; /* Responsável por configurar alguns espaços físicos de maneira flexível, usando porcentagens (espaçamentos, etc) */
+}
+
+img {
+    max-width: 100%; /* Responsável por evitar que as imagens estourem (ou ultrapasse a largura dos) os elementos que as
+    contém, caso utilizar-mos uma resolução baixa com uma imagem grande.
+    Usar o max-width:100% nas imagens vai impedi-las de estragar o design, vazando para além dos containers */
+}
+
+/* As duas regras seguintes configuram o topo do site, que inclui o logotipo, o menu e a busca de
+maneira mais flexível. Colocar tudo na mesma linha no Desktop e permitir que, ao redimensionar, os
+blocos "escorreguem" para baixo naturalmente. É uma espécie de adaptação do layout ainda sem
+media queries, usando inline-block. 
+O inline-block é interessante por simular uma linha de texto com seus elementos. Se não cabe
+mais um "caracter" na linha, a "palavra" escorrega pra linha de baixo.
+*/
+.logo,
+.busca,
+.barra-nav,
+.menu-principal {
+    display: inline-block;
+    vertical-align: middle;
+}
+.menu-principal li {
+    float: left;
+}/*################################################################################*/
+/* Abaixo estão algumas regras com medidas 'em' que são proporcionais ao texto usado. 
+Observe que as medidas flexíveis entram em ação e a página tem bastante flexibilidade.
+Claro, grandes mudanças na largura da janela deixam nossa página não tão bem. Mais pra
+frente veremos as media queries para resolver esses problemas.
+
+Apesar do em não ser fluído por natureza, sua característica permite que uma alteração
+na fonte base do texto escale proporcionalmente outros elementos na página.
+*/
+header {
+    padding: 0.5em 0;
+}
+.destaques {
+    margin-top: 1em;
+}
+.barra-nav {
+    margin: 0.4em 0;
+}/*################################################################################*/
+
