@@ -183,3 +183,51 @@ menu estiver ativo.
 /* 
     link para imagens normal/retina: http://sergiolopes.org/livro-web-mobile/exemplos/retina.html
 */
+
+/*
+###############################################################################################
+Abaixo estamos deixando os botões de abrir e fechar o menu ficarem mais interessantes. Estaremos
+aplicando o famoso "ícone do hamburguer" (três traços) para indicar o menu e use um X para fechar.
+
+Uma ideia é fazer isso com CSS puro, que é vetorial e escala perfeitamente em todo tipo de tela.
+*/
+.menu-abrir,
+.menu-fechar {
+    background: none;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    font-size: 1.6em;
+    text-indent: -999em;
+}
+
+.menu-abrir {
+    height: 0;
+    width:.75em;
+    padding-top:.125em;
+    border-top: .375em double #000;
+    border-bottom: .125em solid #000;
+
+    vertical-align: middle;
+    margin: 0.5em;    
+}
+
+.menu-fechar {
+    position: relative;
+    height: 1em;
+    width: 1em;
+}
+    .menu-fechar:before {
+        content: '\00D7';
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-indent: 0;
+    }
+/*#########################################################################################################*/
+
+/* alteramos no HTML a imagem do logo para uma imagem com extensão .svg (a mesma imagem com formato diferente) */
+.logo img{
+    /* Como o SVG possui tamanho flexível, adicionamos no CSS o tamanho dele para nossa página: */
+    width: 200px;
+}
