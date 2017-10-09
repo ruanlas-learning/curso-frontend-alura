@@ -1,3 +1,18 @@
 #paineis-sobre-nos{
     margin-top: 20px;
 }
+
+/* Na regra abaixo estamos estilizando o título "depoimento dos clientes"
+da página */
+/* é importante tomar cuidado ao atribuir uma regra, para alterar
+somente o que queremos, sem alterar ou modificar as regras do 
+bootstrap prédefinidas e "quebrar" nossa página com estilizações que
+não queremos */
+.depoimentos-titulo {
+    background-color: #0275D8;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #FFF;
+    margin-bottom: 0;
+    font-size: 24px;
+}

@@ -147,7 +147,60 @@
 				</figcaption>
 			</figure>
 		</section>
-		
+
+
+		<section>
+			<div class="depoimentos-titulo">
+				<h3 class="container">Depoimentos de Clientes</h3>
+			</div>
+			<!-- Abaixo está o carousel que exibirá as imagens do depoimento -->
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				<!-- Indicadores dos slides ('bolinha' que mostra a sequencia de slides, 
+					e também qual slide está sendo exibido, e permite selecionar os slides tbm) -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				</ol>
+			
+				<!-- Os próprios slides (cada div 'item' é responsável por um slide)-->
+				<div class="carousel-inner" role="listbox">
+					<figure class="item active"> <!-- substituimos a div por figure por questões de semântica -->
+						<img src="img/depoimentos/projetos0.png" alt="Depoimento 1">
+						<figcaption class="carousel-caption"> <!-- substituimos a div por figcaption por questões de semântica -->
+							<h3>Yuri Padilha</h3>
+							<p>Gostei muito.</p>
+						</figcaption>
+					</figure>
+
+					<figure class="item">
+						<img src="img/depoimentos/projetos1.png" alt="Depoimento 2">
+						<figcaption class="carousel-caption">
+							<h3>Fernando Stefaneni</h3>
+							<p>Excelente trabalho</p>
+						</figcaption>
+					</figure>
+					
+					<figure class="item">
+						<img src="img/depoimentos/projetos2.png" alt="Depoimento 3">
+						<figcaption class="carousel-caption">
+							<h3>Caio Sauzas</h3>
+							<p>Gostei, competência em primeiro lugar.</p>
+						</figcaption>
+					</figure>
+				</div>
+			
+				<!-- Controles do fluxo dos slides (previous e next) -->
+				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</section>
 
 		<script src="js/jquery-2.2.4.min.js"></script> <!-- Importação do jQuery -->
 		<script src="bootstrap/js/bootstrap.min.js"></script> <!-- Importação do js do bootstrap -->
