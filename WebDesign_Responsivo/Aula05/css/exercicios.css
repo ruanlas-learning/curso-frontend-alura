@@ -89,12 +89,13 @@ colunas em telas intermediárias. Use media queries para isso e mobile-first.
 Usamos um grid flexível com porcentagens disparando colunas diferentes dependendo do tamanho da tela.
 */
 .secao { /* para mobile */
-    width: 100%; 
+    width: 100%;
 }
 
 @media (min-width: 600px) { /* para dispositivos com largura no mínimo 600px */
     .secao {
         width: 50%;
+        float: left;
     }
 }
 @media (min-width: 1000px) { /* para dispositivos com largura no mínimo 1000px (Desktop) */
@@ -104,3 +105,77 @@ Usamos um grid flexível com porcentagens disparando colunas diferentes dependen
     }
 }
 /*#########################################################################################*/
+
+/*
+Abaixo encontra-se a regra css responsável por "ajustar o menu"
+quando a resolução for abaixo de 600px
+*/
+@media (max-width: 600px) {
+    .barra-nav {
+        background: #f0f0f0;
+        padding: 1em;
+        margin: 0;
+
+        height: 100%; /*altura da barra-nav (ocupará toda a altura da tela)*/
+        width: 90%; /* largura da barra-nav (ocupará apenas 90% da largura) */
+        max-width: 320px; /* terá largura máxima de 320px, caso a tela seja maior
+        e 90% da largura seje um tamanho maior que 320px */
+
+        position: fixed; /* como queremos posicionar o menu lateralmente
+        fora da tela, devemos usar um position:fixed pra isso */
+        z-index: 1;
+        top: 0; /* alinhamento com o topo */
+        left: -90%; /* desloca a barra para o lado esquerdo para fora da tela */
+
+        transition: left 0.3s ease-out; /* adicionaremos uma animação para animá-lo
+        de volta a tela quando estiver ativo (class menu-ativo) */
+    }
+        .menu-ativo .barra-nav {
+            /* quando o menu-ativo for ativado, será posicionado a barra-nav para 
+            o canto esquerdo, ficando dentro da tela a partir da marcação 0*/
+            left: 0;
+        }
+
+    .menu-principal li {
+        padding: 1em 0; /* espaçamentos */
+        width: 100%; /* largura do menu principal */
+    }
+}
+/*
+############################################################################################
+*/
+
+/* como no Desktop o menu lateral não é usado, queremos esconder os botões nessa situação.
+    Para isso, devemos usar display:none nos botões com a media query inversa da anterior: */
+@media not all and (max-width: 600px) { /* Está negando a media query, ou seja, para dispositivos
+    que não possuem largura máxima de 600px */
+    .menu-abrir,
+    .menu-fechar {
+        display: none;
+    }    
+}
+/*
+#########################################################################################
+*/
+
+/* 
+Abaixo é implementado um fundo cinza na página para obscurecer o conteúdo de fundo quando o
+menu estiver ativo por cima. Uma ideia é fazer isso com pseudo-elemento no <html> quando o
+menu estiver ativo.
+*/
+@media (max-width: 600px) {
+    .menu-ativo:after {
+        content: "";
+        display: block; /*faz ser exibido em um bloco*/
+
+        position: fixed;
+        /* as declarações abaixo fazem o "fundo" ocupar toda a tela na parte de trás da barra-nav
+        quando ativa */
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        background: rgba(0,0,0,0.4); /* faz o "fundo" ficar meio escurecido e opaco */
+    }
+}
