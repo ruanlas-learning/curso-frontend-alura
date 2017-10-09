@@ -1,0 +1,233 @@
+/*
+
+.secao {
+    /* com este comando estamos transformando o grid de notícias em 3 colunas usando porcentagens de 33%   ** /
+    float: left;
+    width: 33.333%;
+} */
+.mini {
+    /* com este comando estamos dividindo as notícias 'mini' em 2 colunas dentro do grid principal. Para isto
+    utilizaremos porcentagens de 50% */
+    float: left;
+    width: 50%;
+}
+
+.container{
+    margin: 0 auto; /* Responsável por centralizar o conteúdo na tela */
+    max-width: 1200px; /* Responsável por definir (limitar) o tamanho máximo de 1200px */
+}
+.logo,
+.secao {
+    padding: 0 1%; /* Responsável por configurar alguns espaços físicos de maneira flexível, usando porcentagens (espaçamentos, etc) */
+}
+
+img {
+    max-width: 100%; /* Responsável por evitar que as imagens estourem (ou ultrapasse a largura dos) os elementos que as
+    contém, caso utilizar-mos uma resolução baixa com uma imagem grande.
+    Usar o max-width:100% nas imagens vai impedi-las de estragar o design, vazando para além dos containers */
+}
+
+/* As duas regras seguintes configuram o topo do site, que inclui o logotipo, o menu e a busca de
+maneira mais flexível. Colocar tudo na mesma linha no Desktop e permitir que, ao redimensionar, os
+blocos "escorreguem" para baixo naturalmente. É uma espécie de adaptação do layout ainda sem
+media queries, usando inline-block. 
+O inline-block é interessante por simular uma linha de texto com seus elementos. Se não cabe
+mais um "caracter" na linha, a "palavra" escorrega pra linha de baixo.
+*/
+.logo,
+.busca,
+.barra-nav,
+.menu-principal {
+    display: inline-block;
+    vertical-align: middle;
+}
+.menu-principal li {
+    float: left;
+}/*################################################################################*/
+/* Abaixo estão algumas regras com medidas 'em' que são proporcionais ao texto usado. 
+Observe que as medidas flexíveis entram em ação e a página tem bastante flexibilidade.
+Claro, grandes mudanças na largura da janela deixam nossa página não tão bem. Mais pra
+frente veremos as media queries para resolver esses problemas.
+
+Apesar do em não ser fluído por natureza, sua característica permite que uma alteração
+na fonte base do texto escale proporcionalmente outros elementos na página.
+*/
+header {
+    padding: 0.5em 0;
+}
+.destaques {
+    margin-top: 1em;
+}
+.barra-nav {
+    margin: 0.4em 0;
+}/*################################################################################*/
+/* Especificação de media queries: http://www.w3.org/TR/css3-mediaqueries/ */
+
+/* Como usamos o layout com medidas 'em', podemos usar
+media queries para aumentar todas as fontes proporcionalmente em telas maiores. 
+
+A vantagem do em é poder mudar o font-size base e isso afetar outros elementos
+em cascata. Facilita bastante o aumento dos elementos de forma proporcional.
+*/
+@media (min-width: 600px) {
+    html {
+        font-size: 1.125em;
+    }
+}
+@media (min-width: 1000px) {
+    html {
+        font-size: 1.25em;
+    }
+}
+/*####################################################################################*/
+
+/* O maior ajuste necessário é no número de colunas das notícias. Dividimos tudo em 3 colunas antes,
+o que é bom para o Desktop.Mas talvez fosse interessante deixar em 1 coluna em telas pequenas e 2
+colunas em telas intermediárias. Use media queries para isso e mobile-first. 
+
+
+Usamos um grid flexível com porcentagens disparando colunas diferentes dependendo do tamanho da tela.
+*/
+.secao { /* para mobile */
+    width: 100%;
+}
+
+@media (min-width: 600px) { /* para dispositivos com largura no mínimo 600px */
+    .secao {
+        width: 50%;
+        float: left;
+    }
+}
+@media (min-width: 1000px) { /* para dispositivos com largura no mínimo 1000px (Desktop) */
+    .secao {
+        width: 33.333%;
+        float: left; /* ????? */
+    }
+}
+/*#########################################################################################*/
+
+/*
+Abaixo encontra-se a regra css responsável por "ajustar o menu"
+quando a resolução for abaixo de 600px
+*/
+@media (max-width: 600px) {
+    .barra-nav {
+        background: #f0f0f0;
+        padding: 1em;
+        margin: 0;
+
+        height: 100%; /*altura da barra-nav (ocupará toda a altura da tela)*/
+        width: 90%; /* largura da barra-nav (ocupará apenas 90% da largura) */
+        max-width: 320px; /* terá largura máxima de 320px, caso a tela seja maior
+        e 90% da largura seje um tamanho maior que 320px */
+
+        position: fixed; /* como queremos posicionar o menu lateralmente
+        fora da tela, devemos usar um position:fixed pra isso */
+        z-index: 1;
+        top: 0; /* alinhamento com o topo */
+        left: -90%; /* desloca a barra para o lado esquerdo para fora da tela */
+
+        transition: left 0.3s ease-out; /* adicionaremos uma animação para animá-lo
+        de volta a tela quando estiver ativo (class menu-ativo) */
+    }
+        .menu-ativo .barra-nav {
+            /* quando o menu-ativo for ativado, será posicionado a barra-nav para 
+            o canto esquerdo, ficando dentro da tela a partir da marcação 0*/
+            left: 0;
+        }
+
+    .menu-principal li {
+        padding: 1em 0; /* espaçamentos */
+        width: 100%; /* largura do menu principal */
+    }
+}
+/*
+############################################################################################
+*/
+
+/* como no Desktop o menu lateral não é usado, queremos esconder os botões nessa situação.
+    Para isso, devemos usar display:none nos botões com a media query inversa da anterior: */
+@media not all and (max-width: 600px) { /* Está negando a media query, ou seja, para dispositivos
+    que não possuem largura máxima de 600px */
+    .menu-abrir,
+    .menu-fechar {
+        display: none;
+    }    
+}
+/*
+#########################################################################################
+*/
+
+/* 
+Abaixo é implementado um fundo cinza na página para obscurecer o conteúdo de fundo quando o
+menu estiver ativo por cima. Uma ideia é fazer isso com pseudo-elemento no <html> quando o
+menu estiver ativo.
+*/
+@media (max-width: 600px) {
+    .menu-ativo:after {
+        content: "";
+        display: block; /*faz ser exibido em um bloco*/
+
+        position: fixed;
+        /* as declarações abaixo fazem o "fundo" ocupar toda a tela na parte de trás da barra-nav
+        quando ativa */
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        background: rgba(0,0,0,0.4); /* faz o "fundo" ficar meio escurecido e opaco */
+    }
+}
+
+/* 
+    link para imagens normal/retina: http://sergiolopes.org/livro-web-mobile/exemplos/retina.html
+*/
+
+/*
+###############################################################################################
+Abaixo estamos deixando os botões de abrir e fechar o menu ficarem mais interessantes. Estaremos
+aplicando o famoso "ícone do hamburguer" (três traços) para indicar o menu e use um X para fechar.
+
+Uma ideia é fazer isso com CSS puro, que é vetorial e escala perfeitamente em todo tipo de tela.
+*/
+.menu-abrir,
+.menu-fechar {
+    background: none;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    font-size: 1.6em;
+    text-indent: -999em;
+}
+
+.menu-abrir {
+    height: 0;
+    width:.75em;
+    padding-top:.125em;
+    border-top: .375em double #000;
+    border-bottom: .125em solid #000;
+
+    vertical-align: middle;
+    margin: 0.5em;    
+}
+
+.menu-fechar {
+    position: relative;
+    height: 1em;
+    width: 1em;
+}
+    .menu-fechar:before {
+        content: '\00D7';
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-indent: 0;
+    }
+/*#########################################################################################################*/
+
+/* alteramos no HTML a imagem do logo para uma imagem com extensão .svg (a mesma imagem com formato diferente) */
+.logo img{
+    /* Como o SVG possui tamanho flexível, adicionamos no CSS o tamanho dele para nossa página: */
+    width: 200px;
+}
