@@ -18,7 +18,7 @@
 		<!-- Link Framework bootstrap: https://getbootstrap.com/docs/3.3/ -->	
 	<body>
 		
-		<div class="container"> <!-- Estamos envolvendo o conteúdo em um container para poder aplicar os espaçamentos e a margem -->
+		<section class="container"> <!-- Estamos envolvendo o conteúdo em um container para poder aplicar os espaçamentos e a margem -->
 			<h2>Sobre Nós</h2>
 			<img class="img-responsive" src="img/empresa.jpg" alt="">
 			<!-- 
@@ -88,11 +88,66 @@
 
 				</div>
 			</div>
-	
 
+		</section>
 
-			
+		<!-- abaixo vamos adicionar um elemento jumbotrom -->
+		<div class="jumbotron"> <!-- Esta div representa o elemento jumbotrom do bootstrap -->
+			<div class="container"> <!-- Estamos definindo um container para centralizar o conteúdo -->
+				<h3>Mais de 300 prêmios em design e em conforto.</h3>
+				<p>Mais de 5 milhões de clientes satisfeitos em todo o mundo.</p>
+			</div>
 		</div>
+
+		<!-- Abaixo estamos utilizando o componente 'thumbnail' do bootstrap -->
+
+		<section class="container">
+			<h2>Nossos Projetos</h2>
+			<!--
+				utilizamos os elementos 'figure' e 'figcaption' por questões de semântica no HTML para poder representar
+				o 'thumbnail' e 'caption' respectivamente. Poderia ser utilizado uma 'div', mas não teria nenhuma semântica
+			-->
+			<figure class="thumbnail"> <!-- Esta div representa o componente 'thumbnail' (era um elemento div)-->
+				<img class="img-fluid" src="img/projetos/residencia-ludi.png" alt="Card image cap">
+				<figcaption class="caption"> <!-- Esta div representa o caption (legenda) do 'thumbnail' (era um elemento div)-->
+					<h3>Residência Ludi</h3>
+					<p>A residência Ludi foi projetada para ser a mais bela casa de São Paulo pela revista Housing.</p>
+				</figcaption>
+			</figure>
+			
+			<figure class="thumbnail">
+				<img class="img-fluid" src="img/projetos/mercado-marapira.png" alt="Card image cap">
+				<figcaption class="caption">
+					<h3>Mercado Marapira</h3>
+					<p>O mercado Marapira foi projetado nos mínimos detalhes na arquitetura baseada em frutas.</p>
+				</figcaption>
+			</figure>
+			
+			<figure class="thumbnail">
+				<img class="img-fluid" src="img/projetos/palacio-dionisio.png" alt="Card image cap">
+				<figcaption class="caption">
+					<h3>Palácio Dionísio</h3>
+					<p>O palácio Dionísio foi eleito pela revista 'Grandes palácios' como o palácio mais lindo do mundo.</p>
+				</figcaption>
+			</figure>
+			
+			<figure class="thumbnail">
+				<img class="img-fluid" src="img/projetos/casa-lago.png" alt="Card image cap">
+				<figcaption class="caption">
+					<h3>Casa do Lago</h3>
+					<p>A Casa do Lago foi lar de inúmeras pessoas que conheciam o presidente da época.</p>
+				</figcaption>
+			</figure>
+			
+			<figure class="thumbnail">
+				<img class="img-fluid" src="img/projetos/casa-castelo.png" alt="Card image cap">
+				<figcaption class="caption">
+					<h3>Casa Castelo</h3>
+					<p>A Casa Castelo é o último lançamento da TopCasaFina Arquitetura, feita para um monge.</p>
+				</figcaption>
+			</figure>
+		</section>
+		
 
 		<script src="js/jquery-2.2.4.min.js"></script> <!-- Importação do jQuery -->
 		<script src="bootstrap/js/bootstrap.min.js"></script> <!-- Importação do js do bootstrap -->
