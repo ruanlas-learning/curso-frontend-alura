@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!--
+			Precisamos agora pedir pro HTML calcular o tamanho da tela simulando a
+			tela de mobile. Usaremos o viewport da Tag <meta> pra isso.
+
+			A tag <meta> pode ser configurada para várias configurações do HTML. No
+			momento queremos o 'viewport', ou seja, configurar a tela que o usuário vê.
+			Isso para que ela se comporte seguindo o tamanho do dispositivo simulado
+			pela tela de inspecionar elemento.
+		-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> <!-- Importação do css do bootstrap -->
+	</head>
+		<!-- Link Framework bootstrap: https://getbootstrap.com/docs/3.3/ -->	
+	<body>
+		
+		<div class="container"> <!-- Estamos envolvendo o conteúdo em um container para poder aplicar os espaçamentos e a margem -->
+			<h2>Sobre Nós</h2>
+			<img class="img-responsive" src="img/empresa.jpg" alt="">
+			<!-- 
+				Iremos criar agora os títulos e parágrafos dessa seção. Vamos escrever
+				o HTML utilizando as tags que melhor se encaixam para isso.
+				Como os títulos que acompanham os parágrafos não são os títulos principais
+				e nem podem ter o mesmo peso do título da seção de sobre nós, nós usamos
+				<h3> aqui. Os parágrafos são simples <p>'s.
+			-->
+			<div id="paineis-sobre-nos" class="panel-group"> <!-- Grupo de paineis (padrão bootstrap) => conterá todos os painéis referentes ao Sobre Nós -->
+				
+				<div class="panel panel-default"> <!-- Estamos definindo um painel padrão (documentação bootstrap) -->
+								<!-- *******************************************************************************************************
+									DEVEMOS COLOCAR OS ATRIBUTOS ABAIXO NO ELEMENTO QUE SERÁ CLICADO PARA DISPARAR O EVENTO:
+									#### o atributo 'data-toggle' serve para passar a ação que queremos fazer, que no caso seria o 'collapse'
+												ou 'descollapse'
+									#### o atributo 'data-target' serve para especificar o alvo do comportamento (alo que receberá a ação)
+									#### o atributo 'data-parent' serve para especificar o elemento pai que agrupa os demais elementos. 
+												este atributo serve para o elemento 'pai' gerenciar o data-target. Quando um elemento for
+												clicado e outro estiver aberto, ele fecha o que está aberto e abre o outro
+								******************************************************************************************************** -->
+					<div class="panel-heading" data-toggle="collapse" data-target="#collapse1" data-parent="#paineis-sobre-nos"> <!-- Esta div é o cabeçalho do painel (título) -->
+						<h3 class="panel-title">Desde 1935</h3> <!-- 'panel-title' é uma classe CSS do bootstrap para definir títulos de panels -->
+					</div>
+
+					<div id="collapse1" class="collapse"> <!-- *********************************************************
+																#### devemos adicionar a classe 'collapse' nos alvos que receberão o comportamento
+															************************************************************-->
+						<div class="panel-body"> <!-- Esta div é o corpo do painel (conteúdo) -->
+							<p>
+								Desde 1935 trazendo casas, mansões e prédios lindos para o mundo.
+							</p>
+						</div>
+					</div>
+
+				</div>
+	
+				<div class="panel panel-default">
+	
+					<div class="panel-heading" data-toggle="collapse" data-target="#collapse2" data-parent="#paineis-sobre-nos">
+						<h3 class="panel-title">Preços acessíveis</h3>
+					</div>
+
+					<div id="collapse2" class="collapse">
+						<div class="panel-body">
+							<p>
+								Preços a partir de R$ 1000,00.
+							</p>
+						</div>
+					</div>
+
+				</div>
+					
+				<div class="panel panel-default">
+	
+					<div class="panel-heading" data-toggle="collapse" data-target="#collapse3" data-parent="#paineis-sobre-nos">
+						<h3 class="panel-title">Alegria em colaborar para um mundo mais bonito</h3>
+					</div>
+
+					<div id="collapse3" class="collapse">
+						<div class="panel-body">
+							<p>
+								Trazendo alegria para a vida das pessoas que tem dinheiro para gastar.
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+	
+		</div>
+
+		<script src="js/jquery-2.2.4.min.js"></script> <!-- Importação do jQuery -->
+		<script src="bootstrap/js/bootstrap.min.js"></script> <!-- Importação do js do bootstrap -->
+	</body>
+</html>
