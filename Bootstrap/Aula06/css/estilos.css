@@ -35,3 +35,22 @@ entre os elementos '<!--  -->'
 .grupo-radio .radio:first-child {
     margin-top: 0;
 }
+
+
+/*
+Agora vamos ajeitar alguns detalhes finais do nosso rodapé. O conteúdo de dentro
+está muito colado, coloque um espaçamento interno de 1em. Mude também a cor do
+texto para #FFF e a cor de fundo de todo o rodapé para #333 ( um tom de cinza ).
+
+Adicione também uma margin de 10px na parte do cima do <footer>.
+*/
+footer {
+    background: #333;
+    color: #FFF;
+    padding: 1em;
+        margin-top: 10px;
+}
+
+footer address:last-child { /* este seletor está aplicando a regra somente no ultimo 'address' que é filho de 'footer' */
+    margin-bottom: 0;
+   }
