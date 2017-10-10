@@ -17,8 +17,42 @@
 	</head>
 		<!-- Link Framework bootstrap: https://getbootstrap.com/docs/3.3/ -->	
 	<body>
-		
-		<section class="container"> <!-- Estamos envolvendo o conteúdo em um container para poder aplicar os espaçamentos e a margem -->
+		<header><!-- Cabeçalho da página -->
+
+			<nav class="navbar navbar-default"> <!-- Aqui definimos a barra de navegação do bootstrap -->
+				<div class="container"> <!-- podemos definir o container como 'container' ou 'container-fluid' para o 'navbar'  -->
+					<div class="navbar-header"> <!-- Cabeçalho do 'navbar' (colocamos no cabeçalho o nome da página (ou do site)
+																								 e o botão que expande o menu) -->
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+						data-target="#menu-topCasaFina" aria-expanded="false"> <!-- botão que faz o menu expandir com o 'colapse' -->
+						<!-- O atributo 'aria-expanded' verifica se o menu está expandido ou não. É interessante no caso da página
+						ser lida por um leitor de tela -->
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span> <!-- ícones do botão -->
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">TopCasaFina Arquitetura</a> <!-- Nome do site ou título do site (pode ser o nome da empresa) -->
+					</div>
+			
+					<div class="collapse navbar-collapse" id="menu-topCasaFina"> <!-- Contém os menus (links) para acessar as seções da página. É importante
+																			criar essa 'div' para agrupar, pois será ela que receberá o evento de 'colapse'
+																			que será disparado pelo botão -->
+						<ul class="nav navbar-nav"> <!-- lista dos links -->
+							<li><a href="#sobre-nos">Sobre Nós</a></li>
+							<li><a href="#nossos-projetos">Nossos Projetos</a></li>
+							<li><a href="#depoimentos">Depoimentos</a></li>
+							<li><a href="#video">Vídeo Institucional</a></li>
+							<li><a href="#contato">Contato</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+		</header>
+
+
+		<section id="sobre-nos" class="container"> <!-- Estamos envolvendo o conteúdo em um container para poder aplicar os espaçamentos e a margem -->
 			<h2>Sobre Nós</h2>
 			<img class="img-responsive" src="img/empresa.jpg" alt="">
 			<!-- 
@@ -101,7 +135,7 @@
 
 		<!-- Abaixo estamos utilizando o componente 'thumbnail' do bootstrap -->
 
-		<section class="container">
+		<section id="nossos-projetos" class="container">
 			<h2>Nossos Projetos</h2>
 			<!--
 				utilizamos os elementos 'figure' e 'figcaption' por questões de semântica no HTML para poder representar
@@ -149,7 +183,7 @@
 		</section>
 
 
-		<section>
+		<section id="depoimentos">
 			<div class="depoimentos-titulo">
 				<h3 class="container">Depoimentos de Clientes</h3>
 			</div>
@@ -203,7 +237,7 @@
 		</section>
 
 		<!-- Abaixo está o vídeo institucional do youtube -->
-		<section class="container">
+		<section id="video" class="container">
 			<h2>Video institucional</h2>
 			<!-- De acordo com a documentação do bootstrap, o elemento 'iframe' para ser responsivo deve ser colocado dentro dessa 'div'
 			com as classes 'embed-responsive' e 'embed-responsive-16by9' (para vídeo 16:9). -->
@@ -213,7 +247,7 @@
 			</div>
 		</section>
 
-		<section class="container">
+		<section id="contato" class="container">
 			<h2>Contato</h2>
 			<h4>Entre em contato conosco</h4>
 		
