@@ -53,4 +53,114 @@ footer {
 
 footer address:last-child { /* este seletor está aplicando a regra somente no ultimo 'address' que é filho de 'footer' */
     margin-bottom: 0;
-   }
+}
+
+
+/*##############################################################################
+Para colocar a imagem para cobrir o fundo todo temos que utilizar a
+    propriedade CSS background-size: cover
+Para posicionar a imagem conforme pedido devemos utilizar a propriedade CSS
+    background-position com o valor top center.
+*/
+html, body{ /* devemos fixar um tamanho (altura) para o html e o body */
+    height: 100%;
+}
+
+header {
+    background-image: url(../img/castelo.jpg);
+    background-position: top center; /* queremos que ela fique centralizada e no topo. */
+    background-size: cover; /* queremos que a imagem seja a capa desse trecho do site */
+    height: 100%; /* tamanho do header (altura) */
+}
+/******************************************************************************/
+
+
+/* Para arrumar as bordas usamos o border-radius, seguindo o layout temos uns 8px de border-radius.
+Para a cor de fundo lembre-se do rgba(0, 0, 0, 0.5) que usamos. Ou seja, uma cor preta com opacidade de 50%.
+
+O espaçamento do h1 está ruim, coloque margin-top: 0; para tirar a margin top.
+
+O espaçamento da borda da caixa com o conteúdo pode melhorar com o padding.
+
+A caixa não deve ocupar 100% da largura da tela, devemos diminuir a sua width.
+
+A cor do texto temos que colocar em branco com color: #FFF;
+
+Abaixo encontra-se as regras css para estes efeitos:
+*/
+.topCasaFina-banner {
+    color: #FFF; /* cor dos textos do banner */
+    background-color: rgba(0, 0, 0, 0.5); /* cor meio transparente para o fundo do banner */
+    padding: 20px; /* espaçamentos internos do banner */
+    width: 80%; /* largura do banner */
+    border-radius: 8px; /* borda do banner */
+}
+
+.topCasaFina-banner h1 {
+    margin-top: 0; /* margem superior do Título do banner */
+}
+/******************************************************************************************/
+
+/*
+    Agora é a hora de posicionar corretamente a chamada principal, usa as propriedades
+    position, transform(com translate), top e left para posicionar corretamente nossa chamada.
+
+    Lembre-se de colocar position: relative no pai correto para que a chamada com absolute
+    se posicione conforme esse pai.
+*/
+
+
+/*
+    Devemos primeiramente colocar position:relative no <header> para que a nossa chamada se
+    posicione com relação à ele quando colocarmos position:absolute nela.
+    Depois de colocar position:relative no pai e position:absolute no filho devemos usar as
+    propriedades left e top para colocar a chamada no lugar correto.
+
+    Colocamos a chamada no meio porém ela não se posicionou perfeitamente, precisamos deslocar
+    metade do tamanho da chamada para direita e para baixo. Para isso usamos a
+    propriedade transform: translate(-40%, -50%).
+*/
+header {
+    position: relative; /* Estamos definindo como 'relative' para 
+    servir de "parâmetro" para o posicionamento do banner */
+}
+.topCasaFina-banner {
+    /* esta regra css está subscrevendo a regra definida acima */
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.6); /* está subscrevendo */
+    padding: 1.5em; /* está subscrevendo */
+    max-width: 90%;
+    border-radius: 10px; /* está subscrevendo */
+    position: absolute; /* está definindo posição absoluta */
+    top: 50%; /* está posicionando a 50% do topo */
+    left: 40%; /* está posicionando a 40% da esquerda */
+    transform: translate(-40%, -50%); /* translate(x,y) => está movimentando o banner em: -40% do tamanho do
+                                            próprio banner no eixo X  (para a esquerda); e -50% do tamanho do 
+                                            próprio banner no eixo Y (para cima) . 
+                                            Desta forma, conseguimos centralizar completamente o banner na página */
+}
+
+/******************************************************************************************/
+/*
+Agora repare que temos um conflito, quando abrimos o menu a nossa chamada principal fica por
+cima. Vamos resolver isso com JQuery fazendo uma animação bonita.
+Faça conforme fora feito no video utilizando o evento show.bs.collapse e hide.bs.collapse
+do bootstrap para mudar o transform:translate da chamada.
+
+Lembre-se de adicionar a transition no CSS.
+*/
+.topCasaFina-banner {
+    /* a regra abaixo está subscrevendo a regra definida acima */
+    color: #FFF; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    padding: 1.5em; 
+    width: 90%;
+    max-width: 320px; /* está subscrevendo */
+    border-radius: 10px; 
+    position: absolute;
+    top: 50%;
+    left: 50%; /* está subscrevendo */
+    transform: translate(-50%, -50%); /* está subscrevendo */
+    transition: transform 0.3s; /* está definindo uma animação de transição suave de 0.3s para
+                                o deslizamento do banner quando o menu for acionado */
+}
