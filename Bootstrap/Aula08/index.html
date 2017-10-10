@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!--
+			Precisamos agora pedir pro HTML calcular o tamanho da tela simulando a
+			tela de mobile. Usaremos o viewport da Tag <meta> pra isso.
+
+			A tag <meta> pode ser configurada para várias configurações do HTML. No
+			momento queremos o 'viewport', ou seja, configurar a tela que o usuário vê.
+			Isso para que ela se comporte seguindo o tamanho do dispositivo simulado
+			pela tela de inspecionar elemento.
+		-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> <!-- Importação do css do bootstrap -->
+		<link rel="stylesheet" href="css/estilos.css">
+	</head>
+		<!-- Link Framework bootstrap: https://getbootstrap.com/docs/3.3/ -->	
+	<body>
+		<header><!-- Cabeçalho da página -->
+
+			<nav class="navbar navbar-default"> <!-- Aqui definimos a barra de navegação do bootstrap -->
+				<div class="container"> <!-- podemos definir o container como 'container' ou 'container-fluid' para o 'navbar'  -->
+					<div class="navbar-header"> <!-- Cabeçalho do 'navbar' (colocamos no cabeçalho o nome da página (ou do site)
+																								 e o botão que expande o menu) -->
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+						data-target="#menu-topCasaFina" aria-expanded="false"> <!-- botão que faz o menu expandir com o 'colapse' -->
+						<!-- O atributo 'aria-expanded' verifica se o menu está expandido ou não. É interessante no caso da página
+						ser lida por um leitor de tela -->
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span> <!-- ícones do botão -->
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">TopCasaFina Arquitetura</a> <!-- Nome do site ou título do site (pode ser o nome da empresa) -->
+					</div>
+			
+					<div class="collapse navbar-collapse" id="menu-topCasaFina"> <!-- Contém os menus (links) para acessar as seções da página. É importante
+																			criar essa 'div' para agrupar, pois será ela que receberá o evento de 'colapse'
+																			que será disparado pelo botão -->
+						<ul class="nav navbar-nav"> <!-- lista dos links -->
+							<li><a href="#sobre-nos">Sobre Nós</a></li>
+							<li><a href="#nossos-projetos">Nossos Projetos</a></li>
+							<li><a href="#depoimentos">Depoimentos</a></li>
+							<li><a href="#video">Vídeo Institucional</a></li>
+							<li><a href="#contato">Contato</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+		</header>
+
+
+		<section id="sobre-nos" class="container"> <!-- Estamos envolvendo o conteúdo em um container para poder aplicar os espaçamentos e a margem -->
+			<h2>Sobre Nós</h2>
+			<img class="img-responsive" src="img/empresa.jpg" alt="">
+			<!-- 
+				Iremos criar agora os títulos e parágrafos dessa seção. Vamos escrever
+				o HTML utilizando as tags que melhor se encaixam para isso.
+				Como os títulos que acompanham os parágrafos não são os títulos principais
+				e nem podem ter o mesmo peso do título da seção de sobre nós, nós usamos
+				<h3> aqui. Os parágrafos são simples <p>'s.
+			-->
+			<div id="paineis-sobre-nos" class="panel-group"> <!-- Grupo de paineis (padrão bootstrap) => conterá todos os painéis referentes ao Sobre Nós -->
+				
+				<div class="panel panel-default"> <!-- Estamos definindo um painel padrão (documentação bootstrap) -->
+								<!-- *******************************************************************************************************
+									DEVEMOS COLOCAR OS ATRIBUTOS ABAIXO NO ELEMENTO QUE SERÁ CLICADO PARA DISPARAR O EVENTO:
+									#### o atributo 'data-toggle' serve para passar a ação que queremos fazer, que no caso seria o 'collapse'
+												ou 'descollapse'
+									#### o atributo 'data-target' serve para especificar o alvo do comportamento (alo que receberá a ação)
+									#### o atributo 'data-parent' serve para especificar o elemento pai que agrupa os demais elementos. 
+												este atributo serve para o elemento 'pai' gerenciar o data-target. Quando um elemento for
+												clicado e outro estiver aberto, ele fecha o que está aberto e abre o outro
+								******************************************************************************************************** -->
+					<div class="panel-heading" data-toggle="collapse" data-target="#collapse1" data-parent="#paineis-sobre-nos"> <!-- Esta div é o cabeçalho do painel (título) -->
+						<h3 class="panel-title">Desde 1935</h3> <!-- 'panel-title' é uma classe CSS do bootstrap para definir títulos de panels -->
+					</div>
+
+					<div id="collapse1" class="collapse"> <!-- *********************************************************
+																#### devemos adicionar a classe 'collapse' nos alvos que receberão o comportamento
+															************************************************************-->
+						<div class="panel-body"> <!-- Esta div é o corpo do painel (conteúdo) -->
+							<p>
+								Desde 1935 trazendo casas, mansões e prédios lindos para o mundo.
+							</p>
+						</div>
+					</div>
+
+				</div>
+	
+				<div class="panel panel-default">
+	
+					<div class="panel-heading" data-toggle="collapse" data-target="#collapse2" data-parent="#paineis-sobre-nos">
+						<h3 class="panel-title">Preços acessíveis</h3>
+					</div>
+
+					<div id="collapse2" class="collapse">
+						<div class="panel-body">
+							<p>
+								Preços a partir de R$ 1000,00.
+							</p>
+						</div>
+					</div>
+
+				</div>
+					
+				<div class="panel panel-default">
+	
+					<div class="panel-heading" data-toggle="collapse" data-target="#collapse3" data-parent="#paineis-sobre-nos">
+						<h3 class="panel-title">Alegria em colaborar para um mundo mais bonito</h3>
+					</div>
+
+					<div id="collapse3" class="collapse">
+						<div class="panel-body">
+							<p>
+								Trazendo alegria para a vida das pessoas que tem dinheiro para gastar.
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</section>
+
+		<!-- abaixo vamos adicionar um elemento jumbotrom -->
+		<div class="jumbotron"> <!-- Esta div representa o elemento jumbotrom do bootstrap -->
+			<div class="container"> <!-- Estamos definindo um container para centralizar o conteúdo -->
+				<h3>Mais de 300 prêmios em design e em conforto.</h3>
+				<p>Mais de 5 milhões de clientes satisfeitos em todo o mundo.</p>
+			</div>
+		</div>
+
+		<!-- Abaixo estamos utilizando o componente 'thumbnail' do bootstrap -->
+
+		<section id="nossos-projetos" class="container">
+			<h2>Nossos Projetos</h2>
+			<!--
+				utilizamos os elementos 'figure' e 'figcaption' por questões de semântica no HTML para poder representar
+				o 'thumbnail' e 'caption' respectivamente. Poderia ser utilizado uma 'div', mas não teria nenhuma semântica
+			-->
+			<figure class="thumbnail"> <!-- Esta div representa o componente 'thumbnail' (era um elemento div)-->
+				<img class="img-fluid" src="img/projetos/residencia-ludi.png" alt="Card image cap">
+				<figcaption class="caption"> <!-- Esta div representa o caption (legenda) do 'thumbnail' (era um elemento div)-->
+					<h3>Residência Ludi</h3>
+					<p>A residência Ludi foi projetada para ser a mais bela casa de São Paulo pela revista Housing.</p>
+				</figcaption>
+			</figure>
+			
+			<figure class="thumbnail">
+				<img class="img-fluid" src="img/projetos/mercado-marapira.png" alt="Card image cap">
+				<figcaption class="caption">
+					<h3>Mercado Marapira</h3>
+					<p>O mercado Marapira foi projetado nos mínimos detalhes na arquitetura baseada em frutas.</p>
+				</figcaption>
+			</figure>
+			
+			<figure class="thumbnail">
+				<img class="img-fluid" src="img/projetos/palacio-dionisio.png" alt="Card image cap">
+				<figcaption class="caption">
+					<h3>Palácio Dionísio</h3>
+					<p>O palácio Dionísio foi eleito pela revista 'Grandes palácios' como o palácio mais lindo do mundo.</p>
+				</figcaption>
+			</figure>
+			
+			<figure class="thumbnail">
+				<img class="img-fluid" src="img/projetos/casa-lago.png" alt="Card image cap">
+				<figcaption class="caption">
+					<h3>Casa do Lago</h3>
+					<p>A Casa do Lago foi lar de inúmeras pessoas que conheciam o presidente da época.</p>
+				</figcaption>
+			</figure>
+			
+			<figure class="thumbnail">
+				<img class="img-fluid" src="img/projetos/casa-castelo.png" alt="Card image cap">
+				<figcaption class="caption">
+					<h3>Casa Castelo</h3>
+					<p>A Casa Castelo é o último lançamento da TopCasaFina Arquitetura, feita para um monge.</p>
+				</figcaption>
+			</figure>
+		</section>
+
+
+		<section id="depoimentos">
+			<div class="depoimentos-titulo">
+				<h3 class="container">Depoimentos de Clientes</h3>
+			</div>
+			<!-- Abaixo está o carousel que exibirá as imagens do depoimento -->
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				<!-- Indicadores dos slides ('bolinha' que mostra a sequencia de slides, 
+					e também qual slide está sendo exibido, e permite selecionar os slides tbm) -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				</ol>
+			
+				<!-- Os próprios slides (cada div 'item' é responsável por um slide)-->
+				<div class="carousel-inner" role="listbox">
+					<figure class="item active"> <!-- substituimos a div por figure por questões de semântica -->
+						<img src="img/depoimentos/projetos0.png" alt="Depoimento 1">
+						<figcaption class="carousel-caption"> <!-- substituimos a div por figcaption por questões de semântica -->
+							<h3>Yuri Padilha</h3>
+							<p>Gostei muito.</p>
+						</figcaption>
+					</figure>
+
+					<figure class="item">
+						<img src="img/depoimentos/projetos1.png" alt="Depoimento 2">
+						<figcaption class="carousel-caption">
+							<h3>Fernando Stefaneni</h3>
+							<p>Excelente trabalho</p>
+						</figcaption>
+					</figure>
+					
+					<figure class="item">
+						<img src="img/depoimentos/projetos2.png" alt="Depoimento 3">
+						<figcaption class="carousel-caption">
+							<h3>Caio Sauzas</h3>
+							<p>Gostei, competência em primeiro lugar.</p>
+						</figcaption>
+					</figure>
+				</div>
+			
+				<!-- Controles do fluxo dos slides (previous e next) -->
+				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</section>
+
+		<!-- Abaixo está o vídeo institucional do youtube -->
+		<section id="video" class="container">
+			<h2>Video institucional</h2>
+			<!-- De acordo com a documentação do bootstrap, o elemento 'iframe' para ser responsivo deve ser colocado dentro dessa 'div'
+			com as classes 'embed-responsive' e 'embed-responsive-16by9' (para vídeo 16:9). -->
+			<!-- 16:9 aspect ratio -->
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/i_3Pv1AygeI" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</section>
+
+		<section id="contato" class="container">
+			<h2>Contato</h2>
+			<h4>Entre em contato conosco</h4>
+		
+			<form>
+				<div class="form-group"> <!-- envolvemos o 'label' e o 'input' nesta div com 'form-group' para ajustar o espaçamento dos campos -->
+					<label for="contato-nome">Nome:</label>
+					<!-- inserimos a classe 'form-control' do bootstrap para estilizar o input do formulário -->
+					<input id="contato-nome" class="form-control" type="text" placeholder="Seu nome"> <!-- O atributo 'placeholder' serve para informar uma "dica no campo"
+																																que será preenchidp -->
+				</div>
+		
+				<div class="form-group">
+					<label for="contato-email">E-mail:</label>
+					<div class="input-group"> <!-- Utilizamos este 'input-group' para agrupar os elementos que irão compor(fazer parte) o campo 'input', tanto o prório campo
+														quanto o ícone '@' que ficará no começo do campo do lado esquerdo -->
+						<div class="input-group-addon">@</div> <!-- Esta 'div' com 'input-group-addon' é responsável por criar o ícone de '@' que ficara no começo do campo -->
+						<input id="contato-email" class="form-control" type="email" placeholder="Seu e-mail">
+					</div>
+				</div>
+
+				<div class="radio"> <!-- Usamos essa classe 'radio' do bootstrap para envolver o elemento radio para aplicar a formatação no padrão do Framework.
+																							Assim é possível ter as opções uma embaixo da outra -->
+					<label>
+						<input type="radio" name="tipo-pessoa" value="fisica" checked> <!-- o atributo 'checked' faz o campo iniciar selecionado -->
+						Pessoa física
+					</label>
+				</div>
+		
+				<div class="radio">
+					<label>
+						<input type="radio" name="tipo-pessoa" value="juridica">
+						Pessoa jurídica
+					</label>
+				</div><!--
+		
+			  	--><select class="contato-select form-control" name="tipo-solicitacao"> <!-- utilizamos a classe 'form-control' para aplicar a formatação padrão do bootstrap no select 
+																						A classe 'contato-select' criamos para estilizar via css -->
+					<option value="" disabled selected>Tipo de solicitação</option> <!-- o atributo 'disabled' deixa o campo desabilitado para seleção (impedindo o usuário de selecionar),
+																						e o atributo 'selected' seleciona o campo quando a página for carregada (apenas para informar
+																					ao usuário do que se trata o campo) -->
+					<option value="casa">Casa</option>
+					<option value="mansao">Mansão</option>
+					<option value="castelo">Castelo</option>
+				</select>
+
+				<button class="btn btn-primary" type="submit">Enviar</button> <!-- atribuimos as classes padrões do bootstrap ao botão para formatá-lo -->
+				<!--
+					1) .btné usado para definir o formato do botão, pode-se dizer que dá ao elemento a cara de um botão, porém ainda sem cor. 
+					2) .btn-primary, .btn-danger, .btn-warning, .btn-info, .btn-success, .btn-default: Essas classes dão as cores, ou melhor,
+					os comportamentos para o botão. 
+					3) .btn-lg, .btn-sm, .btn-xs: Essas classes são para o tamanho do botão.
+				-->
+
+			</form>
+		</section>
+
+		<footer> <!-- Aqui estamos definindo o rodapé do site -->
+			<address> <!-- colocamos esta tag 'address' para dar mais semântica na página. Devemos seguir a documentação do bootstrap
+			de como ele faz o 'footer' com a tag 'address' e os 'br's -->
+				<strong>TopCasaFina Arquitetura</strong><br>
+				Rua Vergueiro, 3185, Vila Mariana<br>
+				São Paulo, SP<br>
+			</address>
+			<!-- dividimos o endereço em dois, pois um vai se referir ao endereço físico (local), e o outro o endereço de contato -->
+			<address>
+				Tel: (11) 5571-2751 ou 5083-3884<br>
+				E-mail: contato.topcasafina@alura.com.br
+			</address>
+		</footer>
+
+		
+		<script src="js/jquery-2.2.4.min.js"></script> <!-- Importação do jQuery -->
+		<script src="bootstrap/js/bootstrap.min.js"></script> <!-- Importação do js do bootstrap -->
+	</body>
+</html>
