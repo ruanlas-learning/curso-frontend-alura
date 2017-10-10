@@ -16,3 +16,22 @@ não queremos */
     margin-bottom: 0;
     font-size: 24px;
 }
+
+/*
+Na parte do CSS agora precisamos definir que cada um dos elementos
+ocupará 50% de largura, se comportará como 'inline-block' para que
+fique alinhado e deverá ter o alinhamento vertical no topo.
+
+Possivelmente os elementos não ficarão um ao lado do outro pois existe um
+bug. Para resolver esse bug, geralmente adicionamos um comentário em branco 
+entre os elementos '<!--  -->'
+*/
+.contato-select, 
+.grupo-radio { 
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+.grupo-radio .radio:first-child {
+    margin-top: 0;
+}
