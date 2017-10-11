@@ -51,12 +51,12 @@
 
 			<!-- Chamada principal do site (título principal do site) -->
 			<div class="container topCasaFina-bannerWrapper">
-			<div class="topCasaFina-banner">
-				<h1>TopCasaFina Arquitetura</h1>
-				<p>Projetando a casa dos sonhos desde 2000 A.C</p>
-				<a href="#contato" class="btn btn-primary btn-lg">Contate-nos agora</a>
+				<div class="topCasaFina-banner">
+					<h1>TopCasaFina Arquitetura</h1>
+					<p>Projetando a casa dos sonhos desde 2000 A.C</p>
+					<a href="#contato" class="btn btn-primary btn-lg">Contate-nos agora</a>
+				</div>
 			</div>
-		</div>
 
 		</header>
 
@@ -263,73 +263,82 @@
 			</div>
 		</section>
 			
-		<!-- Abaixo está o vídeo institucional do youtube -->
-		<section id="video" class="container">
-			<h2>Video institucional</h2>
-			<!-- De acordo com a documentação do bootstrap, o elemento 'iframe' para ser responsivo deve ser colocado dentro dessa 'div'
-			com as classes 'embed-responsive' e 'embed-responsive-16by9' (para vídeo 16:9). -->
-			<!-- 16:9 aspect ratio -->
-			<div class="embed-responsive embed-responsive-16by9">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/i_3Pv1AygeI" frameborder="0" allowfullscreen></iframe>
-			</div>
-		</section>
-	
-		<section id="contato" class="container">
-			<h2>Contato</h2>
-			<h4>Entre em contato conosco</h4>
-		
-			<form>
-				<div class="form-group"> <!-- envolvemos o 'label' e o 'input' nesta div com 'form-group' para ajustar o espaçamento dos campos -->
-					<label for="contato-nome">Nome:</label>
-					<!-- inserimos a classe 'form-control' do bootstrap para estilizar o input do formulário -->
-					<input id="contato-nome" class="form-control" type="text" placeholder="Seu nome"> <!-- O atributo 'placeholder' serve para informar uma "dica no campo"
-																																que será preenchidp -->
-				</div>
-		
-				<div class="form-group">
-					<label for="contato-email">E-mail:</label>
-					<div class="input-group"> <!-- Utilizamos este 'input-group' para agrupar os elementos que irão compor(fazer parte) o campo 'input', tanto o prório campo
-														quanto o ícone '@' que ficará no começo do campo do lado esquerdo -->
-						<div class="input-group-addon">@</div> <!-- Esta 'div' com 'input-group-addon' é responsável por criar o ícone de '@' que ficara no começo do campo -->
-						<input id="contato-email" class="form-control" type="email" placeholder="Seu e-mail">
+		<div class="container">
+
+			<div class="row">
+				<!-- Abaixo está o vídeo institucional do youtube -->
+				<section id="video" class="col-sm-6">
+					<h2>Video institucional</h2>
+					<!-- De acordo com a documentação do bootstrap, o elemento 'iframe' para ser responsivo deve ser colocado dentro dessa 'div'
+					com as classes 'embed-responsive' e 'embed-responsive-16by9' (para vídeo 16:9). -->
+					<!-- 16:9 aspect ratio -->
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/i_3Pv1AygeI" frameborder="0" allowfullscreen></iframe>
 					</div>
-				</div>
+				</section>
 
-				<div class="radio"> <!-- Usamos essa classe 'radio' do bootstrap para envolver o elemento radio para aplicar a formatação no padrão do Framework.
-																							Assim é possível ter as opções uma embaixo da outra -->
-					<label>
-						<input type="radio" name="tipo-pessoa" value="fisica" checked> <!-- o atributo 'checked' faz o campo iniciar selecionado -->
-						Pessoa física
-					</label>
-				</div>
+
+				<section id="contato" class="col-sm-6">
+					<h2>Contato</h2>
+					<h4>Entre em contato conosco</h4>
+				
+					<form>
+						<div class="form-group"> <!-- envolvemos o 'label' e o 'input' nesta div com 'form-group' para ajustar o espaçamento dos campos -->
+							<label for="contato-nome">Nome:</label>
+							<!-- inserimos a classe 'form-control' do bootstrap para estilizar o input do formulário -->
+							<input id="contato-nome" class="form-control" type="text" placeholder="Seu nome"> <!-- O atributo 'placeholder' serve para informar uma "dica no campo"
+																																		que será preenchidp -->
+						</div>
+				
+						<div class="form-group">
+							<label for="contato-email">E-mail:</label>
+							<div class="input-group"> <!-- Utilizamos este 'input-group' para agrupar os elementos que irão compor(fazer parte) o campo 'input', tanto o prório campo
+																quanto o ícone '@' que ficará no começo do campo do lado esquerdo -->
+								<div class="input-group-addon">@</div> <!-- Esta 'div' com 'input-group-addon' é responsável por criar o ícone de '@' que ficara no começo do campo -->
+								<input id="contato-email" class="form-control" type="email" placeholder="Seu e-mail">
+							</div>
+						</div>
 		
-				<div class="radio">
-					<label>
-						<input type="radio" name="tipo-pessoa" value="juridica">
-						Pessoa jurídica
-					</label>
-				</div><!--
+						<div class="radio"> <!-- Usamos essa classe 'radio' do bootstrap para envolver o elemento radio para aplicar a formatação no padrão do Framework.
+																									Assim é possível ter as opções uma embaixo da outra -->
+							<label>
+								<input type="radio" name="tipo-pessoa" value="fisica" checked> <!-- o atributo 'checked' faz o campo iniciar selecionado -->
+								Pessoa física
+							</label>
+						</div>
+				
+						<div class="radio">
+							<label>
+								<input type="radio" name="tipo-pessoa" value="juridica">
+								Pessoa jurídica
+							</label>
+						</div><!--
+				
+						--><select class="contato-select form-control" name="tipo-solicitacao"> <!-- utilizamos a classe 'form-control' para aplicar a formatação padrão do bootstrap no select 
+																								A classe 'contato-select' criamos para estilizar via css -->
+							<option value="" disabled selected>Tipo de solicitação</option> <!-- o atributo 'disabled' deixa o campo desabilitado para seleção (impedindo o usuário de selecionar),
+																								e o atributo 'selected' seleciona o campo quando a página for carregada (apenas para informar
+																							ao usuário do que se trata o campo) -->
+							<option value="casa">Casa</option>
+							<option value="mansao">Mansão</option>
+							<option value="castelo">Castelo</option>
+						</select>
 		
-				--><select class="contato-select form-control" name="tipo-solicitacao"> <!-- utilizamos a classe 'form-control' para aplicar a formatação padrão do bootstrap no select 
-																						A classe 'contato-select' criamos para estilizar via css -->
-					<option value="" disabled selected>Tipo de solicitação</option> <!-- o atributo 'disabled' deixa o campo desabilitado para seleção (impedindo o usuário de selecionar),
-																						e o atributo 'selected' seleciona o campo quando a página for carregada (apenas para informar
-																					ao usuário do que se trata o campo) -->
-					<option value="casa">Casa</option>
-					<option value="mansao">Mansão</option>
-					<option value="castelo">Castelo</option>
-				</select>
-
-				<button class="btn btn-primary" type="submit">Enviar</button> <!-- atribuimos as classes padrões do bootstrap ao botão para formatá-lo -->
-				<!--
-					1) .btné usado para definir o formato do botão, pode-se dizer que dá ao elemento a cara de um botão, porém ainda sem cor. 
-					2) .btn-primary, .btn-danger, .btn-warning, .btn-info, .btn-success, .btn-default: Essas classes dão as cores, ou melhor,
-					os comportamentos para o botão. 
-					3) .btn-lg, .btn-sm, .btn-xs: Essas classes são para o tamanho do botão.
-				-->
-
-			</form>
-		</section>
+						<button class="btn btn-primary" type="submit">Enviar</button> <!-- atribuimos as classes padrões do bootstrap ao botão para formatá-lo -->
+						<!--
+							1) .btné usado para definir o formato do botão, pode-se dizer que dá ao elemento a cara de um botão, porém ainda sem cor. 
+							2) .btn-primary, .btn-danger, .btn-warning, .btn-info, .btn-success, .btn-default: Essas classes dão as cores, ou melhor,
+							os comportamentos para o botão. 
+							3) .btn-lg, .btn-sm, .btn-xs: Essas classes são para o tamanho do botão.
+						-->
+		
+					</form>
+				</section>
+			</div>
+		</div>
+	
+		
+		
 
 		<footer> <!-- Aqui estamos definindo o rodapé do site -->
 			<address> <!-- colocamos esta tag 'address' para dar mais semântica na página. Devemos seguir a documentação do bootstrap

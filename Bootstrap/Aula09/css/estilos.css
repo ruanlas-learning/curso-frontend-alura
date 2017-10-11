@@ -129,7 +129,8 @@ header {
     color: #FFF;
     background-color: rgba(0, 0, 0, 0.6); /* está subscrevendo */
     padding: 1.5em; /* está subscrevendo */
-    max-width: 90%;
+   /* max-width: 90%; */
+    max-width: 80%;
     border-radius: 10px; /* está subscrevendo */
     position: absolute; /* está definindo posição absoluta */
     top: 50%; /* está posicionando a 50% do topo */
@@ -155,7 +156,7 @@ Lembre-se de adicionar a transition no CSS.
     background-color: rgba(0, 0, 0, 0.6); 
     padding: 1.5em; 
     width: 90%;
-    max-width: 320px; /* está subscrevendo */
+   /* max-width: 320px; /* está subscrevendo */
     border-radius: 10px; 
     position: absolute;
     top: 50%;
@@ -163,4 +164,24 @@ Lembre-se de adicionar a transition no CSS.
     transform: translate(-50%, -50%); /* está subscrevendo */
     transition: transform 0.3s; /* está definindo uma animação de transição suave de 0.3s para
                                 o deslizamento do banner quando o menu for acionado */
+}
+
+@media(min-width: 768px) {
+	#paineis-sobre {
+		margin-top: 0;	
+	}
+}
+
+@media(min-width: 992px) {
+	.topCasaFina-banner {
+		left: 0;
+		transform: translate(0, -80%);
+        width: 50%;
+    /*    max-width: 50%; */
+	}
+
+	.topCasaFina-bannerWrapper {
+		position: relative;
+		height: 100%;
+	}
 }
