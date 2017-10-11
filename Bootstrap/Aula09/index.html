@@ -50,18 +50,23 @@
 			</nav>
 
 			<!-- Chamada principal do site (título principal do site) -->
+			<div class="container topCasaFina-bannerWrapper">
 			<div class="topCasaFina-banner">
 				<h1>TopCasaFina Arquitetura</h1>
 				<p>Projetando a casa dos sonhos desde 2000 A.C</p>
 				<a href="#contato" class="btn btn-primary btn-lg">Contate-nos agora</a>
 			</div>
+		</div>
 
 		</header>
 
 
 		<section id="sobre-nos" class="container"> <!-- Estamos envolvendo o conteúdo em um container para poder aplicar os espaçamentos e a margem -->
 			<h2>Sobre Nós</h2>
-			<img class="img-responsive" src="img/empresa.jpg" alt="">
+			<div class="col-sm-6">
+				<img class="img-responsive" src="img/empresa.jpg" alt="">
+			</div>
+			
 			<!-- 
 				Iremos criar agora os títulos e parágrafos dessa seção. Vamos escrever
 				o HTML utilizando as tags que melhor se encaixam para isso.
@@ -69,64 +74,66 @@
 				e nem podem ter o mesmo peso do título da seção de sobre nós, nós usamos
 				<h3> aqui. Os parágrafos são simples <p>'s.
 			-->
-			<div id="paineis-sobre-nos" class="panel-group"> <!-- Grupo de paineis (padrão bootstrap) => conterá todos os painéis referentes ao Sobre Nós -->
-				
-				<div class="panel panel-default"> <!-- Estamos definindo um painel padrão (documentação bootstrap) -->
-								<!-- *******************************************************************************************************
-									DEVEMOS COLOCAR OS ATRIBUTOS ABAIXO NO ELEMENTO QUE SERÁ CLICADO PARA DISPARAR O EVENTO:
-									#### o atributo 'data-toggle' serve para passar a ação que queremos fazer, que no caso seria o 'collapse'
-												ou 'descollapse'
-									#### o atributo 'data-target' serve para especificar o alvo do comportamento (alo que receberá a ação)
-									#### o atributo 'data-parent' serve para especificar o elemento pai que agrupa os demais elementos. 
-												este atributo serve para o elemento 'pai' gerenciar o data-target. Quando um elemento for
-												clicado e outro estiver aberto, ele fecha o que está aberto e abre o outro
-								******************************************************************************************************** -->
-					<div class="panel-heading" data-toggle="collapse" data-target="#collapse1" data-parent="#paineis-sobre-nos"> <!-- Esta div é o cabeçalho do painel (título) -->
-						<h3 class="panel-title">Desde 1935</h3> <!-- 'panel-title' é uma classe CSS do bootstrap para definir títulos de panels -->
-					</div>
-
-					<div id="collapse1" class="collapse"> <!-- *********************************************************
-																#### devemos adicionar a classe 'collapse' nos alvos que receberão o comportamento
-															************************************************************-->
-						<div class="panel-body"> <!-- Esta div é o corpo do painel (conteúdo) -->
-							<p>
-								Desde 1935 trazendo casas, mansões e prédios lindos para o mundo.
-							</p>
-						</div>
-					</div>
-
-				</div>
-	
-				<div class="panel panel-default">
-	
-					<div class="panel-heading" data-toggle="collapse" data-target="#collapse2" data-parent="#paineis-sobre-nos">
-						<h3 class="panel-title">Preços acessíveis</h3>
-					</div>
-
-					<div id="collapse2" class="collapse">
-						<div class="panel-body">
-							<p>
-								Preços a partir de R$ 1000,00.
-							</p>
-						</div>
-					</div>
-
-				</div>
+			<div class="col-sm-6">
+				<div id="paineis-sobre-nos" class="panel-group"> <!-- Grupo de paineis (padrão bootstrap) => conterá todos os painéis referentes ao Sobre Nós -->
 					
-				<div class="panel panel-default">
-	
-					<div class="panel-heading" data-toggle="collapse" data-target="#collapse3" data-parent="#paineis-sobre-nos">
-						<h3 class="panel-title">Alegria em colaborar para um mundo mais bonito</h3>
-					</div>
-
-					<div id="collapse3" class="collapse">
-						<div class="panel-body">
-							<p>
-								Trazendo alegria para a vida das pessoas que tem dinheiro para gastar.
-							</p>
+					<div class="panel panel-default"> <!-- Estamos definindo um painel padrão (documentação bootstrap) -->
+									<!-- *******************************************************************************************************
+										DEVEMOS COLOCAR OS ATRIBUTOS ABAIXO NO ELEMENTO QUE SERÁ CLICADO PARA DISPARAR O EVENTO:
+										#### o atributo 'data-toggle' serve para passar a ação que queremos fazer, que no caso seria o 'collapse'
+													ou 'descollapse'
+										#### o atributo 'data-target' serve para especificar o alvo do comportamento (alo que receberá a ação)
+										#### o atributo 'data-parent' serve para especificar o elemento pai que agrupa os demais elementos. 
+													este atributo serve para o elemento 'pai' gerenciar o data-target. Quando um elemento for
+													clicado e outro estiver aberto, ele fecha o que está aberto e abre o outro
+									******************************************************************************************************** -->
+						<div class="panel-heading" data-toggle="collapse" data-target="#collapse1" data-parent="#paineis-sobre-nos"> <!-- Esta div é o cabeçalho do painel (título) -->
+							<h3 class="panel-title">Desde 1935</h3> <!-- 'panel-title' é uma classe CSS do bootstrap para definir títulos de panels -->
 						</div>
-					</div>
 
+						<div id="collapse1" class="collapse"> <!-- *********************************************************
+																	#### devemos adicionar a classe 'collapse' nos alvos que receberão o comportamento
+																************************************************************-->
+							<div class="panel-body"> <!-- Esta div é o corpo do painel (conteúdo) -->
+								<p>
+									Desde 1935 trazendo casas, mansões e prédios lindos para o mundo.
+								</p>
+							</div>
+						</div>
+
+					</div>
+		
+					<div class="panel panel-default">
+		
+						<div class="panel-heading" data-toggle="collapse" data-target="#collapse2" data-parent="#paineis-sobre-nos">
+							<h3 class="panel-title">Preços acessíveis</h3>
+						</div>
+
+						<div id="collapse2" class="collapse">
+							<div class="panel-body">
+								<p>
+									Preços a partir de R$ 1000,00.
+								</p>
+							</div>
+						</div>
+
+					</div>
+						
+					<div class="panel panel-default">
+		
+						<div class="panel-heading" data-toggle="collapse" data-target="#collapse3" data-parent="#paineis-sobre-nos">
+							<h3 class="panel-title">Alegria em colaborar para um mundo mais bonito</h3>
+						</div>
+
+						<div id="collapse3" class="collapse">
+							<div class="panel-body">
+								<p>
+									Trazendo alegria para a vida das pessoas que tem dinheiro para gastar.
+								</p>
+							</div>
+						</div>
+
+					</div>
 				</div>
 			</div>
 
@@ -144,49 +151,62 @@
 
 		<section id="nossos-projetos" class="container">
 			<h2>Nossos Projetos</h2>
+			<div class="row"> <!-- linha do bootstrap -->
 			<!--
 				utilizamos os elementos 'figure' e 'figcaption' por questões de semântica no HTML para poder representar
 				o 'thumbnail' e 'caption' respectivamente. Poderia ser utilizado uma 'div', mas não teria nenhuma semântica
 			-->
-			<figure class="thumbnail"> <!-- Esta div representa o componente 'thumbnail' (era um elemento div)-->
-				<img class="img-fluid" src="img/projetos/residencia-ludi.png" alt="Card image cap">
-				<figcaption class="caption"> <!-- Esta div representa o caption (legenda) do 'thumbnail' (era um elemento div)-->
-					<h3>Residência Ludi</h3>
-					<p>A residência Ludi foi projetada para ser a mais bela casa de São Paulo pela revista Housing.</p>
-				</figcaption>
-			</figure>
-			
-			<figure class="thumbnail">
-				<img class="img-fluid" src="img/projetos/mercado-marapira.png" alt="Card image cap">
-				<figcaption class="caption">
-					<h3>Mercado Marapira</h3>
-					<p>O mercado Marapira foi projetado nos mínimos detalhes na arquitetura baseada em frutas.</p>
-				</figcaption>
-			</figure>
-			
-			<figure class="thumbnail">
-				<img class="img-fluid" src="img/projetos/palacio-dionisio.png" alt="Card image cap">
-				<figcaption class="caption">
-					<h3>Palácio Dionísio</h3>
-					<p>O palácio Dionísio foi eleito pela revista 'Grandes palácios' como o palácio mais lindo do mundo.</p>
-				</figcaption>
-			</figure>
-			
-			<figure class="thumbnail">
-				<img class="img-fluid" src="img/projetos/casa-lago.png" alt="Card image cap">
-				<figcaption class="caption">
-					<h3>Casa do Lago</h3>
-					<p>A Casa do Lago foi lar de inúmeras pessoas que conheciam o presidente da época.</p>
-				</figcaption>
-			</figure>
-			
-			<figure class="thumbnail">
-				<img class="img-fluid" src="img/projetos/casa-castelo.png" alt="Card image cap">
-				<figcaption class="caption">
-					<h3>Casa Castelo</h3>
-					<p>A Casa Castelo é o último lançamento da TopCasaFina Arquitetura, feita para um monge.</p>
-				</figcaption>
-			</figure>
+				<div class="col-xs-12 col-sm-6 col-lg-3 col-md-4"> <!-- sistema de grid do bootstrap -->
+					<figure class="thumbnail"> <!-- Esta div representa o componente 'thumbnail' (era um elemento div)-->
+						<img class="img-fluid" src="img/projetos/residencia-ludi.png" alt="Card image cap">
+						<figcaption class="caption"> <!-- Esta div representa o caption (legenda) do 'thumbnail' (era um elemento div)-->
+							<h3>Residência Ludi</h3>
+							<p>A residência Ludi foi projetada para ser a mais bela casa de São Paulo pela revista Housing.</p>
+						</figcaption>
+					</figure>
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-lg-3 col-md-4">
+					<figure class="thumbnail">
+						<img class="img-fluid" src="img/projetos/mercado-marapira.png" alt="Card image cap">
+						<figcaption class="caption">
+							<h3>Mercado Marapira</h3>
+							<p>O mercado Marapira foi projetado nos mínimos detalhes na arquitetura baseada em frutas.</p>
+						</figcaption>
+					</figure>
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-lg-3 col-md-4">
+					<figure class="thumbnail">
+						<img class="img-fluid" src="img/projetos/palacio-dionisio.png" alt="Card image cap">
+						<figcaption class="caption">
+							<h3>Palácio Dionísio</h3>
+							<p>O palácio Dionísio foi eleito pela revista 'Grandes palácios' como o palácio mais lindo do mundo.</p>
+						</figcaption>
+					</figure>
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-lg-3 col-md-4">
+					<figure class="thumbnail">
+						<img class="img-fluid" src="img/projetos/casa-lago.png" alt="Card image cap">
+						<figcaption class="caption">
+							<h3>Casa do Lago</h3>
+							<p>A Casa do Lago foi lar de inúmeras pessoas que conheciam o presidente da época.</p>
+						</figcaption>
+					</figure>
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-lg-3 col-md-4">
+					<figure class="thumbnail">
+						<img class="img-fluid" src="img/projetos/casa-castelo.png" alt="Card image cap">
+						<figcaption class="caption">
+							<h3>Casa Castelo</h3>
+							<p>A Casa Castelo é o último lançamento da TopCasaFina Arquitetura, feita para um monge.</p>
+						</figcaption>
+					</figure>
+				</div>
+
+			</div>
 		</section>
 
 
@@ -242,7 +262,7 @@
 				</a>
 			</div>
 		</section>
-
+			
 		<!-- Abaixo está o vídeo institucional do youtube -->
 		<section id="video" class="container">
 			<h2>Video institucional</h2>
@@ -253,7 +273,7 @@
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/i_3Pv1AygeI" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</section>
-
+	
 		<section id="contato" class="container">
 			<h2>Contato</h2>
 			<h4>Entre em contato conosco</h4>
@@ -290,7 +310,7 @@
 					</label>
 				</div><!--
 		
-			  	--><select class="contato-select form-control" name="tipo-solicitacao"> <!-- utilizamos a classe 'form-control' para aplicar a formatação padrão do bootstrap no select 
+				--><select class="contato-select form-control" name="tipo-solicitacao"> <!-- utilizamos a classe 'form-control' para aplicar a formatação padrão do bootstrap no select 
 																						A classe 'contato-select' criamos para estilizar via css -->
 					<option value="" disabled selected>Tipo de solicitação</option> <!-- o atributo 'disabled' deixa o campo desabilitado para seleção (impedindo o usuário de selecionar),
 																						e o atributo 'selected' seleciona o campo quando a página for carregada (apenas para informar
@@ -331,3 +351,24 @@
 		<script src="js/navbar-animation-fix.js"></script>
 	</body>
 </html>
+
+<!--
+	O bootstrap fornece um sistema de grid para que o usuário possa deixar o site todo responsivo. O que significa cada uma das col-* diferentes que o bootstrap define?
+
+1) col-xs-*
+
+2) col-sm-*
+
+3) col-md-*
+
+4) col-lg-*
+
+1) col-xs-* é para dispositivos extra small, ou seja, bem pequenos tais como smartphones.
+2) col-sm-* é para dispositivos small, ou seja, apenas pequenos tais como tablets e celulares
+maiores deitados.
+
+3) col-md-* é para dispositivos médios, tais como tablets maiores e monitores pequenos.
+
+4) col-lg-* é para dispositivos large, ou seja, grandes, tais como computadores desktop
+com monitores grandes.
+-->
